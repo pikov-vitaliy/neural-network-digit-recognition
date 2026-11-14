@@ -1,16 +1,29 @@
-const DISPLAY_DIGITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+import { DISPLAY_DIGITS, digitForClass, classForRow } from '/shared/classes.js';
 
 export class NetworkView {
-  constructor(canvas, network, { tooltip, onSelection } = {}) {
+  constructor(canvas, network, { tooltip, onSelection, onOutputChoice } = {}) {
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
     this.network = network;
     this.tooltip = tooltip;
     this.onSelection = onSelection;
+    this.onOutputChoice = onOutputChoice;
     this.selected = null;
+    this.target = null;
+    this.focused = true;
     this.activeEdges = [];
     this.cache = document.createElement('canvas');
     this.reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    this.outputButtons = DISPLAY_DIGITS.map((digit, row) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.id = `network-output-${digit}`;
+      button.className = 'network-output-button';
+      button.setAttribute('aria-label', `Выбрать правильную цифру ${digit}`);
+      button.addEventListener('click', () => this.onOutputChoice?.(classForRow(row)));
+      canvas.parentElement.append(button);
+      return button;
+    });
     this.resizeObserver = new ResizeObserver(() => this.resize());
     this.resizeObserver.observe(canvas.parentElement);
     canvas.addEventListener('pointermove', (event) => this.pointerMove(event));
@@ -46,15 +59,12 @@ export class NetworkView {
     const { width, height } = this;
     const positions = [];
     const inputPositions = [];
-    const gridSize = Math.min(184, (height - 110) * 0.58, width * 0.24);
-    const gridLeft = Math.max(14, width * 0.035);
+    const gridSize = Math.min(180, (height - 100) * 0.58, width * 0.24);
+    const gridLeft = Math.max(18, width * 0.035);
     const gridTop = (height - gridSize) / 2;
     const cell = gridSize / 16;
     for (let index = 0; index < 256; index += 1) {
-      inputPositions.push({
-        x: gridLeft + (index % 16 + 0.5) * cell,
-        y: gridTop + (Math.floor(index / 16) + 0.5) * cell,
-      });
+      inputPositions.push({ x: gridLeft + (index % 16 + 0.5) * cell, y: gridTop + (Math.floor(index / 16) + 0.5) * cell });
     }
     positions.push(inputPositions);
     const xPositions = [0, width * 0.43, width * 0.68, width * 0.89];
@@ -62,13 +72,19 @@ export class NetworkView {
       const count = this.network.sizes[layer];
       const layerPositions = [];
       for (let index = 0; index < count; index += 1) {
-        layerPositions.push({ x: xPositions[layer], y: 52 + (height - 100) * index / (count - 1) });
+        const row = layer === 3 ? DISPLAY_DIGITS.indexOf(index) : index;
+        layerPositions.push({ x: xPositions[layer], y: 48 + (height - 96) * row / (count - 1) });
       }
       positions.push(layerPositions);
     }
     this.positions = positions;
     this.grid = { left: gridLeft, top: gridTop, size: gridSize, cell };
-    this.nodeRadius = Math.max(7, Math.min(13, (height - 100) / 32));
+    this.nodeRadius = Math.max(9, Math.min(12, (height - 96) / 32));
+    positions[3].forEach((position, classId) => {
+      const button = this.outputButtons[DISPLAY_DIGITS.indexOf(classId)];
+      button.style.left = `${position.x}px`;
+      button.style.top = `${position.y}px`;
+    });
   }
 
   palette() {
@@ -79,6 +95,7 @@ export class NetworkView {
       signal: styles.getPropertyValue('--signal').trim(),
       ink: styles.getPropertyValue('--canvas-ink').trim(),
       muted: styles.getPropertyValue('--canvas-muted').trim(),
+      bg: styles.getPropertyValue('--canvas-bg').trim(),
     };
   }
 
@@ -86,6 +103,7 @@ export class NetworkView {
     if (!this.positions) return;
     const context = this.cache.getContext('2d');
     context.clearRect(0, 0, this.width, this.height);
+    if (this.focused) return;
     const colors = this.palette();
     context.lineWidth = 0.45;
     for (let layer = 0; layer < 3; layer += 1) {
@@ -111,6 +129,8 @@ export class NetworkView {
   setNetwork(network) {
     this.network = network;
     this.selected = null;
+    this.target = null;
+    this.stopAnimation();
     if (this.width) {
       this.layout();
       this.buildCache();
@@ -122,10 +142,22 @@ export class NetworkView {
     this.draw(performance.now());
   }
 
+  setFocusMode(focused) {
+    this.focused = focused;
+    this.buildCache();
+    this.draw(performance.now());
+  }
+
   render(result, { animate = false } = {}) {
+    this.stopAnimation();
     this.result = result;
     this.computeActiveEdges();
-    if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
+    this.outputButtons.forEach((button, row) => {
+      const classId = classForRow(row);
+      const digit = digitForClass(classId);
+      button.title = result ? `Цифра ${digit}: ${(result.probabilities[classId] * 100).toFixed(4)}%` : `Цифра ${digit}`;
+    });
+    this.draw(performance.now());
     if (animate && !this.reducedMotion.matches && !document.hidden) {
       this.animationStart = performance.now();
       const frame = (time) => {
@@ -133,10 +165,23 @@ export class NetworkView {
         if (time - this.animationStart < 850 && !document.hidden) this.animationFrame = requestAnimationFrame(frame);
       };
       this.animationFrame = requestAnimationFrame(frame);
-    } else this.draw(performance.now());
+    }
+  }
+
+  stopAnimation() {
+    if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
+    this.animationFrame = null;
+    this.animationStart = null;
+  }
+
+  setTarget(classId) {
+    this.target = classId;
+    this.outputButtons.forEach((button, row) => button.classList.toggle('target', classForRow(row) === classId));
+    this.draw(performance.now());
   }
 
   computeActiveEdges() {
+    this.activeEdges = [];
     if (!this.result) return;
     const edges = [];
     for (let layer = 0; layer < 3; layer += 1) {
@@ -147,28 +192,34 @@ export class NetworkView {
         for (let source = 0; source < inputCount; source += 1) {
           const weight = weights[target * inputCount + source];
           const contribution = Math.abs(weight * input[source]);
-          if (contribution > 0.0001) edges.push({ layer, source, target, weight, contribution });
+          if (contribution > 0) edges.push({ layer, source, target, weight, contribution });
         }
       }
     }
-    edges.sort((a, b) => b.contribution - a.contribution);
+    edges.sort((a, b) => b.contribution - a.contribution || a.layer - b.layer || a.target - b.target || a.source - b.source);
     this.activeEdges = edges.slice(0, 250);
   }
 
   draw(time) {
-    if (!this.width || !this.result || !this.positions) return;
+    if (!this.width || !this.positions) return;
     const context = this.context;
-    context.clearRect(0, 0, this.width, this.height);
-    context.drawImage(this.cache, 0, 0, this.width, this.height);
     const colors = this.palette();
+    context.clearRect(0, 0, this.width, this.height);
+    context.fillStyle = colors.bg;
+    context.fillRect(0, 0, this.width, this.height);
+    context.drawImage(this.cache, 0, 0, this.width, this.height);
+    if (!this.result) return;
     const maximum = this.activeEdges[0]?.contribution || 1;
-    for (const edge of this.activeEdges) {
+    const edges = this.focused && this.selected
+      ? this.activeEdges.filter((edge) => edge.layer === this.selected.layer - 1 && edge.target === this.selected.index)
+      : this.activeEdges;
+    for (const edge of edges) {
       const start = this.positions[edge.layer][edge.source];
       const end = this.positions[edge.layer + 1][edge.target];
       const strength = edge.contribution / maximum;
-      context.globalAlpha = 0.1 + strength * 0.62;
+      context.globalAlpha = 0.14 + strength * 0.66;
       context.strokeStyle = edge.weight >= 0 ? colors.positive : colors.negative;
-      context.lineWidth = 0.55 + strength * 1.35;
+      context.lineWidth = 0.75 + strength * 1.65;
       context.beginPath();
       context.moveTo(start.x, start.y);
       context.lineTo(end.x, end.y);
@@ -178,7 +229,7 @@ export class NetworkView {
     this.drawSelected(context, colors);
     this.drawNodes(context, colors);
     this.drawLabels(context, colors);
-    if (this.animationStart && time - this.animationStart < 850) this.drawPulse(context, time);
+    if (this.animationStart !== null && time - this.animationStart < 850) this.drawPulse(context, time);
   }
 
   drawSelected(context, colors) {
@@ -186,41 +237,19 @@ export class NetworkView {
     const { layer, index } = this.selected;
     const inputCount = this.network.sizes[layer - 1];
     const weights = this.network.layers[layer - 1].weights;
-    const incoming = [];
+    const end = this.positions[layer][index];
     for (let source = 0; source < inputCount; source += 1) {
       const weight = weights[index * inputCount + source];
       const activation = this.result.activations[layer - 1][source];
-      incoming.push({ source, weight, contribution: Math.abs(weight * activation) });
-    }
-    incoming.sort((a, b) => b.contribution - a.contribution);
-    const labelled = new Set(incoming.slice(0, 5).map((edge) => edge.source));
-    const end = this.positions[layer][index];
-    for (const edge of incoming) {
-      const start = this.positions[layer - 1][edge.source];
-      context.globalAlpha = 0.68;
-      context.strokeStyle = edge.weight >= 0 ? colors.positive : colors.negative;
-      context.lineWidth = 1.2;
+      const strength = Math.min(1, Math.abs(weight * activation) * 4);
+      const start = this.positions[layer - 1][source];
+      context.globalAlpha = 0.3 + strength * 0.65;
+      context.strokeStyle = weight >= 0 ? colors.positive : colors.negative;
+      context.lineWidth = 1 + strength;
       context.beginPath();
       context.moveTo(start.x, start.y);
       context.lineTo(end.x, end.y);
       context.stroke();
-      if (labelled.has(edge.source) && layer > 1) {
-        const x = start.x + (end.x - start.x) * 0.56;
-        const y = start.y + (end.y - start.y) * 0.56;
-        context.globalAlpha = 1;
-        context.fillStyle = '#172338';
-        context.strokeStyle = edge.weight >= 0 ? colors.positive : colors.negative;
-        context.lineWidth = 1;
-        context.beginPath();
-        context.arc(x, y, 12, 0, Math.PI * 2);
-        context.fill();
-        context.stroke();
-        context.fillStyle = '#edf2ff';
-        context.font = '7px "Cascadia Mono", Consolas, monospace';
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-        context.fillText(edge.weight.toFixed(2), x, y);
-      }
     }
     context.globalAlpha = 1;
   }
@@ -237,15 +266,23 @@ export class NetworkView {
     }
     for (let layer = 1; layer < 4; layer += 1) {
       const isOutput = layer === 3;
-      const radius = isOutput ? Math.max(13, this.nodeRadius + 3) : this.nodeRadius;
+      const radius = isOutput ? Math.max(17, this.nodeRadius + 5) : this.nodeRadius;
       for (let index = 0; index < this.network.sizes[layer]; index += 1) {
         const point = this.positions[layer][index];
         const activation = this.result.activations[layer][index];
         const selected = this.selected?.layer === layer && this.selected?.index === index;
+        const target = layer === 3 && this.target === index;
         context.globalAlpha = 1;
+        if (target) {
+          context.strokeStyle = colors.negative;
+          context.lineWidth = 3;
+          context.beginPath();
+          context.arc(point.x, point.y, radius + 5, 0, Math.PI * 2);
+          context.stroke();
+        }
         context.fillStyle = `rgba(93, 132, 220, ${0.13 + activation * 0.55})`;
         context.strokeStyle = selected ? colors.ink : colors.signal;
-        context.lineWidth = selected ? 2.5 : 1;
+        context.lineWidth = selected ? 3 : 1.2;
         context.beginPath();
         context.arc(point.x, point.y, radius, 0, Math.PI * 2);
         context.fill();
@@ -253,12 +290,12 @@ export class NetworkView {
         context.fillStyle = colors.ink;
         context.textAlign = 'center';
         context.textBaseline = 'middle';
-        context.font = `${isOutput ? 11 : Math.max(6, this.nodeRadius * 0.62)}px "Cascadia Mono", Consolas, monospace`;
-        context.fillText(isOutput ? String(DISPLAY_DIGITS[index]) : activation.toFixed(2), point.x, point.y - (isOutput ? 3 : 0));
+        context.font = `${isOutput ? 16 : 9}px "Cascadia Mono", Consolas, monospace`;
+        context.fillText(isOutput ? digitForClass(index) : activation.toFixed(2), point.x, point.y - (isOutput ? 4 : 0));
         if (isOutput) {
           context.fillStyle = colors.muted;
-          context.font = '6px "Cascadia Mono", Consolas, monospace';
-          context.fillText(`${Math.round(activation * 100)}%`, point.x, point.y + 7);
+          context.font = '11px "Cascadia Mono", Consolas, monospace';
+          context.fillText(`${Math.round(activation * 100)}%`, point.x, point.y + 10);
         }
       }
     }
@@ -268,13 +305,10 @@ export class NetworkView {
     const labels = ['ВХОД · 16×16', 'СКРЫТЫЙ · 16', 'СКРЫТЫЙ · 12', 'ВЫХОД · 10'];
     const xs = [this.grid.left + this.grid.size / 2, ...this.positions.slice(1).map((layer) => layer[0].x)];
     context.fillStyle = colors.muted;
-    context.font = '8px "Cascadia Mono", Consolas, monospace';
+    context.font = '12px "Cascadia Mono", Consolas, monospace';
     context.textAlign = 'center';
     context.textBaseline = 'alphabetic';
-    labels.forEach((label, index) => context.fillText(label, xs[index], 23));
-    context.fillStyle = colors.muted;
-    context.font = '8px "Segoe UI", sans-serif';
-    context.fillText('a = σ(Σw·x + b)', this.positions[2][0].x, 38);
+    labels.forEach((label, index) => context.fillText(label, xs[index], 22));
   }
 
   drawPulse(context, time) {
@@ -307,7 +341,7 @@ export class NetworkView {
     for (let layer = 1; layer < 4; layer += 1) {
       this.positions[layer].forEach((position, index) => {
         const current = Math.hypot(point.x - position.x, point.y - position.y);
-        const threshold = (layer === 3 ? this.nodeRadius + 3 : this.nodeRadius) + 7;
+        const threshold = (layer === 3 ? this.nodeRadius + 5 : this.nodeRadius) + 7;
         if (current <= threshold && current < distance) {
           nearest = { layer, index };
           distance = current;
@@ -327,9 +361,10 @@ export class NetworkView {
     }
     const activation = this.result.activations[hit.layer][hit.index];
     const bias = this.network.layers[hit.layer - 1].biases[hit.index];
-    this.tooltip.textContent = `Слой ${hit.layer} · нейрон ${hit.index + 1}\na = ${activation.toFixed(4)} · b = ${bias.toFixed(4)}\nНажмите, чтобы увидеть веса`;
-    this.tooltip.style.left = `${Math.min(this.width - 190, point.x + 12)}px`;
-    this.tooltip.style.top = `${Math.max(8, point.y - 52)}px`;
+    const name = hit.layer === 3 ? `цифра ${digitForClass(hit.index)}` : `нейрон ${hit.index + 1}`;
+    this.tooltip.textContent = `Слой ${hit.layer} · ${name}\nz = ${this.result.sums[hit.layer - 1][hit.index].toFixed(5)} · a = ${activation.toFixed(5)} · b = ${bias.toFixed(5)}\nНажмите для численной инспекции`;
+    this.tooltip.style.left = `${Math.min(this.width - 210, point.x + 12)}px`;
+    this.tooltip.style.top = `${Math.max(8, point.y - 60)}px`;
     this.tooltip.hidden = false;
     this.canvas.style.cursor = 'pointer';
   }
@@ -354,8 +389,8 @@ export class NetworkView {
     }
     incoming.sort((a, b) => b.contribution - a.contribution);
     return {
-      layer,
-      index,
+      layer, index,
+      z: this.result.sums[layer - 1][index],
       activation: this.result.activations[layer][index],
       bias: this.network.layers[layer - 1].biases[index],
       incoming,

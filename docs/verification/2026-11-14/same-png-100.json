@@ -1,0 +1,502 @@
+[
+  {
+    "id": "digit-0-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-0-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-1-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-2-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-3-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-4-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-5-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-6-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-7-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-8-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-00",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-01",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-02",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-03",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-04",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-05",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-06",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-07",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-08",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  },
+  {
+    "id": "digit-9-09",
+    "pixelDelta": 0,
+    "probabilityDeltaPercent": 0.0
+  }
+]

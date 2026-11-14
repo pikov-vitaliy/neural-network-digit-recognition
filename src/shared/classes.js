@@ -4,12 +4,12 @@ export function digitForClass(classId) {
   if (!Number.isInteger(classId) || classId < 0 || classId >= DISPLAY_DIGITS.length) {
     throw new RangeError('Output class must be an integer from 0 to 9');
   }
-  return DISPLAY_DIGITS[classId];
+  return classId;
 }
 
 export function classForRow(row) {
   if (!Number.isInteger(row) || row < 0 || row >= DISPLAY_DIGITS.length) {
     throw new RangeError('Output row must be an integer from 0 to 9');
   }
-  return digitForClass(row);
+  return DISPLAY_DIGITS[row];
 }

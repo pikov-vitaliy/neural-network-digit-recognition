@@ -508,3 +508,74 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
   .confidence-track, .status-dot { border: 1px solid CanvasText; }
   .sample-grid button[aria-pressed="true"] { outline: 2px solid Highlight; }
 }
+
+.topbar { padding-block: 12px; }
+.preview-grid { width: min(100%, 128px); padding: 8px; }
+.preview-shell { padding: 10px; }
+.source-switch { margin-block: 10px; }
+#gallery-details summary { padding: 6px 0; color: var(--signal); font-size: 12px; cursor: pointer; }
+#gallery-details summary span { color: var(--muted); font-size: 10px; }
+.dataset-filter-row { margin-top: 6px; }
+.control-hint { margin: 6px 0; color: var(--muted); font-size: 11px; }
+.label-control { margin-top: 8px; }
+.view-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+.view-toolbar .button { min-height: 30px; padding: 4px 8px; font-size: 11px; }
+.view-toolbar label { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; }
+.view-toolbar select { min-height: 30px; }
+.network-figure { min-height: 280px; }
+.network-caption { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
+.network-output-button { position: absolute; z-index: 2; width: 44px; height: 44px; padding: 0; transform: translate(-50%, -50%); color: transparent; background: transparent; border: 0; border-radius: 50%; }
+.network-output-button:hover { background: color-mix(in srgb, var(--signal) 12%, transparent); }
+.network-output-button:focus-visible { outline-color: var(--signal); }
+.network-output-button.target { outline: 2px dashed var(--negative); outline-offset: 0; }
+.network-legend { font-size: 10px; }
+.signal-readings { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.signal-readings span { font-size: 11px; }
+.signal-readings strong { font-size: clamp(16px, 1.5vw, 23px); overflow-wrap: anywhere; }
+.inspector { padding: 10px; }
+.inspector > p { margin: 7px 0; color: var(--muted); font-size: 11px; }
+.inspector > .button { min-height: 30px; padding: 4px 9px; font-size: 11px; }
+.weight-chip { font-size: 10px; }
+.digit-outputs th { width: 42px; padding: 2px; }
+.digit-outputs th button { width: 36px; min-height: 34px; padding: 0; color: var(--ink); background: transparent; border: 0; border-radius: 6px; font: 22px "Cascadia Mono", Consolas, monospace; }
+.digit-outputs th button:hover { background: var(--signal-soft); }
+.digit-outputs td { padding: 2px 0; }
+.digit-outputs output { width: 48px; font-size: 11px; }
+.digit-outputs tr.target { outline: 2px solid var(--negative); outline-offset: -2px; }
+.inspect-output { width: 26px; min-height: 30px; padding: 0; color: var(--signal); background: var(--signal-soft); border: 1px solid var(--line); border-radius: 50%; font-weight: 700; }
+.training-feedback { margin-top: 10px; padding: 9px; color: var(--ink); background: var(--panel-soft); border-left: 3px solid var(--positive); font-size: 12px; overflow-wrap: anywhere; }
+.softmax-note p { font-size: 11px; }
+.history-details { grid-column: 1 / -1; }
+.history-details summary { color: var(--signal); font-size: 12px; cursor: pointer; }
+.history-scroll, .weights-scroll { max-height: 280px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.history-scroll table, .weights-scroll table { width: 100%; border-collapse: collapse; font: 12px "Cascadia Mono", Consolas, monospace; }
+.history-scroll th, .history-scroll td, .weights-scroll th, .weights-scroll td { padding: 6px 9px; text-align: right; border-bottom: 1px solid var(--line); }
+.weights-scroll thead { position: sticky; top: 0; background: var(--panel); }
+.weight-search { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 12px 0; }
+.weight-search input { width: 80px; min-height: 36px; padding: 5px; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--line); border-radius: 6px; }
+.weight-search output { font: 13px "Cascadia Mono", Consolas, monospace; }
+dialog:modal, dialog::backdrop { overscroll-behavior: contain; }
+
+@media (min-width: 1101px) {
+  .workspace { grid-template-columns: minmax(250px, .8fr) minmax(440px, 1.45fr) minmax(245px, .68fr); }
+  .panel { padding: 14px; }
+  .control-deck { gap: 14px; padding: 12px 14px; }
+  .training-action h2 { font-size: 14px; }
+}
+@media (max-width: 1100px) {
+  .digit-outputs { display: table; }
+  .digit-outputs tbody { display: table-row-group; }
+  .digit-outputs tr { display: table-row; }
+  .digit-outputs td { display: table-cell; }
+  .output-panel .verdict { display: block; text-align: center; }
+  .output-panel .verdict strong { font-size: 64px; }
+}
+@media (max-width: 760px) {
+  .network-figure { min-height: 440px; }
+  .signal-readings { grid-template-columns: 1fr; }
+  .signal-readings > div { padding: 5px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .signal-readings > div:last-child { border-bottom: 0; }
+  .control-deck { grid-template-columns: 1fr; }
+  .history-details { grid-column: auto; }
+  .digit-outputs { display: table; }
+}

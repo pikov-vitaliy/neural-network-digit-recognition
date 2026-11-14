@@ -5,9 +5,10 @@ import { DISPLAY_DIGITS, digitForClass, classForRow } from '../src/shared/classe
 test('every class ID maps to the same digit in display order 1…9,0', () => {
   assert.deepEqual(DISPLAY_DIGITS, [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
   for (let classId = 0; classId < 10; classId += 1) {
-    assert.equal(digitForClass(classId), DISPLAY_DIGITS[classId]);
-    assert.equal(classForRow(classId), DISPLAY_DIGITS[classId]);
-    assert.equal(DISPLAY_DIGITS.indexOf(digitForClass(classId)), classId);
+    assert.equal(digitForClass(classId), classId, 'class 0 must be digit 0');
+    const row = DISPLAY_DIGITS.indexOf(classId);
+    assert.equal(classForRow(row), classId);
+    assert.equal(digitForClass(classForRow(row)), DISPLAY_DIGITS[row]);
   }
 });
 
