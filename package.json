@@ -1,7 +1,7 @@
 {
   "name": "neural-network-digit-recognition",
   "version": "1.0.0",
-  "description": "Интерактивная лаборатория нейросети для курса «Искусственный интеллект для инженеров»",
+  "description": "Учебная лаборатория MLP и CNN для курса «Искусственный интеллект для инженеров»",
   "type": "module",
   "bin": {
     "neural-network-digit-recognition": "bin/digit-lab.js"
@@ -15,6 +15,7 @@
     "bin/",
     "public/",
     "src/",
+    "docs/screenshots/",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"

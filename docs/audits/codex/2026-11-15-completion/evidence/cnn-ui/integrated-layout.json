@@ -1,0 +1,52 @@
+{
+  "capturedAt": "2026-11-14T23:38:47.096Z",
+  "layouts": [
+    {
+      "width": 1280,
+      "height": 720,
+      "before": {
+        "width": 1280,
+        "canvasTop": 555.328125,
+        "jumpBottom": 363.453125
+      },
+      "after": {
+        "canvasTop": 158.328125,
+        "canvasBottom": 398.328125,
+        "numbersBottom": 625.046875
+      },
+      "keyboardWeight": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "before": {
+        "width": 1366,
+        "canvasTop": 556.375,
+        "jumpBottom": 364.5
+      },
+      "after": {
+        "canvasTop": 158.375,
+        "canvasBottom": 398.375,
+        "numbersBottom": 625.09375
+      },
+      "keyboardWeight": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "before": {
+        "width": 390,
+        "canvasTop": 850.328125,
+        "jumpBottom": 579.21875
+      },
+      "after": {
+        "canvasTop": 220.328125,
+        "canvasBottom": 382.328125,
+        "numbersBottom": 616.984375
+      },
+      "keyboardWeight": true
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

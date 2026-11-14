@@ -1,0 +1,772 @@
+{
+  "node": "v20.20.2",
+  "executable": "V:\\tmp\\codex\\2026-11-15\\digit-lab-takeover-1794697543846\\packaging\\node-v20.20.2-win-x64\\node.exe",
+  "args": [
+    "V:\\tmp\\codex\\2026-11-15\\digit-lab-takeover-1794697543846\\packaging\\node-v20.20.2-win-x64\\node_modules\\npm\\bin\\npx-cli.js",
+    "--yes",
+    "--offline",
+    "--cache",
+    "V:/tmp/codex/2026-11-15/digit-lab-takeover-1794697543846/packaging/cnn-candidate-1/npx-cache-1",
+    "--package=V:/tmp/codex/2026-11-15/digit-lab-takeover-1794697543846/packaging/cnn-candidate-1/neural-network-digit-recognition-1.0.0.tgz",
+    "neural-network-digit-recognition",
+    "--no-open",
+    "--port",
+    "0"
+  ],
+  "cwd": "V:/tmp/codex/2026-11-15/digit-lab-takeover-1794697543846/packaging/cnn-candidate-1/npx-clean-1",
+  "cache": "V:/tmp/codex/2026-11-15/digit-lab-takeover-1794697543846/packaging/cnn-candidate-1/npx-cache-1",
+  "pid": 15484,
+  "stdout": "\nЦифра. Слой за слоем — приложение запущено.\nhttp://127.0.0.1:54653\nНажмите Ctrl+C, чтобы остановить сервер.\n\n",
+  "stderr": "",
+  "closed": false,
+  "url": "http://127.0.0.1:54653",
+  "httpStatus": 200,
+  "courseTitle": true,
+  "manifestCount": 100,
+  "samples": [
+    {
+      "file": "public/samples/digit-0-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-0-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-1-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-2-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-3-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-4-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-5-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-6-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-7-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-8-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-00.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-01.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-02.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-03.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-04.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-05.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-06.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-07.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-08.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    },
+    {
+      "file": "public/samples/digit-9-09.png",
+      "status": 200,
+      "width": 16,
+      "height": 16,
+      "hashMatches": true
+    }
+  ],
+  "cnnModules": [
+    {
+      "file": "public/js/cnn-lab.js",
+      "urlPath": "/js/cnn-lab.js",
+      "status": 200,
+      "packaged": true,
+      "hashMatches": true
+    },
+    {
+      "file": "public/js/cnn-view.js",
+      "urlPath": "/js/cnn-view.js",
+      "status": 200,
+      "packaged": true,
+      "hashMatches": true
+    },
+    {
+      "file": "src/shared/cnn-network.js",
+      "urlPath": "/shared/cnn-network.js",
+      "status": 200,
+      "packaged": true,
+      "hashMatches": true
+    },
+    {
+      "file": "public/cnn.css",
+      "urlPath": "/cnn.css",
+      "status": 200,
+      "packaged": true,
+      "hashMatches": true
+    },
+    {
+      "file": "public/cnn-lab.css",
+      "urlPath": "/cnn-lab.css",
+      "status": 200,
+      "packaged": true,
+      "hashMatches": true
+    }
+  ],
+  "pass": true,
+  "cleanup": {
+    "code": 0,
+    "signal": null,
+    "stdout": "SUCCESS: The process with PID 7912 (child process of PID 36684) has been terminated.\r\nSUCCESS: The process with PID 2252 (child process of PID 15484) has been terminated.\r\nSUCCESS: The process with PID 36684 (child process of PID 15484) has been terminated.\r\nSUCCESS: The process with PID 15484 (child process of PID 32552) has been terminated.\r\n",
+    "stderr": ""
+  }
+}

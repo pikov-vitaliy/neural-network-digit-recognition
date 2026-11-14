@@ -1,0 +1,77 @@
+{
+  "url": "http://127.0.0.1:60380",
+  "stage": "state",
+  "results": [
+    {
+      "name": "AUD-01 mapping",
+      "status": "PASS",
+      "evidence": {
+        "classes": 10,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "AUD-02 stale result",
+      "status": "PASS",
+      "evidence": {
+        "inputChanges": [
+          "gallery",
+          "drawing",
+          "upload"
+        ],
+        "cleared": true
+      }
+    },
+    {
+      "name": "AUD-03 100 PNG",
+      "status": "PASS",
+      "evidence": {
+        "files": 100,
+        "maxPixelDelta": 0,
+        "tolerancePercent": 1e-06
+      }
+    },
+    {
+      "name": "R-01 feedback",
+      "status": "PASS",
+      "evidence": {
+        "correctSteps": 1,
+        "correctedSteps": 1,
+        "cancelSteps": 0,
+        "drawingPreserved": true,
+        "keyboard": true
+      }
+    },
+    {
+      "name": "AUD-04/05 recognition",
+      "status": "PASS",
+      "evidence": {
+        "recognitionFrozen": true,
+        "cycleStopped": true,
+        "validationFrozen": true
+      }
+    },
+    {
+      "name": "AUD-08/10 import/reload",
+      "status": "PASS",
+      "evidence": {
+        "reloadMetrics": [
+          "0.256554",
+          "90,0%",
+          "75,0%"
+        ],
+        "importPreservesProbabilities": true,
+        "overflowRejected": true,
+        "historyClearedOnImport": true
+      }
+    },
+    {
+      "name": "input errors",
+      "status": "PASS",
+      "evidence": {
+        "emptyRejected": true,
+        "decodeErrorRussian": true
+      }
+    }
+  ]
+}

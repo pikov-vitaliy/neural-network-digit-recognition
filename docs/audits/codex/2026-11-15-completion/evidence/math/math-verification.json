@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-14T23:11:19.498Z",
+  "runtime": "v24.16.0",
+  "gradient": [
+    {
+      "sizes": [
+        2,
+        3,
+        2
+      ],
+      "seed": 7,
+      "count": 17,
+      "maxAbs": 5.0356395668322423e-8,
+      "pass": true,
+      "worst": {
+        "layer": 0,
+        "kind": "weights",
+        "index": 2,
+        "numeric": -0.0013535711264534528,
+        "actual": -0.001353621482849121,
+        "error": 5.0356395668322423e-8
+      }
+    },
+    {
+      "sizes": [
+        2,
+        3,
+        2
+      ],
+      "seed": 42,
+      "count": 17,
+      "maxAbs": 3.250645430608046e-8,
+      "pass": true,
+      "worst": {
+        "layer": 1,
+        "kind": "biases",
+        "index": 0,
+        "numeric": -0.44497552784489425,
+        "actual": -0.44497549533843994,
+        "error": 3.250645430608046e-8
+      }
+    },
+    {
+      "sizes": [
+        2,
+        3,
+        2
+      ],
+      "seed": 20261114,
+      "count": 17,
+      "maxAbs": 8.712533752786022e-8,
+      "pass": true,
+      "worst": {
+        "layer": 1,
+        "kind": "biases",
+        "index": 0,
+        "numeric": -0.20339128146890442,
+        "actual": -0.2033911943435669,
+        "error": 8.712533752786022e-8
+      }
+    },
+    {
+      "sizes": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "seed": 7,
+      "count": 39,
+      "maxAbs": 5.867133584525064e-8,
+      "pass": true,
+      "worst": {
+        "layer": 2,
+        "kind": "biases",
+        "index": 0,
+        "numeric": 0.32676899339805093,
+        "actual": 0.3267689347267151,
+        "error": 5.867133584525064e-8
+      }
+    },
+    {
+      "sizes": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "seed": 42,
+      "count": 39,
+      "maxAbs": 9.353394003763782e-8,
+      "pass": true,
+      "worst": {
+        "layer": 2,
+        "kind": "biases",
+        "index": 0,
+        "numeric": -0.6954903859353593,
+        "actual": -0.6954904794692993,
+        "error": 9.353394003763782e-8
+      }
+    },
+    {
+      "sizes": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "seed": 20261114,
+      "count": 39,
+      "maxAbs": 7.10589748154078e-8,
+      "pass": true,
+      "worst": {
+        "layer": 2,
+        "kind": "biases",
+        "index": 0,
+        "numeric": -0.6168108467953343,
+        "actual": -0.6168109178543091,
+        "error": 7.10589748154078e-8
+      }
+    },
+    {
+      "sizes": [
+        256,
+        16,
+        12,
+        10
+      ],
+      "seed": 7,
+      "count": 4446,
+      "maxAbs": 5.723737878104984e-8,
+      "pass": true,
+      "worst": {
+        "layer": 2,
+        "kind": "biases",
+        "index": 6,
+        "numeric": 0.18695884706281823,
+        "actual": 0.18695878982543945,
+        "error": 5.723737878104984e-8
+      }
+    },
+    {
+      "sizes": [
+        256,
+        16,
+        12,
+        10
+      ],
+      "seed": 42,
+      "count": 4446,
+      "maxAbs": 6.58757600413562e-8,
+      "pass": true,
+      "worst": {
+        "layer": 2,
+        "kind": "biases",
+        "index": 9,
+        "numeric": 0.18016547591756912,
+        "actual": 0.18016541004180908,
+        "error": 6.58757600413562e-8
+      }
+    },
+    {
+      "sizes": [
+        256,
+        16,
+        12,
+        10
+      ],
+      "seed": 20261114,
+      "count": 4446,
+      "maxAbs": 5.864419261314424e-8,
+      "pass": true,
+      "worst": {
+        "layer": 2,
+        "kind": "biases",
+        "index": 5,
+        "numeric": 0.1271298071078233,
+        "actual": 0.12712974846363068,
+        "error": 5.864419261314424e-8
+      }
+    }
+  ],
+  "normalization": {
+    "count": 100,
+    "allFiniteUnitRange": true,
+    "allSameAsDecodedInput": true
+  },
+  "normalizedTraining": {
+    "initial": {
+      "loss": 2.3707782870522904,
+      "accuracy": 0.1
+    },
+    "after12": {
+      "training": {
+        "loss": 0.25655399166935394,
+        "accuracy": 0.9
+      },
+      "validation": {
+        "loss": 0.5574293196308537,
+        "accuracy": 0.75
+      },
+      "steps": 960
+    }
+  },
+  "gradientTotal": 13506,
+  "maxGradientError": 9.353394003763782e-8,
+  "hashes": {
+    "src/shared/neural-network.js": "e49bc782bbf1f303000274a823bce8d033313b84ac20a3da06c9f6ae0b4d756f",
+    "src/shared/image.js": "4631b587f5954427f827ef39177c1aa12f1f684ba7b1dee2072e4281ed4cb9cf",
+    "public/js/model-store.js": "3bc89a9bcb13ca1c745927669a1d6e3470cee7b44283cbbf8ba4d5e129053c49",
+    "public/js/lab-state.js": "9a28f6a3f59daeea625f34dca6f635289bee25f216157069ab158d71f6d1be10"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "milliseconds": 2546,
+  "progress": "Обучение завершено · 960 шагов",
+  "loss": "0.004967",
+  "train": "100,0%",
+  "validation": "100,0%",
+  "errors": [],
+  "history": ""
+}

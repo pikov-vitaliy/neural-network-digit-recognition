@@ -1,0 +1,110 @@
+{
+  "capturedAt": "2026-11-14T23:23:15.817Z",
+  "errors": [],
+  "animation": {
+    "seconds": 31.608,
+    "movesAfter30Seconds": true,
+    "phaseBefore": {
+      "phase": 30561.099999999908,
+      "pending": 0
+    },
+    "phaseAfter": {
+      "phase": 30561.099999999908,
+      "pending": 0
+    },
+    "pausedPixelsStable": true,
+    "resumes": true,
+    "singleLoop": true,
+    "modelHash": "d3350f6d608359447761fdc06cc1adb5be4ab1d2d9a7de1c67d8438b4dcd840d",
+    "modelUnchanged": true
+  },
+  "weights": {
+    "neurons": 38,
+    "accessible": 4408
+  },
+  "input": {
+    "sameFilePickerReset": true,
+    "drawSourceCanonicalized": true
+  },
+  "layouts": [
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "inspectorLink": {
+        "x": 787.6875,
+        "y": 188.6875,
+        "width": 103.9375,
+        "height": 32,
+        "top": 188.6875,
+        "right": 891.625,
+        "bottom": 220.6875,
+        "left": 787.6875
+      },
+      "teacher": {
+        "x": 380.640625,
+        "y": 226.6875,
+        "width": 128.546875,
+        "height": 32,
+        "top": 226.6875,
+        "right": 509.1875,
+        "bottom": 258.6875,
+        "left": 380.640625
+      },
+      "outputRowHeight": 38.5
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scrollWidth": 1366,
+      "inspectorLink": {
+        "x": 813.765625,
+        "y": 189.734375,
+        "width": 103.9375,
+        "height": 32,
+        "top": 189.734375,
+        "right": 917.703125,
+        "bottom": 221.734375,
+        "left": 813.765625
+      },
+      "teacher": {
+        "x": 406.71875,
+        "y": 227.734375,
+        "width": 128.546875,
+        "height": 32,
+        "top": 227.734375,
+        "right": 535.265625,
+        "bottom": 259.734375,
+        "left": 406.71875
+      },
+      "outputRowHeight": 38.5
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "inspectorLink": {
+        "x": 144.59375,
+        "y": 1738.84375,
+        "width": 103.9375,
+        "height": 32,
+        "top": 1738.84375,
+        "right": 248.53125,
+        "bottom": 1770.84375,
+        "left": 144.59375
+      },
+      "teacher": {
+        "x": 27,
+        "y": 1776.84375,
+        "width": 128.546875,
+        "height": 32,
+        "top": 1776.84375,
+        "right": 155.546875,
+        "bottom": 1808.84375,
+        "left": 27
+      },
+      "outputRowHeight": 38.5
+    }
+  ],
+  "pass": true
+}

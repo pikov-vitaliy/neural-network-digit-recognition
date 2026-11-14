@@ -1,0 +1,68 @@
+[
+  {
+    "width": 1280,
+    "height": 720,
+    "errors": [],
+    "scrollWidth": 1280,
+    "panels": [
+      {
+        "selector": ".input-panel",
+        "top": 70
+      },
+      {
+        "selector": ".network-panel",
+        "top": 70
+      },
+      {
+        "selector": ".output-panel",
+        "top": 70
+      }
+    ],
+    "canvasWidth": 566.21875,
+    "pass": true
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "errors": [],
+    "scrollWidth": 1366,
+    "panels": [
+      {
+        "selector": ".input-panel",
+        "top": 71.046875
+      },
+      {
+        "selector": ".network-panel",
+        "top": 71.046875
+      },
+      {
+        "selector": ".output-panel",
+        "top": 71.046875
+      }
+    ],
+    "canvasWidth": 603.109375,
+    "pass": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "errors": [],
+    "scrollWidth": 390,
+    "panels": [
+      {
+        "selector": ".input-panel",
+        "top": 123.984375
+      },
+      {
+        "selector": ".network-panel",
+        "top": 741.53125
+      },
+      {
+        "selector": ".output-panel",
+        "top": 2116.765625
+      }
+    ],
+    "canvasWidth": 334,
+    "pass": true
+  }
+]

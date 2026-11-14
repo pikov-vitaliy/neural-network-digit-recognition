@@ -1,0 +1,24 @@
+{
+  "capturedAt": "2026-11-14T23:25:04.297Z",
+  "method": "Own headed Chromium 1248, fresh profile, connectOverCDP noDefaults=true; two actual tabs; document.hidden was not overridden and no visibility event synthesized",
+  "initialObservation": {
+    "documentHidden": false,
+    "visibilityState": "visible",
+    "rafPending": 1,
+    "prediction": "4"
+  },
+  "backgroundObservation": {
+    "documentHidden": true,
+    "visibilityState": "hidden",
+    "rafPending": 0,
+    "prediction": "4"
+  },
+  "renderedObservation": {
+    "documentHidden": false,
+    "visibilityState": "visible",
+    "rafPending": 1,
+    "prediction": "4"
+  },
+  "modelUnchanged": true,
+  "pass": true
+}

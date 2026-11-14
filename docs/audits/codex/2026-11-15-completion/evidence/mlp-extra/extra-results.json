@@ -1,0 +1,43 @@
+[
+  {
+    "name": "canonical-training-input",
+    "status": "PASS",
+    "evidence": {
+      "samples": 100,
+      "differences": 0
+    }
+  },
+  {
+    "name": "roving-keyboard",
+    "status": "PASS",
+    "evidence": {
+      "singleTabStop": true,
+      "homeEnd": true,
+      "filter": true
+    }
+  },
+  {
+    "name": "canonical-training-metrics",
+    "status": "PASS",
+    "evidence": {
+      "train": "90,0%",
+      "validation": "75,0%",
+      "loss": "0.256554"
+    }
+  },
+  {
+    "name": "teacher-corrected-label",
+    "status": "PASS",
+    "evidence": {
+      "label": 7,
+      "steps": 1
+    }
+  },
+  {
+    "name": "late-import-after-reset",
+    "status": "PASS",
+    "evidence": {
+      "lateImportDiscarded": true
+    }
+  }
+]

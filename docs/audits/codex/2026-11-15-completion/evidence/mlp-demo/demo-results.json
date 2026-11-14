@@ -1,0 +1,46 @@
+{
+  "url": "http://127.0.0.1:60380",
+  "stage": "demo",
+  "results": [
+    {
+      "name": "R-02 continuous animation",
+      "status": "PASS",
+      "evidence": {
+        "seconds": 30,
+        "paused": true,
+        "speedChangesPulse": true,
+        "singleLoop": true,
+        "hiddenCancelled": true,
+        "nativeVisibilityEvidence": "visibility-native.json",
+        "inputStops": true,
+        "modelUnchanged": true
+      }
+    },
+    {
+      "name": "R-02 reduced motion",
+      "status": "PASS",
+      "evidence": {
+        "static": true,
+        "rafPending": 0
+      }
+    },
+    {
+      "name": "AUD-06/R-03 teacher",
+      "status": "PASS",
+      "evidence": {
+        "stages": [
+          "Вход",
+          "Сумма z",
+          "Активация a",
+          "Ошибка · loss",
+          "Градиент",
+          "Изменение веса"
+        ],
+        "unchangedBeforeConfirmation": true,
+        "equation": true,
+        "speedIndependent": true,
+        "stepsAfterApply": 1
+      }
+    }
+  ]
+}

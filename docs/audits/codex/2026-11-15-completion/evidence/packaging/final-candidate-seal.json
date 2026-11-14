@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-11-14T23:52:20.6786527Z",
+  "tarball": "V:/tmp/codex/2026-11-15/digit-lab-takeover-1794697543846/packaging/release-candidate-1/neural-network-digit-recognition-1.0.0.tgz",
+  "sha256": "2968c40b4169a4e58a0789d5e5857d5a32f53658c2cbc3b63dd0ed5b3068b4d2",
+  "integrity": "sha512-gBxqAI59ETGFWq9d3/mZ1/5l19550vWLCQwbwdS+OMcshvSQeFIsN4k6dx4ZLgu3KMsNsbaNgiP7CNOEgiGqBg==",
+  "size": 614023,
+  "unpackedSize": 852167,
+  "files": 130,
+  "sourceDrift": [],
+  "node20TestCode": 0,
+  "node24TestCode": 0,
+  "node20Summary": [
+    "# tests 62",
+    "# pass 62",
+    "# fail 0"
+  ],
+  "node24Summary": [
+    "ℹ tests 62",
+    "ℹ pass 62",
+    "ℹ fail 0"
+  ],
+  "screenshots": [
+    {
+      "path": "docs/screenshots/cnn.png",
+      "size": 227457,
+      "sha256": "964688b929fc9f56d0000d9424c664eeddafeae54a6251550c9671a0e63e8b35",
+      "secretCategories": []
+    },
+    {
+      "path": "docs/screenshots/mlp.png",
+      "size": 292078,
+      "sha256": "5e550fd995548bf75d9bfe456baf0097e85a9da551a3d744b2176f077a48ec61",
+      "secretCategories": []
+    }
+  ]
+}

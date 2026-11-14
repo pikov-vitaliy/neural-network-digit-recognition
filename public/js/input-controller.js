@@ -116,7 +116,7 @@ export class InputController {
     const revision = ++this.revision;
     let bitmap;
     try {
-      if (!file.type.startsWith('image/')) throw new Error('Выберите файл изображения (PNG, JPG или WebP).');
+      if (!file.type.startsWith('image/')) throw new Error('Выберите файл изображения (PNG, JPG, WebP, GIF или BMP).');
       if (file.size > 10 * 1024 * 1024) throw new Error('Размер изображения не должен превышать 10 МБ.');
       bitmap = await createImageBitmap(file);
       if (revision !== this.revision) return;
@@ -147,7 +147,7 @@ export class InputController {
       if (revision === this.revision) {
         this.onError(/^[\u0400-\u04ff]/.test(error.message)
           ? error.message
-          : 'Не удалось прочитать изображение. Выберите неповреждённый PNG, JPG или WebP.');
+          : 'Не удалось прочитать изображение. Выберите неповреждённый PNG, JPG, WebP, GIF или BMP.');
       }
     } finally {
       bitmap?.close();

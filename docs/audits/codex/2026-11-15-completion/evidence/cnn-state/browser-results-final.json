@@ -1,0 +1,519 @@
+{
+  "started": "2026-11-14T23:45:38.955495+00:00",
+  "url": "http://127.0.0.1:60380/",
+  "results": [
+    {
+      "name": "feedback",
+      "started": "2026-11-14T23:45:39.958579+00:00",
+      "details": {
+        "correctButton": {
+          "cnnSteps": 1,
+          "mlpSteps": 0,
+          "cnnHash": "29971dd3b7b1b50090c1fec1e691254a1801a290a4ad69c50bf0138b14d26135",
+          "mlpHash": null,
+          "cnnDigit": "1",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "5.996708",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Собственный рисунок",
+          "toast": ""
+        },
+        "correctedTarget": 2,
+        "after": {
+          "cnnSteps": 2,
+          "mlpSteps": 0,
+          "cnnHash": "cd11a08c76e3c546a76b5efb19a0960525030082dc2bfc318e6be4f6d5e758d4",
+          "mlpHash": null,
+          "cnnDigit": "2",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "4.041263",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Собственный рисунок",
+          "toast": ""
+        },
+        "drawingPreserved": true,
+        "doubleConfirmMethod": "two DOM clicks in one JavaScript task"
+      },
+      "pass": true
+    },
+    {
+      "name": "isolation",
+      "started": "2026-11-14T23:45:41.706189+00:00",
+      "details": {
+        "after": {
+          "cnnSteps": 960,
+          "mlpSteps": 960,
+          "cnnHash": "a42b6d3d57b455a38acc2ca38ed27269ec1baf21c4f3c0466affb728d58b47e4",
+          "mlpHash": "b5b33cbe9cc969669163bb9451b780c2e4489804e39f074be8d6f2863a7650e1",
+          "cnnDigit": "—",
+          "cnnProgress": "Модель восстановлена · 960 шагов · новый цикл",
+          "loss": "0.004967",
+          "train": "100,0%",
+          "validation": "100,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": "Модель импортирована и сохранена в браузере."
+        },
+        "bothTrainResetImportDirections": true
+      },
+      "pass": true
+    },
+    {
+      "name": "validation",
+      "started": "2026-11-14T23:45:43.311529+00:00",
+      "details": {
+        "cnnSteps": 0,
+        "mlpSteps": 0,
+        "cnnHash": null,
+        "mlpHash": null,
+        "cnnDigit": "1",
+        "cnnProgress": "Новый цикл · 0 / 12",
+        "loss": "3.087570",
+        "train": "10,0%",
+        "validation": "10,0%",
+        "busy": false,
+        "input": "Цифра 0 · вариант 9 · проверка",
+        "toast": "Проверочный пример не участвует в обучении."
+      },
+      "pass": true
+    },
+    {
+      "name": "recognition",
+      "started": "2026-11-14T23:45:44.233020+00:00",
+      "details": {
+        "after": {
+          "cnnSteps": 1,
+          "mlpSteps": 0,
+          "cnnHash": "609a4109e8f71510c7914a42494874c8a693d77894058f479c80baf8313970aa",
+          "mlpHash": null,
+          "cnnDigit": "5",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "4.832952",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "trainingHandlersGuarded": true
+      },
+      "pass": true
+    },
+    {
+      "name": "stale-pending",
+      "started": "2026-11-14T23:45:45.746904+00:00",
+      "details": {
+        "after": {
+          "cnnSteps": 0,
+          "mlpSteps": 0,
+          "cnnHash": null,
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "3.087570",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 0 · вариант 2 · обучение",
+          "toast": ""
+        },
+        "method": "synthetic input/example clicks while modal was open"
+      },
+      "pass": true
+    },
+    {
+      "name": "cancel-mode",
+      "started": "2026-11-14T23:45:46.666812+00:00",
+      "details": {
+        "before": {
+          "cnnSteps": 48,
+          "mlpSteps": 0,
+          "cnnHash": "b02311b71f4a154d6b4f925c9c506549bd8fc985655503bd5511c01f3ca12020",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "3.087570",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": true,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "immediatelyAfter": {
+          "cnnSteps": 104,
+          "mlpSteps": 0,
+          "cnnHash": "ec4ab94b589d9b8bf69d3c3c60887d30f30264986a8181a501b0910b140ed575",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Остановлено · 104 шагов",
+          "loss": "1.556308",
+          "train": "52,5%",
+          "validation": "50,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "afterWait": {
+          "cnnSteps": 104,
+          "mlpSteps": 0,
+          "cnnHash": "ec4ab94b589d9b8bf69d3c3c60887d30f30264986a8181a501b0910b140ed575",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Остановлено · 104 шагов",
+          "loss": "1.241969",
+          "train": "65,0%",
+          "validation": "50,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "method": "actual Playwright button clicks"
+      },
+      "pass": true
+    },
+    {
+      "name": "cancel-example",
+      "started": "2026-11-14T23:45:48.082536+00:00",
+      "details": {
+        "before": {
+          "cnnSteps": 56,
+          "mlpSteps": 0,
+          "cnnHash": "362be32bb925d610437ebdd042772da7c080a2db44da3abe3d17636fbeea0d84",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "3.087570",
+          "train": "10,0%",
+          "validation": "45,0%",
+          "busy": true,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "immediatelyAfter": {
+          "cnnSteps": 120,
+          "mlpSteps": 0,
+          "cnnHash": "dca8e01f8b95012a758267e398147c48e02d07afe3e166403ae83f2623abc9a3",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Остановлено · 120 шагов",
+          "loss": "1.011968",
+          "train": "72,5%",
+          "validation": "65,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "afterWait": {
+          "cnnSteps": 120,
+          "mlpSteps": 0,
+          "cnnHash": "dca8e01f8b95012a758267e398147c48e02d07afe3e166403ae83f2623abc9a3",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Остановлено · 120 шагов",
+          "loss": "1.011968",
+          "train": "72,5%",
+          "validation": "65,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "method": "actual Playwright button clicks"
+      },
+      "pass": true
+    },
+    {
+      "name": "import-rejections",
+      "started": "2026-11-14T23:45:49.503068+00:00",
+      "details": {
+        "cases": [
+          {
+            "file": "mlp.json",
+            "toast": "Импорт CNN отклонён: Нужен файл свёрточной модели CNN поддерживаемой версии. Экспорт MLP здесь не подходит."
+          },
+          {
+            "file": "bad.json",
+            "toast": "Импорт CNN отклонён: Файл не является корректным JSON."
+          },
+          {
+            "file": "unsafe.json",
+            "toast": "Импорт CNN отклонён: Параметры содержат недопустимые числа или могут вызвать переполнение."
+          }
+        ],
+        "after": {
+          "cnnSteps": 1,
+          "mlpSteps": 0,
+          "cnnHash": "609a4109e8f71510c7914a42494874c8a693d77894058f479c80baf8313970aa",
+          "mlpHash": null,
+          "cnnDigit": "5",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "4.832952",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": "Импорт CNN отклонён: Параметры содержат недопустимые числа или могут вызвать переполнение."
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "reload",
+      "started": "2026-11-14T23:45:50.766326+00:00",
+      "details": {
+        "before": {
+          "cnnSteps": 960,
+          "mlpSteps": 0,
+          "cnnHash": "a3ca241c683012145771a7f9880f1a7ee84cc79401db64ca2e147a57123c461f",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Обучение завершено · 960 шагов",
+          "loss": "0.004967",
+          "train": "100,0%",
+          "validation": "100,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "after": {
+          "cnnSteps": 960,
+          "mlpSteps": 0,
+          "cnnHash": "a3ca241c683012145771a7f9880f1a7ee84cc79401db64ca2e147a57123c461f",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Сохранено 12 эпох · 960 шагов",
+          "loss": "0.004967",
+          "train": "100,0%",
+          "validation": "100,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "blank",
+      "started": "2026-11-14T23:45:54.655268+00:00",
+      "details": {
+        "cnnSteps": 0,
+        "mlpSteps": 0,
+        "cnnHash": null,
+        "mlpHash": null,
+        "cnnDigit": "—",
+        "cnnProgress": "Новый цикл · 0 / 12",
+        "loss": "3.087570",
+        "train": "10,0%",
+        "validation": "10,0%",
+        "busy": false,
+        "input": "Пустой рисунок",
+        "toast": "Сначала нарисуйте цифру или выберите изображение."
+      },
+      "pass": true
+    },
+    {
+      "name": "late-input",
+      "started": "2026-11-14T23:45:55.498288+00:00",
+      "details": {
+        "after": {
+          "cnnSteps": 960,
+          "mlpSteps": 0,
+          "cnnHash": "a42b6d3d57b455a38acc2ca38ed27269ec1baf21c4f3c0466affb728d58b47e4",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Модель восстановлена · 960 шагов · новый цикл",
+          "loss": "0.004967",
+          "train": "100,0%",
+          "validation": "100,0%",
+          "busy": false,
+          "input": "Цифра 0 · вариант 2 · обучение",
+          "toast": ""
+        },
+        "importAppliedToCurrentInputWithoutStalePrediction": true
+      },
+      "pass": true
+    },
+    {
+      "name": "late-mode",
+      "started": "2026-11-14T23:45:56.779444+00:00",
+      "details": {
+        "action": "mode",
+        "after": {
+          "cnnSteps": 1,
+          "mlpSteps": 0,
+          "cnnHash": "609a4109e8f71510c7914a42494874c8a693d77894058f479c80baf8313970aa",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "4.832952",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "late-example",
+      "started": "2026-11-14T23:45:57.856949+00:00",
+      "details": {
+        "action": "example",
+        "after": {
+          "cnnSteps": 1,
+          "mlpSteps": 0,
+          "cnnHash": "609a4109e8f71510c7914a42494874c8a693d77894058f479c80baf8313970aa",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "4.832952",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "late-reset",
+      "started": "2026-11-14T23:45:58.947667+00:00",
+      "details": {
+        "action": "reset",
+        "after": {
+          "cnnSteps": 0,
+          "mlpSteps": 0,
+          "cnnHash": "b776efca6d03490d5cb5c3186bc73b727e3a9896f20c74781eddc4940daf7cc8",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "3.087570",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "late-new-step",
+      "started": "2026-11-14T23:46:00.130705+00:00",
+      "details": {
+        "action": "new-step",
+        "after": {
+          "cnnSteps": 2,
+          "mlpSteps": 0,
+          "cnnHash": "87d6f68edc9d90d74f82f6137df6dfc5ad2a4ce6bf9fa958bd226cd2af585408",
+          "mlpHash": null,
+          "cnnDigit": "5",
+          "cnnProgress": "Новый цикл · 0 / 12",
+          "loss": "4.880378",
+          "train": "10,0%",
+          "validation": "10,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "late-newer-import",
+      "started": "2026-11-14T23:46:01.344305+00:00",
+      "details": {
+        "cnnSteps": 1,
+        "mlpSteps": 0,
+        "cnnHash": "609a4109e8f71510c7914a42494874c8a693d77894058f479c80baf8313970aa",
+        "mlpHash": null,
+        "cnnDigit": "—",
+        "cnnProgress": "Модель восстановлена · 1 шагов · новый цикл",
+        "loss": "4.832952",
+        "train": "10,0%",
+        "validation": "10,0%",
+        "busy": false,
+        "input": "Цифра 5 · вариант 1 · обучение",
+        "toast": ""
+      },
+      "pass": true
+    },
+    {
+      "name": "stop-metrics",
+      "started": "2026-11-14T23:46:02.484572+00:00",
+      "details": {
+        "started": {
+          "busy": true,
+          "method": "two synthetic DOM clicks in one task, after first eight updates"
+        },
+        "displayed": {
+          "cnnSteps": 8,
+          "mlpSteps": 0,
+          "cnnHash": "07dea03ef4f0a19b5b63e01eaeeeb16c4f65de4fa9eed365c7f7881bbfa6418a",
+          "mlpHash": null,
+          "cnnDigit": "—",
+          "cnnProgress": "Остановлено · 8 шагов",
+          "loss": "2.234262",
+          "train": "18,8%",
+          "validation": "15,0%",
+          "busy": false,
+          "input": "Цифра 5 · вариант 1 · обучение",
+          "toast": ""
+        },
+        "actual": {
+          "steps": 8,
+          "training": {
+            "loss": 2.234261647332769,
+            "accuracy": 0.1875
+          },
+          "validation": {
+            "loss": 2.272243762681705,
+            "accuracy": 0.15
+          }
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "corrupted-history",
+      "started": "2026-11-14T23:46:03.372500+00:00",
+      "details": {
+        "cnnSteps": 960,
+        "mlpSteps": 0,
+        "cnnHash": "7f701b71650c62f63083c0567e1ff0c0370d810fb5351c720370229fb36b85bb",
+        "mlpHash": null,
+        "cnnDigit": "—",
+        "cnnProgress": "Сохранено 1 эпох · 960 шагов",
+        "loss": "0.004967",
+        "train": "100,0%",
+        "validation": "100,0%",
+        "busy": false,
+        "input": "Цифра 5 · вариант 1 · обучение",
+        "toast": "",
+        "storedHistoryContainsNull": true,
+        "loadedModelHashMatches": true
+      },
+      "pass": true
+    }
+  ],
+  "pageErrors": [],
+  "sourcesBefore": {
+    "public/js/cnn-lab.js": "ae7e6ea4144944706bfe5e0d45129568f9b098d61174435012ede6648c117707",
+    "public/js/app.js": "e8273abcbd151e47d6f4c9e99f7e733125f45616dd0611bcc3161c2e56868c46",
+    "src/shared/cnn-network.js": "6ef2d86f2845712da5ea3d5b8633e8204af2209252e923eb00ebff7ccf4c1ac0"
+  },
+  "browser": "156.0.8078.4",
+  "finished": "2026-11-14T23:46:04.289916+00:00",
+  "sourcesAfter": {
+    "public/js/cnn-lab.js": "ae7e6ea4144944706bfe5e0d45129568f9b098d61174435012ede6648c117707",
+    "public/js/app.js": "e8273abcbd151e47d6f4c9e99f7e733125f45616dd0611bcc3161c2e56868c46",
+    "src/shared/cnn-network.js": "6ef2d86f2845712da5ea3d5b8633e8204af2209252e923eb00ebff7ccf4c1ac0"
+  },
+  "sourceChangedDuringRun": false,
+  "pass": true
+}

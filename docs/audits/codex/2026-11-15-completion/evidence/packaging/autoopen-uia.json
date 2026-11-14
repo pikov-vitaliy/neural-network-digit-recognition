@@ -1,0 +1,35 @@
+{
+  "target": "127.0.0.1:55184",
+  "topLevelWindows": 8,
+  "matches": [
+    {
+      "windowTitle": "Цифра. Слой за слоем | Искусственный интеллект для инженеров - Brave",
+      "processId": 18912,
+      "controlType": "ControlType.Edit",
+      "targetUrlObserved": true,
+      "offscreen": false
+    },
+    {
+      "windowTitle": "Цифра. Слой за слоем | Искусственный интеллект для инженеров - Brave",
+      "processId": 18912,
+      "controlType": "ControlType.Document",
+      "targetUrlObserved": true,
+      "offscreen": false
+    },
+    {
+      "windowTitle": "Цифра. Слой за слоем | Искусственный интеллект для инженеров - Brave",
+      "processId": 18912,
+      "controlType": "ControlType.Hyperlink",
+      "targetUrlObserved": true,
+      "offscreen": true
+    },
+    {
+      "windowTitle": "Цифра. Слой за слоем | Искусственный интеллект для инженеров - Brave",
+      "processId": 18912,
+      "controlType": "ControlType.Hyperlink",
+      "targetUrlObserved": true,
+      "offscreen": false
+    }
+  ],
+  "observedAt": "2026-11-14T23:43:42.8534601Z"
+}

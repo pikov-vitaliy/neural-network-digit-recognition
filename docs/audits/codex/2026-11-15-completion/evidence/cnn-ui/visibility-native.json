@@ -1,0 +1,48 @@
+{
+  "capturedAt": "2026-11-14T23:40:33.080Z",
+  "method": "Own headed Chromium with fresh profile; connectOverCDP noDefaults=true; switch actual tabs. No document.hidden override or synthetic visibility event.",
+  "errors": [],
+  "initial": {
+    "hidden": false,
+    "visibility": "visible",
+    "pendingRAF": 1,
+    "x": 1,
+    "y": 0,
+    "elapsed": 133.9000000000001,
+    "prediction": "1",
+    "parameterHash": "e485f43970edef86ca94bdc68df8c9591876b1eb54d462d13f49e84d0a1cbb23"
+  },
+  "hidden": {
+    "hidden": true,
+    "visibility": "hidden",
+    "pendingRAF": 0,
+    "x": 1,
+    "y": 0,
+    "elapsed": 150.60000000000036,
+    "prediction": "1",
+    "parameterHash": "e485f43970edef86ca94bdc68df8c9591876b1eb54d462d13f49e84d0a1cbb23"
+  },
+  "hiddenLater": {
+    "hidden": true,
+    "visibility": "hidden",
+    "pendingRAF": 0,
+    "x": 1,
+    "y": 0,
+    "elapsed": 150.60000000000036,
+    "prediction": "1",
+    "parameterHash": "e485f43970edef86ca94bdc68df8c9591876b1eb54d462d13f49e84d0a1cbb23"
+  },
+  "returned": {
+    "hidden": false,
+    "visibility": "visible",
+    "pendingRAF": 1,
+    "x": 2,
+    "y": 0,
+    "elapsed": 317.8000000000002,
+    "prediction": "1",
+    "parameterHash": "e485f43970edef86ca94bdc68df8c9591876b1eb54d462d13f49e84d0a1cbb23"
+  },
+  "modelUnchanged": true,
+  "hiddenPositionStable": true,
+  "pass": true
+}

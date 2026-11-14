@@ -1,3 +1,4 @@
+import { CnnLab } from './cnn-lab.js';
 import { DigitNetwork } from '/shared/neural-network.js';
 import { DISPLAY_DIGITS, digitForClass } from '/shared/classes.js';
 import { loadDataset } from './dataset.js';
@@ -39,6 +40,8 @@ let inputVersion = 0;
 let modelVersion = 0;
 let toastTimer;
 let importRevision = 0;
+let example = 'mlp';
+let cnn = null;
 
 function showToast(message) {
   clearTimeout(toastTimer);
@@ -53,6 +56,11 @@ function formatPercent(value, precision = 1) {
 }
 
 function updateModelStatus() {
+  if (example === 'cnn' && cnn) {
+    $('model-status').classList.toggle('trained', cnn.network.steps > 0);
+    $('model-status').lastElementChild.textContent = cnn.network.steps ? `CNN · ${cnn.network.steps} шагов` : 'CNN · случайные веса';
+    return;
+  }
   $('model-status').classList.toggle('trained', network.steps > 0);
   const lastDigit = network.steps % 10;
   const suffix = lastDigit === 1 && network.steps % 100 !== 11 ? 'шаг' : [2, 3, 4].includes(lastDigit) && ![12, 13, 14].includes(network.steps % 100) ? 'шага' : 'шагов';
@@ -90,6 +98,18 @@ function renderHistory() {
 }
 
 function syncControls() {
+  if (example === 'cnn' && cnn) {
+    cnn.sync();
+    $('predict').disabled = cnn.busy || !dataset.length;
+    $('train-one').disabled = cnn.busy || !canTrainSample(selectedSample, cnn.mode);
+    $('train-one').textContent = 'Один шаг CNN на примере';
+    $('train-one').title = selectedSample?.split === 'validation' ? 'Проверочный пример не обучает' : 'Показать шаг и подтвердить метку CNN';
+    $('correct-answer').disabled = cnn.busy || cnn.mode !== 'training' || Boolean(selectedSample);
+    $('label-hint').textContent = 'Во втором примере выходная цифра выбирает метку для CNN. Веса первого примера сохраняются.';
+    return;
+  }
+  $('train-one').textContent = 'Один шаг на обучающем примере';
+  $('label-hint').textContent = 'В обучении щелчок по выходу выбирает цифру. Кнопка «i» только показывает параметры.';
   const busy = Boolean(trainingToken);
   const hasPrediction = isCurrentPrediction(currentPrediction, inputVersion, modelVersion);
   const validationBlocked = selectedSample?.split === 'validation';
@@ -118,8 +138,8 @@ function updateInspector(inspection) {
   $('bias-value').textContent = inspection.bias.toFixed(6);
   $('neuron-picker').value = `${inspection.layer}:${inspection.index}`;
   $('inspection-copy').textContent = inspection.layer === 3
-    ? 'Здесь a — доля softmax для выбранного класса. Веса связей не являются активациями нейрона.'
-    : 'z — сумма до функции; a — sigmoid(z). Каждый вес w можно посмотреть численно в таблице.';
+    ? 'Здесь a обозначает долю softmax для выбранного класса. Веса связей не являются активациями нейрона.'
+    : 'z обозначает сумму до функции; a равно sigmoid(z). Каждый вес w можно посмотреть численно в таблице.';
   $('weight-list').replaceChildren();
   for (const edge of inspection.incoming.slice(0, 5)) {
     const chip = document.createElement('span');
@@ -146,7 +166,8 @@ const input = new InputController({
     $('sample-name').textContent = name;
     for (const button of $('sample-grid').querySelectorAll('button')) button.setAttribute('aria-pressed', 'false');
     invalidateResult();
-    refreshPreview();
+    cnn?.invalidate();
+    if (example === 'mlp') refreshPreview();
   },
   onError: showToast,
 });
@@ -178,6 +199,41 @@ const teacher = new TeacherView({
     return performTrainingStep(plan.label, true, plan);
   },
 });
+
+const cnnHost = document.createElement('div');
+cnnHost.id = 'cnn-example';
+cnnHost.className = 'cnn-example';
+cnnHost.hidden = true;
+document.querySelector('.workspace').append(cnnHost);
+cnn = new CnnLab(cnnHost, {
+  getPixels: () => input.pixels,
+  getInputVersion: () => inputVersion,
+  getSample: () => selectedSample,
+  onTarget: label => { $('correct-answer').value = String(label); },
+  onError: showToast,
+  onChange: () => { syncControls(); updateModelStatus(); },
+});
+
+function setExample(nextExample) {
+  if (example === nextExample) return;
+  importRevision += 1;
+  cancelTraining();
+  invalidateResult();
+  cnn.cancelTraining();
+  cnn.invalidate();
+  example = nextExample;
+  document.querySelector('.workspace').classList.toggle('cnn-active', example === 'cnn');
+  for (const node of [$('network-title').closest('section'), $('output-title').closest('aside'), $('training-title').closest('section')]) node.hidden = example !== 'mlp';
+  cnnHost.hidden = example !== 'cnn';
+  $('example-mlp').setAttribute('aria-pressed', String(example === 'mlp'));
+  $('example-cnn').setAttribute('aria-pressed', String(example === 'cnn'));
+  cnn.setActive(example === 'cnn');
+  if (example === 'mlp') refreshPreview();
+  updateModelStatus();
+  syncControls();
+}
+$('example-mlp').addEventListener('click', () => setExample('mlp'));
+$('example-cnn').addEventListener('click', () => setExample('cnn'));
 
 function refreshPreview(animate = false) {
   const result = network.forward(input.pixels);
@@ -598,7 +654,7 @@ function renderWeightsDialog() {
   const inspection = view.getInspection();
   if (!inspection) return;
   $('weights-title').textContent = `${$('inspection-title').textContent}: ${inspection.incoming.length} связей`;
-  $('weights-description').textContent = 'a — активация предыдущего нейрона, w — вес связи, w×a — вклад в z. Выберите любой вход по номеру.';
+  $('weights-description').textContent = 'a обозначает активацию предыдущего нейрона, w обозначает вес связи, w×a обозначает вклад в z. Выберите любой вход по номеру.';
   $('weight-source').max = String(inspection.incoming.length);
   const body = $('all-weights-body');
   body.replaceChildren();
@@ -634,6 +690,7 @@ function resolvedTheme() {
 function updateThemeControl() {
   $('theme-toggle').setAttribute('aria-label', resolvedTheme() === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему');
   view.refreshTheme();
+  cnn?.refreshTheme();
 }
 
 $('theme-toggle').addEventListener('click', () => {
@@ -654,7 +711,7 @@ window.addEventListener('storage', (event) => {
 });
 $('help-button').addEventListener('click', () => $('lesson-dialog').showModal());
 $('close-lesson').addEventListener('click', () => $('lesson-dialog').close());
-$('predict').addEventListener('click', predict);
+$('predict').addEventListener('click', () => example === 'cnn' ? cnn.predict() : predict());
 $('source-gallery').addEventListener('click', () => setSource('gallery'));
 $('source-draw').addEventListener('click', () => setSource('draw'));
 $('clear-drawing').addEventListener('click', () => input.clearDrawing());
@@ -680,10 +737,10 @@ $('confirm-feedback').addEventListener('click', () => {
   $('feedback-dialog').close();
   performTrainingStep(request.label, true);
 });
-$('correct-answer').addEventListener('change', () => requestFeedback(Number($('correct-answer').value)));
+$('correct-answer').addEventListener('change', () => example === 'cnn' ? cnn.requestFeedback(Number($('correct-answer').value)) : requestFeedback(Number($('correct-answer').value)));
 $('mode-training').addEventListener('click', () => setMode('training'));
 $('mode-recognition').addEventListener('click', () => setMode('recognition'));
-$('train-one').addEventListener('click', trainOne);
+$('train-one').addEventListener('click', () => example === 'cnn' ? cnn.trainOne() : trainOne());
 $('train-all').addEventListener('click', trainAll);
 $('export-model').addEventListener('click', exportModel);
 $('import-model').addEventListener('click', () => $('import-input').click());
@@ -732,6 +789,7 @@ try {
     $('epoch-count').textContent = history.length ? `${history.length} / ${EPOCH_COUNT}` : `— / ${EPOCH_COUNT}`;
     $('training-progress').value = history.length;
   }
+  cnn.setDataset(dataset);
   renderSamples();
   selectSample(dataset.find((sample) => sample.label === 5 && sample.variant === 0) || dataset[0]);
   view.select(3, 5);
