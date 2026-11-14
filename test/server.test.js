@@ -61,3 +61,38 @@ test('a busy port falls back to the next available port', async (t) => {
   assert.equal(secondPort, port + 1);
   assert.equal((await fetch(`http://127.0.0.1:${secondPort}/`)).status, 200);
 });
+
+async function occupyRange(t, count) {
+  const { createServer } = await import('node:net');
+  const first = createServer();
+  first.listen(0, '127.0.0.1');
+  await once(first, 'listening');
+  const start = first.address().port;
+  const servers = [first];
+  for (let offset = 1; offset < count; offset += 1) {
+    const server = createServer();
+    server.listen(start + offset, '127.0.0.1');
+    await once(server, 'listening');
+    servers.push(server);
+  }
+  t.after(() => Promise.all(servers.map((server) => new Promise((resolve) => server.close(resolve)))));
+  return start;
+}
+
+test('nine busy ports fall back without accumulating listeners', async (t) => {
+  const start = await occupyRange(t, 9);
+  const server = createStaticServer({ publicDir, sharedDir });
+  t.after(() => server.close());
+  assert.equal(await listenWithFallback(server, start), start + 9);
+  assert.equal(server.listenerCount('listening'), 1, 'остаётся только штатный обработчик Node HTTP');
+  assert.equal(server.listenerCount('error'), 0);
+});
+
+test('ten busy ports produce a clear error and no listener leak', async (t) => {
+  const start = await occupyRange(t, 10);
+  const server = createStaticServer({ publicDir, sharedDir });
+  await assert.rejects(listenWithFallback(server, start), /свободн|available|4173|диапазон/i);
+  assert.equal(server.listenerCount('listening'), 1, 'остаётся только штатный обработчик Node HTTP');
+  assert.equal(server.listenerCount('error'), 0);
+  assert.equal(server.listening, false);
+});

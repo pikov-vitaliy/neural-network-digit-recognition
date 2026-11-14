@@ -1,5 +1,12 @@
 export const IMAGE_SIZE = 16;
 
+export function prepareGalleryPixels(bytes) {
+  if (!bytes || bytes.length !== IMAGE_SIZE * IMAGE_SIZE) {
+    throw new RangeError('Gallery image must contain 256 grayscale bytes');
+  }
+  return normalizePixels(Float32Array.from(bytes, (value) => value / 255), IMAGE_SIZE, IMAGE_SIZE);
+}
+
 export function normalizePixels(input, width = IMAGE_SIZE, height = IMAGE_SIZE) {
   if (!Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1 ||
       !input || input.length !== width * height) {

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { IMAGE_SIZE, normalizePixels } from '../src/shared/image.js';
+import { IMAGE_SIZE, normalizePixels, prepareGalleryPixels } from '../src/shared/image.js';
 
 const centerOfMass = (pixels) => {
   let total = 0;
@@ -56,4 +56,12 @@ test('the longest normalized side is at most 12 pixels', () => {
 
 test('mismatched dimensions are rejected', () => {
   assert.throws(() => normalizePixels([0, 1], 16, 16), /length|size/i);
+});
+
+test('gallery bytes and a decoded 16×16 grayscale image share normalization', () => {
+  const bytes = new Uint8Array(256);
+  for (let y = 3; y < 13; y += 1) bytes[y * 16 + 8] = 180 + y;
+  const direct = normalizePixels(Float32Array.from(bytes, (value) => value / 255), 16, 16);
+  assert.deepEqual(prepareGalleryPixels(bytes), direct);
+  assert.throws(() => prepareGalleryPixels(new Uint8Array(12)), /256|length/i);
 });

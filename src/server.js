@@ -64,16 +64,28 @@ export async function listenWithFallback(server, startPort = 4173) {
     const port = startPort === 0 ? 0 : startPort + attempt;
     try {
       await new Promise((resolveListen, rejectListen) => {
-        const onError = (error) => rejectListen(error);
-        server.once('error', onError);
-        server.listen(port, '127.0.0.1', () => {
+        const cleanup = () => {
           server.off('error', onError);
+          server.off('listening', onListening);
+        };
+        const onError = (error) => {
+          cleanup();
+          rejectListen(error);
+        };
+        const onListening = () => {
+          cleanup();
           resolveListen();
-        });
+        };
+        server.once('error', onError);
+        server.once('listening', onListening);
+        server.listen(port, '127.0.0.1');
       });
       return server.address().port;
     } catch (error) {
-      if (error.code !== 'EADDRINUSE' || startPort === 0 || attempt === 9) throw error;
+      if (error.code !== 'EADDRINUSE' || startPort === 0) throw error;
+      if (attempt === 9) {
+        throw new Error(`Не найден свободный порт в диапазоне ${startPort}–${startPort + 9}. Закройте лишний сервер или укажите --port 0.`, { cause: error });
+      }
     }
   }
   throw new Error('No available port');

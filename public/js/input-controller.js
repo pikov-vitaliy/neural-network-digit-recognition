@@ -9,6 +9,7 @@ export class InputController {
     this.onChange = onChange;
     this.onError = onError;
     this.pixels = new Float32Array(256);
+    this.revision = 0;
     this.name = 'Пустой вход';
     this.drawing = false;
     this.context = drawingCanvas.getContext('2d');
@@ -37,7 +38,8 @@ export class InputController {
 
   setPixels(pixels, name) {
     if (!pixels || pixels.length !== 256) throw new RangeError('Ожидается изображение 16×16');
-    this.pixels = pixels instanceof Float32Array ? pixels : Float32Array.from(pixels);
+    this.revision += 1;
+    this.pixels = Float32Array.from(pixels);
     this.name = name;
     this.paintPreview();
     this.onChange(this.pixels, name);
@@ -105,31 +107,41 @@ export class InputController {
   }
 
   async loadFile(file) {
+    const revision = ++this.revision;
+    let bitmap;
     try {
-      if (!file.type.startsWith('image/')) throw new Error('Выберите файл изображения');
-      if (file.size > 10 * 1024 * 1024) throw new Error('Размер изображения не должен превышать 10 МБ');
-      const bitmap = await createImageBitmap(file);
+      if (!file.type.startsWith('image/')) throw new Error('Выберите файл изображения (PNG, JPG или WebP).');
+      if (file.size > 10 * 1024 * 1024) throw new Error('Размер изображения не должен превышать 10 МБ.');
+      bitmap = await createImageBitmap(file);
+      if (revision !== this.revision) return;
       const canvas = document.createElement('canvas');
-      canvas.width = 64;
-      canvas.height = 64;
+      canvas.width = 16;
+      canvas.height = 16;
       const context = canvas.getContext('2d', { willReadFrequently: true });
+      if (!context) throw new Error('Браузер не смог обработать изображение.');
       context.fillStyle = '#ffffff';
-      context.fillRect(0, 0, 64, 64);
-      const scale = Math.min(64 / bitmap.width, 64 / bitmap.height);
+      context.fillRect(0, 0, 16, 16);
+      const scale = Math.min(16 / bitmap.width, 16 / bitmap.height);
       const width = Math.max(1, Math.round(bitmap.width * scale));
       const height = Math.max(1, Math.round(bitmap.height * scale));
-      context.drawImage(bitmap, (64 - width) / 2, (64 - height) / 2, width, height);
+      context.drawImage(bitmap, (16 - width) / 2, (16 - height) / 2, width, height);
       bitmap.close();
-      const rgba = context.getImageData(0, 0, 64, 64).data;
-      const gray = new Float32Array(64 * 64);
+      bitmap = null;
+      const rgba = context.getImageData(0, 0, 16, 16).data;
+      const gray = new Float32Array(256);
       for (let index = 0; index < gray.length; index += 1) {
         gray[index] = (rgba[index * 4] * 0.2126 + rgba[index * 4 + 1] * 0.7152 + rgba[index * 4 + 2] * 0.0722) / 255;
       }
-      this.setPixels(normalizePixels(gray, 64, 64), file.name);
+      this.setPixels(normalizePixels(gray, 16, 16), file.name);
     } catch (error) {
-      this.onError(error.message);
+      if (revision === this.revision) {
+        this.onError(/^[\u0400-\u04ff]/.test(error.message)
+          ? error.message
+          : 'Не удалось прочитать изображение. Выберите неповреждённый PNG, JPG или WebP.');
+      }
     } finally {
-      this.fileInput.value = '';
+      bitmap?.close();
+      if (revision === this.revision) this.fileInput.value = '';
     }
   }
 }
