@@ -1,0 +1,1192 @@
+{
+  "address": {
+    "address": "127.0.0.1",
+    "family": "IPv4",
+    "port": 49752
+  },
+  "responses": [
+    {
+      "target": "/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "16289",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 16289,
+      "sha256": "1358a27453d22d1eaf5e4aa4bc7417f55965b7fb40fac308bc012f44d1e285b3"
+    },
+    {
+      "target": "/js/app.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "text/javascript; charset=utf-8",
+        "content-length": "17095",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 17095,
+      "sha256": "8317253f1fc6803affc315a7a67efc4aff8d9afeceb6f96a2445bd760554e0e6"
+    },
+    {
+      "target": "/shared/neural-network.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "text/javascript; charset=utf-8",
+        "content-length": "8533",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 8533,
+      "sha256": "ccb419ef0fc1de86f3ca98f42b4cce85baf621f9d6b2a645492389774c0e53d8"
+    },
+    {
+      "target": "/samples/manifest.json",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "44744",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 44744,
+      "sha256": "5e01e859c9a5b87491f6c5196818c57806289197a9ac991bd72d236dec2bca69"
+    },
+    {
+      "target": "/samples/digit-0-00.png",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "image/png",
+        "content-length": "239",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 239,
+      "sha256": "50303107ece507bbb0a837d3280c24f92bd2189575473c45afbdba34e16d64f8"
+    },
+    {
+      "target": "/missing",
+      "method": "GET",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 14,
+      "sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+      "body": "File not found"
+    },
+    {
+      "target": "/package.json",
+      "method": "GET",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 14,
+      "sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+      "body": "File not found"
+    },
+    {
+      "target": "/../package.json",
+      "method": "GET",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 14,
+      "sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+      "body": "File not found"
+    },
+    {
+      "target": "/%2e%2e%2fpackage.json",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/..%5cpackage.json",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/%2e%2e%5cpackage.json",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/shared/%2e%2e%2fserver.js",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/shared/%2e%2e%5cserver.js",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/%252e%252e%252fpackage.json",
+      "method": "GET",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 14,
+      "sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+      "body": "File not found"
+    },
+    {
+      "target": "/%2f..%2fpackage.json",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/C:%5cWindows%5cwin.ini",
+      "method": "GET",
+      "status": 403,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 9,
+      "sha256": "78342a0905a72ce44da083dcb5d23b8ea0c16992ba2a82eece97e033d76ba3d3",
+      "body": "Forbidden"
+    },
+    {
+      "target": "/%00",
+      "method": "GET",
+      "status": 400,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 12,
+      "sha256": "610cf07590e16615345a3a6977caa886f656bb36bcf4f49380bf27f43a11d3c1",
+      "body": "Invalid path"
+    },
+    {
+      "target": "/%ZZ",
+      "method": "GET",
+      "status": 400,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 11,
+      "sha256": "82e45382e7d625da9fd553fe7ffad1cc3723573f619e00b822f856bfa7919749",
+      "body": "Invalid URL"
+    },
+    {
+      "target": "/%C0%AF",
+      "method": "GET",
+      "status": 400,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 11,
+      "sha256": "82e45382e7d625da9fd553fe7ffad1cc3723573f619e00b822f856bfa7919749",
+      "body": "Invalid URL"
+    },
+    {
+      "target": "//evil.test/path",
+      "method": "GET",
+      "status": 404,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 14,
+      "sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+      "body": "File not found"
+    },
+    {
+      "target": "/",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "16289",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body": ""
+    },
+    {
+      "target": "/",
+      "method": "POST",
+      "status": 405,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "allow": "GET, HEAD",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 18,
+      "sha256": "371b26886bee5e559d5016b17b1479cb7a9154865da5a0f11563580ea99ff033",
+      "body": "Method not allowed"
+    },
+    {
+      "target": "/",
+      "method": "PUT",
+      "status": 405,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "allow": "GET, HEAD",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 18,
+      "sha256": "371b26886bee5e559d5016b17b1479cb7a9154865da5a0f11563580ea99ff033",
+      "body": "Method not allowed"
+    },
+    {
+      "target": "/",
+      "method": "DELETE",
+      "status": 405,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "allow": "GET, HEAD",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 18,
+      "sha256": "371b26886bee5e559d5016b17b1479cb7a9154865da5a0f11563580ea99ff033",
+      "body": "Method not allowed"
+    },
+    {
+      "target": "/",
+      "method": "OPTIONS",
+      "status": 405,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "allow": "GET, HEAD",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 18,
+      "sha256": "371b26886bee5e559d5016b17b1479cb7a9154865da5a0f11563580ea99ff033",
+      "body": "Method not allowed"
+    },
+    {
+      "target": "/",
+      "method": "TRACE",
+      "status": 405,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "allow": "GET, HEAD",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5",
+        "transfer-encoding": "chunked"
+      },
+      "bytes": 18,
+      "sha256": "371b26886bee5e559d5016b17b1479cb7a9154865da5a0f11563580ea99ff033",
+      "body": "Method not allowed"
+    },
+    {
+      "target": "/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "cache-control": "no-cache",
+        "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "16289",
+        "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+        "connection": "keep-alive",
+        "keep-alive": "timeout=5"
+      },
+      "bytes": 16289,
+      "sha256": "1358a27453d22d1eaf5e4aa4bc7417f55965b7fb40fac308bc012f44d1e285b3",
+      "case": "foreign-host-origin"
+    }
+  ],
+  "assetChecks": [
+    {
+      "file": "digit-0-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-0-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-1-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-2-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-3-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-4-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-5-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-6-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-7-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-8-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-00.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-01.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-02.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-03.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-04.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-05.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-06.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-07.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-08.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    },
+    {
+      "file": "digit-9-09.png",
+      "width": 16,
+      "height": 16,
+      "status": 200,
+      "sameHash": true
+    }
+  ],
+  "manifestCount": 100,
+  "allTenBusy": {
+    "code": "EADDRINUSE",
+    "message": "listen EADDRINUSE: address already in use 127.0.0.1:45009"
+  },
+  "fallback": {
+    "start": 45000,
+    "chosen": 45001,
+    "expected": 45001,
+    "address": {
+      "address": "127.0.0.1",
+      "family": "IPv4",
+      "port": 45001
+    }
+  }
+}

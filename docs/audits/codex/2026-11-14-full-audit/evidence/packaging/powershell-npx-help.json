@@ -1,0 +1,7 @@
+{
+  "command": "npx --yes --offline --cache \"V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/powershell-npx-cache\" --package=\"V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/neural-network-digit-recognition-1.0.0.tgz\" neural-network-digit-recognition --help",
+  "code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "The variable '$LASTEXITCODE' cannot be retrieved because it has not been set.\r\nAt C:\\Program Files\\nodejs\\npx.ps1:17 char:5\r\n+ if ($LASTEXITCODE -ne 0) {\r\n+     ~~~~~~~~~~~~~\r\n    + CategoryInfo          : InvalidOperation: (LASTEXITCODE:String) [], RuntimeException\r\n    + FullyQualifiedErrorId : VariableIsUndefined\r\n \r\nThe variable '$LASTEXITCODE' cannot be retrieved because it has not been set.\r\nAt C:\\Program Files\\nodejs\\npx.ps1:50 char:6\r\n+ exit $LASTEXITCODE\r\n+      ~~~~~~~~~~~~~\r\n    + CategoryInfo          : InvalidOperation: (LASTEXITCODE:String) [], RuntimeException\r\n    + FullyQualifiedErrorId : VariableIsUndefined\r\n \r\n"
+}

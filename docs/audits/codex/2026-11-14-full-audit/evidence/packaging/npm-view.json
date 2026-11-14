@@ -1,0 +1,7 @@
+{
+  "time": "2026-11-14T20:21:43.742Z",
+  "code": 1,
+  "signal": null,
+  "stdout": "{\n  \"error\": {\n    \"code\": \"E404\",\n    \"summary\": \"Not Found - GET https://registry.npmjs.org/neural-network-digit-recognition - Not found\",\n    \"detail\": \"The requested resource 'neural-network-digit-recognition@*' could not be found or you do not have permission to access it.\\n\\nNote that you can also install from a\\ntarball, folder, http url, or git url.\"\n  }\n}\n",
+  "stderr": "npm error code E404\nnpm error 404 Not Found - GET https://registry.npmjs.org/neural-network-digit-recognition - Not found\nnpm error 404\nnpm error 404  The requested resource 'neural-network-digit-recognition@*' could not be found or you do not have permission to access it.\nnpm error 404\nnpm error 404 Note that you can also install from a\nnpm error 404 tarball, folder, http url, or git url.\nnpm error A complete log of this run can be found in: V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\packaging\\metadata-cache\\_logs\\2026-11-14T20_21_43_092Z-debug-0.log\n"
+}

@@ -1,0 +1,21 @@
+{
+  "samples": 100,
+  "maxSumError": 4.268804332241416e-8,
+  "maxProbabilityError": 9.617741481005027e-8,
+  "losses": {
+    "train": {
+      "referenceLoss": 0.5150147804519051,
+      "actualLoss": 0.5150147835429649,
+      "lossAbsError": 3.0910598525224486e-9,
+      "referenceAccuracy": 0.8625,
+      "actualAccuracy": 0.8625
+    },
+    "validation": {
+      "referenceLoss": 0.8940853416748041,
+      "actualLoss": 0.8940853290291585,
+      "lossAbsError": 1.2645645641740089e-8,
+      "referenceAccuracy": 0.7,
+      "actualAccuracy": 0.7
+    }
+  }
+}

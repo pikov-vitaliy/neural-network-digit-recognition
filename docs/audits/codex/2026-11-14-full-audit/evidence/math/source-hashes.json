@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-14T20:27:21.326Z",
+  "files": [
+    {
+      "path": "src/shared/neural-network.js",
+      "snapshotSha256": "ccb419ef0fc1de86f3ca98f42b4cce85baf621f9d6b2a645492389774c0e53d8",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "src/shared/image.js",
+      "snapshotSha256": "c85672b492d13ea1cbc382ff8c4505ade00444479ab9275ad3b4c6da3ef73895",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "scripts/generate-samples.js",
+      "snapshotSha256": "dd7a7e318876ca952aa09d6c6ee0c597887c36770f788f487caa302358d4d014",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "public/js/training.js",
+      "snapshotSha256": "b6396f1642f4d365bb3789dcd6a0852f840ad2db75e228ac916a1887368319d0",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "public/js/dataset.js",
+      "snapshotSha256": "0e915fe41c5db44266d121facec865ef98943a5f9153092776ced9f012d87dc7",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "public/js/app.js",
+      "snapshotSha256": "8317253f1fc6803affc315a7a67efc4aff8d9afeceb6f96a2445bd760554e0e6",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "public/js/input-controller.js",
+      "snapshotSha256": "61743140d5884e100a9e3fcefef6fac7c32014d3b5122fa063a4a6c5b6244ca7",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "public/samples/manifest.json",
+      "snapshotSha256": "5e01e859c9a5b87491f6c5196818c57806289197a9ac991bd72d236dec2bca69",
+      "liveMatchesSnapshot": true
+    },
+    {
+      "path": "test/training.test.js",
+      "snapshotSha256": "3e63ebb554519aab99e61da47056561db0154e9780b3b1e920a35d2832798885",
+      "liveMatchesSnapshot": true
+    }
+  ]
+}

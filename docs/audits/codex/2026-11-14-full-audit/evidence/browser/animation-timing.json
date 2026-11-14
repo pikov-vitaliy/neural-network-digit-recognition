@@ -1,0 +1,31 @@
+{
+  "frames": [
+    {
+      "targetSeconds": 0.1,
+      "capturedSeconds": 0.252,
+      "sha256": "ac5dd3a94763a93106c48480d78faae1fb4259f5213e11e6e4fdc221c6bdeaba",
+      "file": "animation-100ms.png"
+    },
+    {
+      "targetSeconds": 0.4,
+      "capturedSeconds": 0.527,
+      "sha256": "8194cd97dc843179e5aa4d30e23b92be9460936c99f9bb8ac6534df4355bed8e",
+      "file": "animation-400ms.png"
+    },
+    {
+      "targetSeconds": 1.2,
+      "capturedSeconds": 1.307,
+      "sha256": "faf868fa49b1328f3f5274eb48c5579395ed74718a83e9766103daef302d0721",
+      "file": "animation-1200ms.png"
+    },
+    {
+      "targetSeconds": 1.6,
+      "capturedSeconds": 1.708,
+      "sha256": "faf868fa49b1328f3f5274eb48c5579395ed74718a83e9766103daef302d0721",
+      "file": "animation-1600ms.png"
+    }
+  ],
+  "earlyFramesDifferent": true,
+  "lateFramesIdentical": true,
+  "reducedMotion": "no-preference"
+}

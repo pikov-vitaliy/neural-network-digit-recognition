@@ -1,0 +1,59 @@
+[
+  {
+    "magnitude": 1e+38,
+    "parametersFinite": true,
+    "importAccepted": true,
+    "prediction": 0,
+    "probabilities": [
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN"
+    ],
+    "confidence": "NaN"
+  },
+  {
+    "magnitude": 2e+38,
+    "parametersFinite": true,
+    "importAccepted": true,
+    "prediction": 0,
+    "probabilities": [
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN"
+    ],
+    "confidence": "NaN"
+  },
+  {
+    "magnitude": 3e+38,
+    "parametersFinite": true,
+    "importAccepted": true,
+    "prediction": 0,
+    "probabilities": [
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN",
+      "NaN"
+    ],
+    "confidence": "NaN"
+  }
+]

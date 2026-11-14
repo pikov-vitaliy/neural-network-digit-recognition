@@ -1,0 +1,34 @@
+{
+  "time": "2026-11-14T20:24:50.435Z",
+  "node": "v24.16.0",
+  "npm": "11.13.0",
+  "packageName": "neural-network-digit-recognition",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": null,
+  "homepage": null,
+  "author": null,
+  "autoOpenTested": false,
+  "publicNpxExecuted": false,
+  "gitMutated": false,
+  "repositoryMutated": false,
+  "stopCheck": {
+    "connectFailed": true,
+    "message": "ECONNREFUSED"
+  },
+  "headers": {
+    "x-content-type-options": "nosniff",
+    "cache-control": "no-cache",
+    "content-security-policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'",
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "16289",
+    "date": "Sat, 14 Nov 2026 20:22:42 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+  }
+}

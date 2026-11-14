@@ -1,0 +1,38 @@
+
+> neural-network-digit-recognition@1.0.0 test
+> node --test test/*.test.js
+
+✔ CLI defaults to port 4173 and opens a browser (1.1625ms)
+✔ CLI accepts separate and equals port forms and no-open (0.2284ms)
+✔ CLI accepts the conventional npx argument separator (0.1242ms)
+✔ CLI exposes help and version (0.173ms)
+✔ CLI rejects invalid ports and unknown flags (0.4574ms)
+✔ normalization returns 256 finite values and turns empty inputs into zeros (1.1221ms)
+✔ a light background is inverted so the digit becomes bright (0.9047ms)
+✔ a digit in the corner is centered by its mass (0.3408ms)
+✔ the longest normalized side is at most 12 pixels (0.1913ms)
+✔ mismatched dimensions are rejected (0.3891ms)
+✔ default network has 256→16→12→10 shape and 4408 connection weights (2.5298ms)
+✔ same seed reproduces weights and forward returns a normalized softmax (1.4091ms)
+✔ invalid inputs and labels fail explicitly (0.5535ms)
+✔ backpropagation matches numerical gradients for a weight and a bias (0.2394ms)
+✔ training reduces loss and learns a small nonlinear mapping (5.9711ms)
+✔ model JSON round-trip preserves predictions and training steps (0.5749ms)
+✔ model JSON rejects unsupported versions, shapes and corrupt data (0.3609ms)
+✔ dataset contains exactly 100 deterministic samples, ten for every digit (50.7683ms)
+✔ thickness expands bright glyph marks without changing dimensions (0.7298ms)
+✔ encoded PNG files have a valid signature and 16×16 IHDR (58.0752ms)
+✔ server returns the application, shared modules and correct MIME types (39.8962ms)
+✔ HEAD has no body, unsupported methods are rejected and missing files are 404 (14.0002ms)
+✔ encoded traversal cannot escape public or shared roots (6.3078ms)
+✔ a busy port falls back to the next available port (6.1526ms)
+{"initialLoss":2.37285900545765,"finalLoss":0.5150147835429649,"trainAccuracy":0.8625,"validationAccuracy":0.7,"steps":960}
+✔ 12 deterministic epochs reduce training loss and reach at least 60% validation accuracy (86.8978ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 285.5981

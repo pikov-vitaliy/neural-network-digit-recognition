@@ -1,0 +1,6 @@
+{
+  "code": 0,
+  "signal": null,
+  "stdout": "Искусственный интеллект для инженеров — лаборатория нейросети\n\nnpx -y neural-network-digit-recognition [-- --port 4173] [--no-open]\n\n--port N   начальный порт (0 — свободный порт автоматически)\n--no-open  не открывать браузер автоматически\n",
+  "stderr": ""
+}

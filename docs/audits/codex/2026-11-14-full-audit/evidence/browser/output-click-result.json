@@ -1,0 +1,24 @@
+{
+  "clickedVisibleCircle": "1 (actually class0 due to AUD-01)",
+  "before": {
+    "trainingAnswer": "5",
+    "inspector": "Выходной слой · цифра 5",
+    "status": "Случайные веса",
+    "probability5": "13,7%",
+    "probability0": "14,0%"
+  },
+  "afterClick": {
+    "trainingAnswer": "5",
+    "inspector": "Выходной слой · цифра 0",
+    "status": "Случайные веса",
+    "probability5": "13,7%",
+    "probability0": "14,0%"
+  },
+  "afterTrainOne": {
+    "trainingAnswer": "5",
+    "inspector": "Выходной слой · цифра 0",
+    "status": "Обучена · 1 шагов",
+    "probability5": "46,7%",
+    "probability0": "8,7%"
+  }
+}

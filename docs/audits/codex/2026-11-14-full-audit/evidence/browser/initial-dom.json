@@ -1,0 +1,1605 @@
+{
+  "body": "К рабочей области\n\nИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ ДЛЯ ИНЖЕНЕРОВ\n\nЦифра. Слой за слоем.\nСлучайные веса\nСценарий занятия\n01 / ВХОД\nИзображение\n16 × 16\nЦифра 5 · вариант 1 · обучение\n256 сигналов\nПримеры 100\nНарисовать\nПоказать\nВесь набор · 100\nОбучение · 80\nПроверка · 20\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n3\n3\n3\n3\n3\n3\n3\n3\n3\n3\n4\n4\n4\n4\n4\n4\n4\n4\n4\n4\n5\n5\n5\n5\n5\n5\n5\n5\n5\n5\n6\n6\n6\n6\n6\n6\n6\n6\n6\n6\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n8\n8\n8\n8\n8\n8\n8\n8\n8\n8\n9\n9\n9\n9\n9\n9\n9\n9\n9\n9\nЗагрузить свою картинку\nPNG, JPG или WebP · приведём к 16×16\nПравильный ответ для обучения\n1\n2\n3\n4\n5\n6\n7\n8\n9\n0\nОбучить на этом примере Распознать цифру →\n02 / ПРЕОБРАЗОВАНИЕ\nВнутри нейросети\nОбучение\nРаспознавание\n256 входов\n→\n16 нейронов\n→\n12 нейронов\n→\n10 ответов\nСеть из 256 входных пикселей, двух скрытых слоёв по 16 и 12 нейронов и 10 выходов. Все 4408 связей показаны линиями. Точные значения доступны в инспекторе ниже.\nположительный вес\nотрицательный вес\nПОД ЛУПОЙ\nВыходной слой · цифра 5\nНейрон\nНейрон 1\nНейрон 2\nНейрон 3\nНейрон 4\nНейрон 5\nНейрон 6\nНейрон 7\nНейрон 8\nНейрон 9\nНейрон 10\nНейрон 11\nНейрон 12\nНейрон 13\nНейрон 14\nНейрон 15\nНейрон 16\nНейрон 1\nНейрон 2\nНейрон 3\nНейрон 4\nНейрон 5\nНейрон 6\nНейрон 7\nНейрон 8\nНейрон 9\nНейрон 10\nНейрон 11\nНейрон 12\nЦифра 0\nЦифра 1\nЦифра 2\nЦифра 3\nЦифра 4\nЦифра 5\nЦифра 6\nЦифра 7\nЦифра 8\nЦифра 9\nАктивация a\n0.1372\nСмещение b\n0.0000\nЧто это значит\n\nЭтот нейрон голосует за свою цифру. После softmax его сигнал становится долей общей уверенности.\n\nn2: w=-0.4975 · w·a=-0.286\nn11: w=0.4205 · w·a=0.252\nn12: w=0.4088 · w·a=0.197\nn9: w=-0.3647 · w·a=-0.193\nn6: w=0.3878 · w·a=0.187\nn10: w=-0.2741 · w·a=-0.150\nn1: w=0.3934 · w·a=0.123\nn7: w=0.1955 · w·a=0.110\n03 / ВЫХОД\nОтвет сети\nНаиболее похоже на\n—\n\nНажмите «Распознать цифру»\n\nВероятности каждой цифры по результатам softmax\nЦифра\tУверенность\n1\t\n7,8%\n\n2\t\n7,5%\n\n3\t\n9,8%\n\n4\t\n16,2%\n\n5\t\n13,7%\n\n6\t\n8,3%\n\n7\t\n10,0%\n\n8\t\n8,3%\n\n9\t\n4,5%\n\n0\t\n14,0%\nΣ = 100%\n\nЭто не просто голосование. Softmax превращает сигналы выходного слоя в распределение уверенности.\n\nЦИКЛ ОБУЧЕНИЯ\nПокажите. Ошибитесь. Повторите.\nОбучить на всех примерах\nГотов к первой эпохе\n0 / 12\n\n80 примеров для обучения · 20 отложены для проверки\n\nОшибка · loss\n—\nОбучение\n—\nПроверка\n—\nЭкспорт\nИмпорт\nСбросить\nНейросеть вычисляется локально в вашем браузере.\nБез облака · без внешних API · 4 408 связей",
+  "controls": [
+    {
+      "tag": "A",
+      "id": "",
+      "text": "К рабочей области",
+      "aria": null,
+      "type": "",
+      "value": null,
+      "disabled": null,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "help-button",
+      "text": "Сценарий занятия",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "theme-toggle",
+      "text": "",
+      "aria": "Переключить тему",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "source-gallery",
+      "text": "Примеры 100",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "source-draw",
+      "text": "Нарисовать",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "SELECT",
+      "id": "dataset-filter",
+      "text": "Весь набор · 100\nОбучение · 80\nПроверка · 20",
+      "aria": null,
+      "type": "select-one",
+      "value": "all",
+      "disabled": false,
+      "hidden": false,
+      "options": [
+        {
+          "value": "all",
+          "text": "Весь набор · 100"
+        },
+        {
+          "value": "train",
+          "text": "Обучение · 80"
+        },
+        {
+          "value": "validation",
+          "text": "Проверка · 20"
+        }
+      ]
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "0",
+      "aria": "Цифра 0, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "1",
+      "aria": "Цифра 1, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "2",
+      "aria": "Цифра 2, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "3",
+      "aria": "Цифра 3, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "4",
+      "aria": "Цифра 4, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "5",
+      "aria": "Цифра 5, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "6",
+      "aria": "Цифра 6, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "7",
+      "aria": "Цифра 7, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "8",
+      "aria": "Цифра 8, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 1, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 2, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 3, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 4, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 5, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 6, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 7, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 8, обучающий пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 9, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "",
+      "text": "9",
+      "aria": "Цифра 9, вариант 10, проверочный пример",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "clear-drawing",
+      "text": "Очистить холст",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": true,
+      "options": null
+    },
+    {
+      "tag": "INPUT",
+      "id": "file-input",
+      "text": "",
+      "aria": null,
+      "type": "file",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "SELECT",
+      "id": "correct-answer",
+      "text": "1\n2\n3\n4\n5\n6\n7\n8\n9\n0",
+      "aria": null,
+      "type": "select-one",
+      "value": "5",
+      "disabled": false,
+      "hidden": false,
+      "options": [
+        {
+          "value": "1",
+          "text": "1"
+        },
+        {
+          "value": "2",
+          "text": "2"
+        },
+        {
+          "value": "3",
+          "text": "3"
+        },
+        {
+          "value": "4",
+          "text": "4"
+        },
+        {
+          "value": "5",
+          "text": "5"
+        },
+        {
+          "value": "6",
+          "text": "6"
+        },
+        {
+          "value": "7",
+          "text": "7"
+        },
+        {
+          "value": "8",
+          "text": "8"
+        },
+        {
+          "value": "9",
+          "text": "9"
+        },
+        {
+          "value": "0",
+          "text": "0"
+        }
+      ]
+    },
+    {
+      "tag": "BUTTON",
+      "id": "train-one",
+      "text": "Обучить на этом примере",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "predict",
+      "text": "Распознать цифру →",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "mode-training",
+      "text": "Обучение",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "mode-recognition",
+      "text": "Распознавание",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "SELECT",
+      "id": "neuron-picker",
+      "text": "Нейрон 1\nНейрон 2\nНейрон 3\nНейрон 4\nНейрон 5\nНейрон 6\nНейрон 7\nНейрон 8\nНейрон 9\nНейрон 10\nНейрон 11\nНейрон 12\nНейрон 13\nНейрон 14\nНейрон 15\nНейрон 16\nНейрон 1\nНейрон 2\nНейрон 3\nНейрон 4\nНейрон 5\nНейрон 6\nНейрон 7\nНейрон 8\nНейрон 9\nНейрон 10\nНейрон 11\nНейрон 12\nЦифра 0\nЦифра 1\nЦифра 2\nЦифра 3\nЦифра 4\nЦифра 5\nЦифра 6\nЦифра 7\nЦифра 8\nЦифра 9",
+      "aria": "Выбрать нейрон для инспекции",
+      "type": "select-one",
+      "value": "3:5",
+      "disabled": false,
+      "hidden": false,
+      "options": [
+        {
+          "value": "1:0",
+          "text": "Нейрон 1"
+        },
+        {
+          "value": "1:1",
+          "text": "Нейрон 2"
+        },
+        {
+          "value": "1:2",
+          "text": "Нейрон 3"
+        },
+        {
+          "value": "1:3",
+          "text": "Нейрон 4"
+        },
+        {
+          "value": "1:4",
+          "text": "Нейрон 5"
+        },
+        {
+          "value": "1:5",
+          "text": "Нейрон 6"
+        },
+        {
+          "value": "1:6",
+          "text": "Нейрон 7"
+        },
+        {
+          "value": "1:7",
+          "text": "Нейрон 8"
+        },
+        {
+          "value": "1:8",
+          "text": "Нейрон 9"
+        },
+        {
+          "value": "1:9",
+          "text": "Нейрон 10"
+        },
+        {
+          "value": "1:10",
+          "text": "Нейрон 11"
+        },
+        {
+          "value": "1:11",
+          "text": "Нейрон 12"
+        },
+        {
+          "value": "1:12",
+          "text": "Нейрон 13"
+        },
+        {
+          "value": "1:13",
+          "text": "Нейрон 14"
+        },
+        {
+          "value": "1:14",
+          "text": "Нейрон 15"
+        },
+        {
+          "value": "1:15",
+          "text": "Нейрон 16"
+        },
+        {
+          "value": "2:0",
+          "text": "Нейрон 1"
+        },
+        {
+          "value": "2:1",
+          "text": "Нейрон 2"
+        },
+        {
+          "value": "2:2",
+          "text": "Нейрон 3"
+        },
+        {
+          "value": "2:3",
+          "text": "Нейрон 4"
+        },
+        {
+          "value": "2:4",
+          "text": "Нейрон 5"
+        },
+        {
+          "value": "2:5",
+          "text": "Нейрон 6"
+        },
+        {
+          "value": "2:6",
+          "text": "Нейрон 7"
+        },
+        {
+          "value": "2:7",
+          "text": "Нейрон 8"
+        },
+        {
+          "value": "2:8",
+          "text": "Нейрон 9"
+        },
+        {
+          "value": "2:9",
+          "text": "Нейрон 10"
+        },
+        {
+          "value": "2:10",
+          "text": "Нейрон 11"
+        },
+        {
+          "value": "2:11",
+          "text": "Нейрон 12"
+        },
+        {
+          "value": "3:0",
+          "text": "Цифра 0"
+        },
+        {
+          "value": "3:1",
+          "text": "Цифра 1"
+        },
+        {
+          "value": "3:2",
+          "text": "Цифра 2"
+        },
+        {
+          "value": "3:3",
+          "text": "Цифра 3"
+        },
+        {
+          "value": "3:4",
+          "text": "Цифра 4"
+        },
+        {
+          "value": "3:5",
+          "text": "Цифра 5"
+        },
+        {
+          "value": "3:6",
+          "text": "Цифра 6"
+        },
+        {
+          "value": "3:7",
+          "text": "Цифра 7"
+        },
+        {
+          "value": "3:8",
+          "text": "Цифра 8"
+        },
+        {
+          "value": "3:9",
+          "text": "Цифра 9"
+        }
+      ]
+    },
+    {
+      "tag": "BUTTON",
+      "id": "train-all",
+      "text": "Обучить на всех примерах",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "export-model",
+      "text": "Экспорт",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "import-model",
+      "text": "Импорт",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "INPUT",
+      "id": "import-input",
+      "text": "",
+      "aria": null,
+      "type": "file",
+      "value": "",
+      "disabled": false,
+      "hidden": true,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "reset-model",
+      "text": "Сбросить",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": false,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "close-lesson",
+      "text": "×",
+      "aria": "Закрыть",
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": true,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "cancel-reset",
+      "text": "Отмена",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": true,
+      "options": null
+    },
+    {
+      "tag": "BUTTON",
+      "id": "confirm-reset",
+      "text": "Сбросить модель",
+      "aria": null,
+      "type": "button",
+      "value": "",
+      "disabled": false,
+      "hidden": true,
+      "options": null
+    }
+  ],
+  "canvases": [
+    {
+      "id": "input-preview",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 123.96875,
+        "y": 197.046875,
+        "width": 156,
+        "height": 156,
+        "top": 197.046875,
+        "right": 279.96875,
+        "bottom": 353.046875,
+        "left": 123.96875
+      },
+      "aria": "Цифра 5 · вариант 1 · обучение, изображение 16 на 16 пикселей"
+    },
+    {
+      "id": "drawing-canvas",
+      "width": 256,
+      "height": 256,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "aria": "Нарисуйте цифру здесь"
+    },
+    {
+      "id": "network-canvas",
+      "width": 693,
+      "height": 493,
+      "rect": {
+        "x": 409.15625,
+        "y": 216.4375,
+        "width": 692.71875,
+        "height": 492.5,
+        "top": 216.4375,
+        "right": 1101.875,
+        "bottom": 708.9375,
+        "left": 409.15625
+      },
+      "aria": null
+    }
+  ],
+  "errors": []
+}

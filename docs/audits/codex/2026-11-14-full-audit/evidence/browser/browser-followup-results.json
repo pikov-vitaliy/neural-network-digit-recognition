@@ -1,0 +1,20 @@
+{
+  "theme": {
+    "before": "light dark",
+    "after": "dark",
+    "afterReload": "dark",
+    "savedChoice": "dark"
+  },
+  "activeReset": {
+    "busyBeforeReset": true,
+    "epochBeforeReset": "1 / 12",
+    "method": "synthetic DOM clicks in one event-loop turn",
+    "status": "Случайные веса",
+    "epoch": "0 / 12",
+    "storage": null
+  },
+  "corruptImage": {
+    "message": "The source image could not be decoded.",
+    "sampleUnchanged": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "cwd": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\source-snapshot",
+  "startedAt": "2026-11-14T21:21:31.7014217+01:00",
+  "finishedAt": "2026-11-14T21:21:32.4504138+01:00",
+  "command": "npm.cmd test",
+  "exitCode": 0,
+  "ci": "1"
+}

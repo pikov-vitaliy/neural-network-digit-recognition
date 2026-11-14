@@ -1,0 +1,27 @@
+{
+  "pngCount": 100,
+  "records": 100,
+  "allVerified": true,
+  "all16x16": true,
+  "allGrayscale": true,
+  "allPixelsMatchManifest": true,
+  "uniquePixels": 100,
+  "labels": {
+    "0": 10,
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 10,
+    "5": 10,
+    "6": 10,
+    "7": 10,
+    "8": 10,
+    "9": 10
+  },
+  "splits": {
+    "train": 80,
+    "validation": 20
+  },
+  "novelFontCount": 4,
+  "novelGlyphCount": 40
+}

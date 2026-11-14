@@ -1,0 +1,2003 @@
+{
+  "base": "http://127.0.0.1:59226",
+  "scenarios": {
+    "lesson": {
+      "text": "МЕТОДИЧЕСКАЯ ПАМЯТКА\n×\nКак показать это на занятии\n\nНе начинайте с формулы. Начните с ошибки — и закончите ею же.\n\nСлучайные веса.\n\nДо обучения нажмите «Распознать». Сеть отвечает почти наугад: её веса ещё ничего не знают о цифрах.\n\nПрямой проход.\n\nКаждый пиксель становится числом от 0 до 1. Сигнал движется слева направо: z = Σ(w · x) + b.\n\nОдин обучающий пример.\n\nВыберите картинку, проверьте правильный ответ и нажмите «Обучить на этом примере». Ошибка движется в обратную сторону и немного меняет веса.\n\n12 эпох.\n\nЗапустите обучение на 80 примерах. За одну эпоху сеть видит каждый из них один раз. Следите за уменьшением loss и ростом accuracy.\n\nЧестная проверка.\n\nВыберите фильтр «Проверка»: эти 20 вариантов не участвовали в обучении. Затем нарисуйте свою цифру и обсудите, где модель уже не может помочь.\n\nОбратное распространение\nw ← w − η · ∂Loss/∂w\n\nВес меняется в сторону, которая уменьшает ошибку. Для одного примера η = 0,35; в автоматическом цикле η = 0,3.",
+      "buttons": [
+        "×"
+      ],
+      "escapeCloses": true
+    },
+    "output-zero": {
+      "text": {
+        "sample-name": "Цифра 5 · вариант 1 · обучение",
+        "predicted-digit": "—",
+        "confidence-copy": "Нажмите «Распознать цифру»",
+        "inspection-title": "Выходной слой · цифра 0",
+        "activation-value": "0.1400",
+        "bias-value": "0.0000",
+        "model-status": "Случайные веса",
+        "training-message": "80 примеров для обучения · 20 отложены для проверки",
+        "epoch-label": "Готов к первой эпохе",
+        "epoch-count": "0 / 12",
+        "loss-value": "—",
+        "train-accuracy": "—",
+        "validation-accuracy": "—"
+      },
+      "outputs": [
+        {
+          "digit": 1,
+          "text": "7,8%"
+        },
+        {
+          "digit": 2,
+          "text": "7,5%"
+        },
+        {
+          "digit": 3,
+          "text": "9,8%"
+        },
+        {
+          "digit": 4,
+          "text": "16,2%"
+        },
+        {
+          "digit": 5,
+          "text": "13,7%"
+        },
+        {
+          "digit": 6,
+          "text": "8,3%"
+        },
+        {
+          "digit": 7,
+          "text": "10,0%"
+        },
+        {
+          "digit": 8,
+          "text": "8,3%"
+        },
+        {
+          "digit": 9,
+          "text": "4,5%"
+        },
+        {
+          "digit": 0,
+          "text": "14,0%"
+        }
+      ],
+      "weights": "n7: w=0.5090 · w·a=0.287\nn6: w=0.3835 · w·a=0.185\nn10: w=-0.2883 · w·a=-0.157\nn12: w=0.3093 · w·a=0.149\nn11: w=-0.2415 · w·a=-0.145\nn8: w=0.2175 · w·a=0.102\nn2: w=-0.1521 · w·a=-0.088\nn5: w=0.1136 · w·a=0.070",
+      "training": false,
+      "modeRecognition": "false"
+    },
+    "untrained": {
+      "text": {
+        "sample-name": "Цифра 5 · вариант 1 · обучение",
+        "predicted-digit": "4",
+        "confidence-copy": "Уверенность 16,2% · веса ещё случайны",
+        "inspection-title": "Выходной слой · цифра 4",
+        "activation-value": "0.1615",
+        "bias-value": "0.0000",
+        "model-status": "Случайные веса",
+        "training-message": "80 примеров для обучения · 20 отложены для проверки",
+        "epoch-label": "Готов к первой эпохе",
+        "epoch-count": "0 / 12",
+        "loss-value": "—",
+        "train-accuracy": "—",
+        "validation-accuracy": "—"
+      },
+      "outputs": [
+        {
+          "digit": 1,
+          "text": "7,8%"
+        },
+        {
+          "digit": 2,
+          "text": "7,5%"
+        },
+        {
+          "digit": 3,
+          "text": "9,8%"
+        },
+        {
+          "digit": 4,
+          "text": "16,2%"
+        },
+        {
+          "digit": 5,
+          "text": "13,7%"
+        },
+        {
+          "digit": 6,
+          "text": "8,3%"
+        },
+        {
+          "digit": 7,
+          "text": "10,0%"
+        },
+        {
+          "digit": 8,
+          "text": "8,3%"
+        },
+        {
+          "digit": 9,
+          "text": "4,5%"
+        },
+        {
+          "digit": 0,
+          "text": "14,0%"
+        }
+      ],
+      "weights": "n5: w=0.5102 · w·a=0.315\nn10: w=0.4072 · w·a=0.222\nn12: w=-0.3812 · w·a=-0.184\nn6: w=-0.3050 · w·a=-0.147\nn1: w=0.3357 · w·a=0.105\nn7: w=0.1817 · w·a=0.103\nn11: w=0.0887 · w·a=0.053\nn4: w=-0.0635 · w·a=-0.036",
+      "training": false,
+      "modeRecognition": "false"
+    },
+    "one-step": {
+      "before": {
+        "text": {
+          "sample-name": "Цифра 5 · вариант 1 · обучение",
+          "predicted-digit": "4",
+          "confidence-copy": "Уверенность 16,2% · веса ещё случайны",
+          "inspection-title": "Скрытый слой 1 · нейрон 1",
+          "activation-value": "0.3753",
+          "bias-value": "0.0000",
+          "model-status": "Случайные веса",
+          "training-message": "80 примеров для обучения · 20 отложены для проверки",
+          "epoch-label": "Готов к первой эпохе",
+          "epoch-count": "0 / 12",
+          "loss-value": "—",
+          "train-accuracy": "—",
+          "validation-accuracy": "—"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "7,8%"
+          },
+          {
+            "digit": 2,
+            "text": "7,5%"
+          },
+          {
+            "digit": 3,
+            "text": "9,8%"
+          },
+          {
+            "digit": 4,
+            "text": "16,2%"
+          },
+          {
+            "digit": 5,
+            "text": "13,7%"
+          },
+          {
+            "digit": 6,
+            "text": "8,3%"
+          },
+          {
+            "digit": 7,
+            "text": "10,0%"
+          },
+          {
+            "digit": 8,
+            "text": "8,3%"
+          },
+          {
+            "digit": 9,
+            "text": "4,5%"
+          },
+          {
+            "digit": 0,
+            "text": "14,0%"
+          }
+        ],
+        "weights": "n42: w=-0.1459 · w·a=-0.146\nn40: w=-0.1451 · w·a=-0.145\nn186: w=-0.1434 · w·a=-0.143\nn172: w=-0.1431 · w·a=-0.143\nn181: w=0.1364 · w·a=0.134\nn120: w=-0.1352 · w·a=-0.131\nn123: w=-0.1339 · w·a=-0.131\nn201: w=0.1256 · w·a=0.125",
+        "training": false,
+        "modeRecognition": "false"
+      },
+      "after": {
+        "text": {
+          "sample-name": "Цифра 5 · вариант 1 · обучение",
+          "predicted-digit": "4",
+          "confidence-copy": "Уверенность 16,2% · веса ещё случайны",
+          "inspection-title": "Скрытый слой 1 · нейрон 1",
+          "activation-value": "0.3774",
+          "bias-value": "0.0002",
+          "model-status": "Обучена · 1 шагов",
+          "training-message": "80 примеров для обучения · 20 отложены для проверки",
+          "epoch-label": "Готов к первой эпохе",
+          "epoch-count": "0 / 12",
+          "loss-value": "2.6454",
+          "train-accuracy": "10,0%",
+          "validation-accuracy": "10,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "5,0%"
+          },
+          {
+            "digit": 2,
+            "text": "4,7%"
+          },
+          {
+            "digit": 3,
+            "text": "6,1%"
+          },
+          {
+            "digit": 4,
+            "text": "8,9%"
+          },
+          {
+            "digit": 5,
+            "text": "46,7%"
+          },
+          {
+            "digit": 6,
+            "text": "5,2%"
+          },
+          {
+            "digit": 7,
+            "text": "6,3%"
+          },
+          {
+            "digit": 8,
+            "text": "5,0%"
+          },
+          {
+            "digit": 9,
+            "text": "3,4%"
+          },
+          {
+            "digit": 0,
+            "text": "8,7%"
+          }
+        ],
+        "weights": "n42: w=-0.1457 · w·a=-0.146\nn40: w=-0.1448 · w·a=-0.145\nn186: w=-0.1431 · w·a=-0.143\nn172: w=-0.1428 · w·a=-0.143\nn181: w=0.1366 · w·a=0.134\nn120: w=-0.1350 · w·a=-0.131\nn123: w=-0.1337 · w·a=-0.131\nn201: w=0.1258 · w·a=0.125",
+        "training": false,
+        "modeRecognition": "false"
+      }
+    },
+    "train-all": {
+      "seconds": 0.219,
+      "state": {
+        "text": {
+          "sample-name": "Цифра 5 · вариант 1 · обучение",
+          "predicted-digit": "—",
+          "confidence-copy": "Нажмите «Распознать цифру»",
+          "inspection-title": "Выходной слой · цифра 5",
+          "activation-value": "0.9117",
+          "bias-value": "-0.9929",
+          "model-status": "Обучена · 960 шагов",
+          "training-message": "Эпоха 12: 80 примеров в перемешанном порядке · модель сохранена",
+          "epoch-label": "Обучение завершено",
+          "epoch-count": "12 / 12",
+          "loss-value": "0.5150",
+          "train-accuracy": "86,3%",
+          "validation-accuracy": "70,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "0,0%"
+          },
+          {
+            "digit": 2,
+            "text": "0,0%"
+          },
+          {
+            "digit": 3,
+            "text": "0,2%"
+          },
+          {
+            "digit": 4,
+            "text": "0,0%"
+          },
+          {
+            "digit": 5,
+            "text": "91,2%"
+          },
+          {
+            "digit": 6,
+            "text": "0,4%"
+          },
+          {
+            "digit": 7,
+            "text": "0,5%"
+          },
+          {
+            "digit": 8,
+            "text": "0,1%"
+          },
+          {
+            "digit": 9,
+            "text": "7,1%"
+          },
+          {
+            "digit": 0,
+            "text": "0,5%"
+          }
+        ],
+        "weights": "n11: w=2.4658 · w·a=2.321\nn12: w=2.4369 · w·a=2.204\nn6: w=2.0422 · w·a=1.992\nn1: w=1.1011 · w·a=0.933\nn9: w=-1.3942 · w·a=-0.175\nn7: w=0.5989 · w·a=0.163\nn3: w=-0.8447 · w·a=-0.084\nn2: w=-1.8075 · w·a=-0.062",
+        "training": false,
+        "modeRecognition": "false"
+      },
+      "export": {
+        "steps": 960,
+        "sha256": "4c1b01349e51a08882eef6aece2883de40ce95c7aac607cfa83af1a8214f37c2",
+        "path": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\browser\\trained-model.json",
+        "keys": [
+          "version",
+          "sizes",
+          "steps",
+          "layers"
+        ]
+      }
+    },
+    "stale-verdict": {
+      "before": {
+        "text": {
+          "sample-name": "Цифра 0 · вариант 9 · проверка",
+          "predicted-digit": "0",
+          "confidence-copy": "Уверенность 41,7%",
+          "inspection-title": "Выходной слой · цифра 0",
+          "activation-value": "0.4170",
+          "bias-value": "0.5994",
+          "model-status": "Обучена · 960 шагов",
+          "training-message": "Веса заморожены · показываем только прямой проход сигнала",
+          "epoch-label": "Обучение завершено",
+          "epoch-count": "12 / 12",
+          "loss-value": "0.5150",
+          "train-accuracy": "86,3%",
+          "validation-accuracy": "70,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "0,0%"
+          },
+          {
+            "digit": 2,
+            "text": "0,8%"
+          },
+          {
+            "digit": 3,
+            "text": "1,7%"
+          },
+          {
+            "digit": 4,
+            "text": "1,1%"
+          },
+          {
+            "digit": 5,
+            "text": "0,3%"
+          },
+          {
+            "digit": 6,
+            "text": "19,7%"
+          },
+          {
+            "digit": 7,
+            "text": "0,0%"
+          },
+          {
+            "digit": 8,
+            "text": "31,9%"
+          },
+          {
+            "digit": 9,
+            "text": "2,8%"
+          },
+          {
+            "digit": 0,
+            "text": "41,7%"
+          }
+        ],
+        "weights": "n6: w=2.3986 · w·a=2.248\nn5: w=0.9365 · w·a=0.868\nn1: w=-0.6418 · w·a=-0.063\nn10: w=-0.2475 · w·a=-0.058\nn11: w=-0.5547 · w·a=-0.036\nn9: w=-0.1061 · w·a=-0.036\nn4: w=-1.5439 · w·a=-0.031\nn3: w=-0.6325 · w·a=-0.027",
+        "training": false,
+        "modeRecognition": "true"
+      },
+      "afterChangingInput": {
+        "text": {
+          "sample-name": "Цифра 1 · вариант 9 · проверка",
+          "predicted-digit": "0",
+          "confidence-copy": "Уверенность 41,7%",
+          "inspection-title": "Выходной слой · цифра 0",
+          "activation-value": "0.0004",
+          "bias-value": "0.5994",
+          "model-status": "Обучена · 960 шагов",
+          "training-message": "Веса заморожены · показываем только прямой проход сигнала",
+          "epoch-label": "Обучение завершено",
+          "epoch-count": "12 / 12",
+          "loss-value": "0.5150",
+          "train-accuracy": "86,3%",
+          "validation-accuracy": "70,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "81,0%"
+          },
+          {
+            "digit": 2,
+            "text": "13,1%"
+          },
+          {
+            "digit": 3,
+            "text": "1,8%"
+          },
+          {
+            "digit": 4,
+            "text": "2,8%"
+          },
+          {
+            "digit": 5,
+            "text": "0,0%"
+          },
+          {
+            "digit": 6,
+            "text": "0,4%"
+          },
+          {
+            "digit": 7,
+            "text": "0,6%"
+          },
+          {
+            "digit": 8,
+            "text": "0,0%"
+          },
+          {
+            "digit": 9,
+            "text": "0,2%"
+          },
+          {
+            "digit": 0,
+            "text": "0,0%"
+          }
+        ],
+        "weights": "n4: w=-1.5439 · w·a=-1.508\nn2: w=-1.1029 · w·a=-1.039\nn5: w=0.9365 · w·a=0.699\nn3: w=-0.6325 · w·a=-0.509\nn1: w=-0.6418 · w·a=-0.243\nn12: w=-0.7787 · w·a=-0.221\nn8: w=-0.1702 · w·a=-0.140\nn9: w=-0.1061 · w·a=-0.049",
+        "training": false,
+        "modeRecognition": "true"
+      },
+      "tableWinner": {
+        "digit": 1,
+        "text": "81,0%"
+      },
+      "afterExplicitPredict": {
+        "text": {
+          "sample-name": "Цифра 1 · вариант 9 · проверка",
+          "predicted-digit": "1",
+          "confidence-copy": "Уверенность 81,0%",
+          "inspection-title": "Выходной слой · цифра 1",
+          "activation-value": "0.8104",
+          "bias-value": "-0.6665",
+          "model-status": "Обучена · 960 шагов",
+          "training-message": "Веса заморожены · показываем только прямой проход сигнала",
+          "epoch-label": "Обучение завершено",
+          "epoch-count": "12 / 12",
+          "loss-value": "0.5150",
+          "train-accuracy": "86,3%",
+          "validation-accuracy": "70,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "81,0%"
+          },
+          {
+            "digit": 2,
+            "text": "13,1%"
+          },
+          {
+            "digit": 3,
+            "text": "1,8%"
+          },
+          {
+            "digit": 4,
+            "text": "2,8%"
+          },
+          {
+            "digit": 5,
+            "text": "0,0%"
+          },
+          {
+            "digit": 6,
+            "text": "0,4%"
+          },
+          {
+            "digit": 7,
+            "text": "0,6%"
+          },
+          {
+            "digit": 8,
+            "text": "0,0%"
+          },
+          {
+            "digit": 9,
+            "text": "0,2%"
+          },
+          {
+            "digit": 0,
+            "text": "0,0%"
+          }
+        ],
+        "weights": "n4: w=2.7503 · w·a=2.687\nn2: w=2.1653 · w·a=2.041\nn8: w=1.5483 · w·a=1.270\nn5: w=-0.9634 · w·a=-0.719\nn3: w=0.8185 · w·a=0.658\nn9: w=-0.8884 · w·a=-0.407\nn12: w=1.2390 · w·a=0.352\nn1: w=-0.2445 · w·a=-0.093",
+        "training": false,
+        "modeRecognition": "true"
+      }
+    },
+    "invalid-import": {
+      "before": {
+        "steps": 960,
+        "sha256": "4c1b01349e51a08882eef6aece2883de40ce95c7aac607cfa83af1a8214f37c2",
+        "path": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\browser\\before-invalid-import.json",
+        "keys": [
+          "version",
+          "sizes",
+          "steps",
+          "layers"
+        ]
+      },
+      "after": {
+        "steps": 960,
+        "sha256": "4c1b01349e51a08882eef6aece2883de40ce95c7aac607cfa83af1a8214f37c2",
+        "path": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\browser\\after-invalid-import.json",
+        "keys": [
+          "version",
+          "sizes",
+          "steps",
+          "layers"
+        ]
+      },
+      "message": "Не удалось импортировать модель: Expected property name or '}' in JSON at position 1 (line 1 column 2). Текущая сеть не изменена."
+    },
+    "recognition-can-train": {
+      "before": {
+        "text": {
+          "sample-name": "Цифра 5 · вариант 1 · обучение",
+          "predicted-digit": "—",
+          "confidence-copy": "Нажмите «Распознать цифру»",
+          "inspection-title": "Выходной слой · цифра 5",
+          "activation-value": "0.1372",
+          "bias-value": "0.0000",
+          "model-status": "Случайные веса",
+          "training-message": "Веса заморожены · показываем только прямой проход сигнала",
+          "epoch-label": "Готов к первой эпохе",
+          "epoch-count": "0 / 12",
+          "loss-value": "—",
+          "train-accuracy": "—",
+          "validation-accuracy": "—"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "7,8%"
+          },
+          {
+            "digit": 2,
+            "text": "7,5%"
+          },
+          {
+            "digit": 3,
+            "text": "9,8%"
+          },
+          {
+            "digit": 4,
+            "text": "16,2%"
+          },
+          {
+            "digit": 5,
+            "text": "13,7%"
+          },
+          {
+            "digit": 6,
+            "text": "8,3%"
+          },
+          {
+            "digit": 7,
+            "text": "10,0%"
+          },
+          {
+            "digit": 8,
+            "text": "8,3%"
+          },
+          {
+            "digit": 9,
+            "text": "4,5%"
+          },
+          {
+            "digit": 0,
+            "text": "14,0%"
+          }
+        ],
+        "weights": "n2: w=-0.4975 · w·a=-0.286\nn11: w=0.4205 · w·a=0.252\nn12: w=0.4088 · w·a=0.197\nn9: w=-0.3647 · w·a=-0.193\nn6: w=0.3878 · w·a=0.187\nn10: w=-0.2741 · w·a=-0.150\nn1: w=0.3934 · w·a=0.123\nn7: w=0.1955 · w·a=0.110",
+        "training": false,
+        "modeRecognition": "true"
+      },
+      "beforeExport": {
+        "steps": 0,
+        "sha256": "d3350f6d608359447761fdc06cc1adb5be4ab1d2d9a7de1c67d8438b4dcd840d",
+        "path": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\browser\\recognition-before.json",
+        "keys": [
+          "version",
+          "sizes",
+          "steps",
+          "layers"
+        ]
+      },
+      "seconds": 0.201,
+      "after": {
+        "text": {
+          "sample-name": "Цифра 5 · вариант 1 · обучение",
+          "predicted-digit": "—",
+          "confidence-copy": "Нажмите «Распознать цифру»",
+          "inspection-title": "Выходной слой · цифра 5",
+          "activation-value": "0.9117",
+          "bias-value": "-0.9929",
+          "model-status": "Обучена · 960 шагов",
+          "training-message": "Эпоха 12: 80 примеров в перемешанном порядке · модель сохранена",
+          "epoch-label": "Обучение завершено",
+          "epoch-count": "12 / 12",
+          "loss-value": "0.5150",
+          "train-accuracy": "86,3%",
+          "validation-accuracy": "70,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "0,0%"
+          },
+          {
+            "digit": 2,
+            "text": "0,0%"
+          },
+          {
+            "digit": 3,
+            "text": "0,2%"
+          },
+          {
+            "digit": 4,
+            "text": "0,0%"
+          },
+          {
+            "digit": 5,
+            "text": "91,2%"
+          },
+          {
+            "digit": 6,
+            "text": "0,4%"
+          },
+          {
+            "digit": 7,
+            "text": "0,5%"
+          },
+          {
+            "digit": 8,
+            "text": "0,1%"
+          },
+          {
+            "digit": 9,
+            "text": "7,1%"
+          },
+          {
+            "digit": 0,
+            "text": "0,5%"
+          }
+        ],
+        "weights": "n11: w=2.4658 · w·a=2.321\nn12: w=2.4369 · w·a=2.204\nn6: w=2.0422 · w·a=1.992\nn1: w=1.1011 · w·a=0.933\nn9: w=-1.3942 · w·a=-0.175\nn7: w=0.5989 · w·a=0.163\nn3: w=-0.8447 · w·a=-0.084\nn2: w=-1.8075 · w·a=-0.062",
+        "training": false,
+        "modeRecognition": "true"
+      },
+      "afterExport": {
+        "steps": 960,
+        "sha256": "4c1b01349e51a08882eef6aece2883de40ce95c7aac607cfa83af1a8214f37c2",
+        "path": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\browser\\recognition-after.json",
+        "keys": [
+          "version",
+          "sizes",
+          "steps",
+          "layers"
+        ]
+      }
+    },
+    "validation-trains": {
+      "before": {
+        "text": {
+          "sample-name": "Цифра 0 · вариант 9 · проверка",
+          "predicted-digit": "—",
+          "confidence-copy": "Нажмите «Распознать цифру»",
+          "inspection-title": "Выходной слой · цифра 5",
+          "activation-value": "0.1370",
+          "bias-value": "0.0000",
+          "model-status": "Случайные веса",
+          "training-message": "80 примеров для обучения · 20 отложены для проверки",
+          "epoch-label": "Готов к первой эпохе",
+          "epoch-count": "0 / 12",
+          "loss-value": "—",
+          "train-accuracy": "—",
+          "validation-accuracy": "—"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "7,5%"
+          },
+          {
+            "digit": 2,
+            "text": "7,5%"
+          },
+          {
+            "digit": 3,
+            "text": "9,6%"
+          },
+          {
+            "digit": 4,
+            "text": "16,2%"
+          },
+          {
+            "digit": 5,
+            "text": "13,7%"
+          },
+          {
+            "digit": 6,
+            "text": "8,6%"
+          },
+          {
+            "digit": 7,
+            "text": "9,8%"
+          },
+          {
+            "digit": 8,
+            "text": "8,5%"
+          },
+          {
+            "digit": 9,
+            "text": "4,3%"
+          },
+          {
+            "digit": 0,
+            "text": "14,3%"
+          }
+        ],
+        "weights": "n2: w=-0.4975 · w·a=-0.275\nn11: w=0.4205 · w·a=0.254\nn12: w=0.4088 · w·a=0.194\nn6: w=0.3878 · w·a=0.193\nn9: w=-0.3647 · w·a=-0.190\nn10: w=-0.2741 · w·a=-0.143\nn1: w=0.3934 · w·a=0.105\nn7: w=0.1955 · w·a=0.105",
+        "training": false,
+        "modeRecognition": "false"
+      },
+      "after": {
+        "text": {
+          "sample-name": "Цифра 0 · вариант 9 · проверка",
+          "predicted-digit": "—",
+          "confidence-copy": "Нажмите «Распознать цифру»",
+          "inspection-title": "Выходной слой · цифра 5",
+          "activation-value": "0.0883",
+          "bias-value": "-0.0480",
+          "model-status": "Обучена · 1 шагов",
+          "training-message": "80 примеров для обучения · 20 отложены для проверки",
+          "epoch-label": "Готов к первой эпохе",
+          "epoch-count": "0 / 12",
+          "loss-value": "2.6281",
+          "train-accuracy": "10,0%",
+          "validation-accuracy": "10,0%"
+        },
+        "outputs": [
+          {
+            "digit": 1,
+            "text": "5,1%"
+          },
+          {
+            "digit": 2,
+            "text": "5,0%"
+          },
+          {
+            "digit": 3,
+            "text": "6,1%"
+          },
+          {
+            "digit": 4,
+            "text": "9,0%"
+          },
+          {
+            "digit": 5,
+            "text": "8,8%"
+          },
+          {
+            "digit": 6,
+            "text": "5,3%"
+          },
+          {
+            "digit": 7,
+            "text": "6,4%"
+          },
+          {
+            "digit": 8,
+            "text": "6,0%"
+          },
+          {
+            "digit": 9,
+            "text": "3,0%"
+          },
+          {
+            "digit": 0,
+            "text": "45,3%"
+          }
+        ],
+        "weights": "n2: w=-0.5241 · w·a=-0.268\nn11: w=0.3915 · w·a=0.219\nn12: w=0.3861 · w·a=0.214\nn9: w=-0.3897 · w·a=-0.211\nn6: w=0.3639 · w·a=0.205\nn10: w=-0.2990 · w·a=-0.154\nn7: w=0.1698 · w·a=0.101\nn1: w=0.3805 · w·a=0.092",
+        "training": false,
+        "modeRecognition": "false"
+      },
+      "export": {
+        "steps": 1,
+        "sha256": "66bb3f7797fa71a04d022edd73ba4264687aa6ea2a011ee939335479a3c0ab02",
+        "path": "V:\\tmp\\codex\\2026-11-14\\digit-lab-full-audit-2119\\browser\\validation-trained.json",
+        "keys": [
+          "version",
+          "sizes",
+          "steps",
+          "layers"
+        ]
+      }
+    },
+    "blank-input": {
+      "text": {
+        "sample-name": "Пустой рисунок",
+        "predicted-digit": "4",
+        "confidence-copy": "Уверенность 16,1% · веса ещё случайны",
+        "inspection-title": "Выходной слой · цифра 4",
+        "activation-value": "0.1607",
+        "bias-value": "0.0000",
+        "model-status": "Случайные веса",
+        "training-message": "80 примеров для обучения · 20 отложены для проверки",
+        "epoch-label": "Готов к первой эпохе",
+        "epoch-count": "0 / 12",
+        "loss-value": "—",
+        "train-accuracy": "—",
+        "validation-accuracy": "—"
+      },
+      "outputs": [
+        {
+          "digit": 1,
+          "text": "7,9%"
+        },
+        {
+          "digit": 2,
+          "text": "7,2%"
+        },
+        {
+          "digit": 3,
+          "text": "10,0%"
+        },
+        {
+          "digit": 4,
+          "text": "16,1%"
+        },
+        {
+          "digit": 5,
+          "text": "13,6%"
+        },
+        {
+          "digit": 6,
+          "text": "8,5%"
+        },
+        {
+          "digit": 7,
+          "text": "10,5%"
+        },
+        {
+          "digit": 8,
+          "text": "8,1%"
+        },
+        {
+          "digit": 9,
+          "text": "4,4%"
+        },
+        {
+          "digit": 0,
+          "text": "13,9%"
+        }
+      ],
+      "weights": "n5: w=0.5102 · w·a=0.305\nn10: w=0.4072 · w·a=0.222\nn12: w=-0.3812 · w·a=-0.196\nn6: w=-0.3050 · w·a=-0.144\nn1: w=0.3357 · w·a=0.111\nn7: w=0.1817 · w·a=0.099\nn11: w=0.0887 · w·a=0.054\nn4: w=-0.0635 · w·a=-0.034",
+      "training": false,
+      "modeRecognition": "false"
+    },
+    "drawing": {
+      "text": {
+        "sample-name": "Собственный рисунок",
+        "predicted-digit": "4",
+        "confidence-copy": "Уверенность 16,4% · веса ещё случайны",
+        "inspection-title": "Выходной слой · цифра 4",
+        "activation-value": "0.1635",
+        "bias-value": "0.0000",
+        "model-status": "Случайные веса",
+        "training-message": "80 примеров для обучения · 20 отложены для проверки",
+        "epoch-label": "Готов к первой эпохе",
+        "epoch-count": "0 / 12",
+        "loss-value": "—",
+        "train-accuracy": "—",
+        "validation-accuracy": "—"
+      },
+      "outputs": [
+        {
+          "digit": 1,
+          "text": "7,6%"
+        },
+        {
+          "digit": 2,
+          "text": "7,3%"
+        },
+        {
+          "digit": 3,
+          "text": "9,6%"
+        },
+        {
+          "digit": 4,
+          "text": "16,4%"
+        },
+        {
+          "digit": 5,
+          "text": "13,7%"
+        },
+        {
+          "digit": 6,
+          "text": "8,3%"
+        },
+        {
+          "digit": 7,
+          "text": "10,0%"
+        },
+        {
+          "digit": 8,
+          "text": "8,4%"
+        },
+        {
+          "digit": 9,
+          "text": "4,3%"
+        },
+        {
+          "digit": 0,
+          "text": "14,3%"
+        }
+      ],
+      "weights": "n5: w=0.5102 · w·a=0.328\nn10: w=0.4072 · w·a=0.230\nn12: w=-0.3812 · w·a=-0.191\nn6: w=-0.3050 · w·a=-0.151\nn1: w=0.3357 · w·a=0.110\nn7: w=0.1817 · w·a=0.104\nn11: w=0.0887 · w·a=0.051\nn4: w=-0.0635 · w·a=-0.033",
+      "training": false,
+      "modeRecognition": "false"
+    },
+    "layout": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1108,
+        "rects": {
+          "network-canvas": {
+            "x": 533.484375,
+            "y": 218.375,
+            "width": 948.921875,
+            "height": 499.5,
+            "top": 218.375,
+            "right": 1482.40625,
+            "bottom": 717.875,
+            "left": 533.484375
+          },
+          "neuron-inspector": {
+            "x": 532.484375,
+            "y": 730.875,
+            "width": 950.921875,
+            "height": 165.09375,
+            "top": 730.875,
+            "right": 1483.40625,
+            "bottom": 895.96875,
+            "left": 532.484375
+          },
+          "predict": {
+            "x": 51,
+            "y": 855.671875,
+            "width": 429.484375,
+            "height": 40.296875,
+            "top": 855.671875,
+            "right": 480.484375,
+            "bottom": 895.96875,
+            "left": 51
+          },
+          "train-one": {
+            "x": 51,
+            "y": 805.375,
+            "width": 429.484375,
+            "height": 40.296875,
+            "top": 805.375,
+            "right": 480.484375,
+            "bottom": 845.671875,
+            "left": 51
+          },
+          "train-all": {
+            "x": 51,
+            "y": 999.96875,
+            "width": 551.046875,
+            "height": 40.296875,
+            "top": 999.96875,
+            "right": 602.046875,
+            "bottom": 1040.265625,
+            "left": 51
+          },
+          "digit-outputs": {
+            "x": 1535.40625,
+            "y": 335.078125,
+            "width": 333.59375,
+            "height": 389,
+            "top": 335.078125,
+            "right": 1869,
+            "bottom": 724.078125,
+            "left": 1535.40625
+          }
+        },
+        "fonts": {
+          "confidence-copy": "10px",
+          "training-message": "9px",
+          "sample-name": "10px",
+          "activation-value": "17px",
+          "weight-list": "14px"
+        }
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "scrollWidth": 1366,
+        "scrollHeight": 1104,
+        "rects": {
+          "network-canvas": {
+            "x": 389.515625,
+            "y": 214.734375,
+            "width": 654.28125,
+            "height": 492.5,
+            "top": 214.734375,
+            "right": 1043.796875,
+            "bottom": 707.234375,
+            "left": 389.515625
+          },
+          "neuron-inspector": {
+            "x": 388.515625,
+            "y": 720.234375,
+            "width": 656.28125,
+            "height": 172.09375,
+            "top": 720.234375,
+            "right": 1044.796875,
+            "bottom": 892.328125,
+            "left": 388.515625
+          },
+          "predict": {
+            "x": 46.3125,
+            "y": 852.03125,
+            "width": 290.203125,
+            "height": 40.296875,
+            "top": 852.03125,
+            "right": 336.515625,
+            "bottom": 892.328125,
+            "left": 46.3125
+          },
+          "train-one": {
+            "x": 46.3125,
+            "y": 801.734375,
+            "width": 290.203125,
+            "height": 40.296875,
+            "top": 801.734375,
+            "right": 336.515625,
+            "bottom": 842.03125,
+            "left": 46.3125
+          },
+          "train-all": {
+            "x": 46.3125,
+            "y": 996.328125,
+            "width": 372.09375,
+            "height": 40.296875,
+            "top": 996.328125,
+            "right": 418.40625,
+            "bottom": 1036.625,
+            "left": 46.3125
+          },
+          "digit-outputs": {
+            "x": 1096.796875,
+            "y": 331.4375,
+            "width": 222.890625,
+            "height": 389,
+            "top": 331.4375,
+            "right": 1319.6875,
+            "bottom": 720.4375,
+            "left": 1096.796875
+          }
+        },
+        "fonts": {
+          "confidence-copy": "10px",
+          "training-message": "9px",
+          "sample-name": "10px",
+          "activation-value": "17px",
+          "weight-list": "14px"
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 1095,
+        "rects": {
+          "network-canvas": {
+            "x": 369.6875,
+            "y": 209.6875,
+            "width": 625.4375,
+            "height": 469.5,
+            "top": 209.6875,
+            "right": 995.125,
+            "bottom": 679.1875,
+            "left": 369.6875
+          },
+          "neuron-inspector": {
+            "x": 368.6875,
+            "y": 692.1875,
+            "width": 627.4375,
+            "height": 195.09375,
+            "top": 692.1875,
+            "right": 996.125,
+            "bottom": 887.28125,
+            "left": 368.6875
+          },
+          "predict": {
+            "x": 40.59375,
+            "y": 846.984375,
+            "width": 288.09375,
+            "height": 40.296875,
+            "top": 846.984375,
+            "right": 328.6875,
+            "bottom": 887.28125,
+            "left": 40.59375
+          },
+          "train-one": {
+            "x": 40.59375,
+            "y": 796.6875,
+            "width": 288.09375,
+            "height": 40.296875,
+            "top": 796.6875,
+            "right": 328.6875,
+            "bottom": 836.984375,
+            "left": 40.59375
+          },
+          "train-all": {
+            "x": 44.59375,
+            "y": 987.28125,
+            "width": 352.859375,
+            "height": 40.296875,
+            "top": 987.28125,
+            "right": 397.453125,
+            "bottom": 1027.578125,
+            "left": 44.59375
+          },
+          "digit-outputs": {
+            "x": 1036.125,
+            "y": 326.390625,
+            "width": 203.265625,
+            "height": 389,
+            "top": 326.390625,
+            "right": 1239.390625,
+            "bottom": 715.390625,
+            "left": 1036.125
+          }
+        },
+        "fonts": {
+          "confidence-copy": "10px",
+          "training-message": "9px",
+          "sample-name": "10px",
+          "activation-value": "17px",
+          "weight-list": "14px"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "scrollWidth": 1024,
+        "scrollHeight": 1580,
+        "rects": {
+          "network-canvas": {
+            "x": 362.703125,
+            "y": 209.6875,
+            "width": 624.828125,
+            "height": 469.5,
+            "top": 209.6875,
+            "right": 987.53125,
+            "bottom": 679.1875,
+            "left": 362.703125
+          },
+          "neuron-inspector": {
+            "x": 361.703125,
+            "y": 692.1875,
+            "width": 626.828125,
+            "height": 195.09375,
+            "top": 692.1875,
+            "right": 988.53125,
+            "bottom": 887.28125,
+            "left": 361.703125
+          },
+          "predict": {
+            "x": 35.46875,
+            "y": 846.984375,
+            "width": 286.234375,
+            "height": 40.296875,
+            "top": 846.984375,
+            "right": 321.703125,
+            "bottom": 887.28125,
+            "left": 35.46875
+          },
+          "train-one": {
+            "x": 35.46875,
+            "y": 796.6875,
+            "width": 286.234375,
+            "height": 40.296875,
+            "top": 796.6875,
+            "right": 321.703125,
+            "bottom": 836.984375,
+            "left": 35.46875
+          },
+          "train-all": {
+            "x": 39.46875,
+            "y": 1433.5625,
+            "width": 269.71875,
+            "height": 40.296875,
+            "top": 1433.5625,
+            "right": 309.1875,
+            "bottom": 1473.859375,
+            "left": 39.46875
+          },
+          "digit-outputs": {
+            "x": 35.46875,
+            "y": 1079.46875,
+            "width": 953.0625,
+            "height": 195,
+            "top": 1079.46875,
+            "right": 988.53125,
+            "bottom": 1274.46875,
+            "left": 35.46875
+          }
+        },
+        "fonts": {
+          "confidence-copy": "10px",
+          "training-message": "9px",
+          "sample-name": "10px",
+          "activation-value": "17px",
+          "weight-list": "14px"
+        }
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 2920,
+        "rects": {
+          "network-canvas": {
+            "x": 28,
+            "y": 1796.4375,
+            "width": 334,
+            "height": 418,
+            "top": 1796.4375,
+            "right": 362,
+            "bottom": 2214.4375,
+            "left": 28
+          },
+          "neuron-inspector": {
+            "x": 27,
+            "y": 2227.4375,
+            "width": 336,
+            "height": 314.140625,
+            "top": 2227.4375,
+            "right": 363,
+            "bottom": 2541.578125,
+            "left": 27
+          },
+          "predict": {
+            "x": 27,
+            "y": 894.96875,
+            "width": 336,
+            "height": 40.296875,
+            "top": 894.96875,
+            "right": 363,
+            "bottom": 935.265625,
+            "left": 27
+          },
+          "train-one": {
+            "x": 27,
+            "y": 844.671875,
+            "width": 336,
+            "height": 40.296875,
+            "top": 844.671875,
+            "right": 363,
+            "bottom": 884.96875,
+            "left": 27
+          },
+          "train-all": {
+            "x": 31,
+            "y": 2635.875,
+            "width": 328,
+            "height": 40.296875,
+            "top": 2635.875,
+            "right": 359,
+            "bottom": 2676.171875,
+            "left": 31
+          },
+          "digit-outputs": {
+            "x": 27,
+            "y": 1127.453125,
+            "width": 336,
+            "height": 389,
+            "top": 1127.453125,
+            "right": 363,
+            "bottom": 1516.453125,
+            "left": 27
+          }
+        },
+        "fonts": {
+          "confidence-copy": "10px",
+          "training-message": "9px",
+          "sample-name": "10px",
+          "activation-value": "17px",
+          "weight-list": "14px"
+        }
+      }
+    ],
+    "keyboard": {
+      "tabCountThroughTrainOne": 109,
+      "sequence": [
+        {
+          "id": "",
+          "tag": "A",
+          "label": null,
+          "text": "К рабочей области"
+        },
+        {
+          "id": "help-button",
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Сценарий занятия"
+        },
+        {
+          "id": "theme-toggle",
+          "tag": "BUTTON",
+          "label": "Переключить тему",
+          "text": ""
+        },
+        {
+          "id": "source-gallery",
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Примеры 100"
+        },
+        {
+          "id": "source-draw",
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Нарисовать"
+        },
+        {
+          "id": "dataset-filter",
+          "tag": "SELECT",
+          "label": null,
+          "text": "Весь набор · 100\nОбучение · 80\nПроверка · 20"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 1, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 2, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 3, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 4, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 5, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 6, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 7, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 8, обучающий пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 9, проверочный пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 0, вариант 10, проверочный пример",
+          "text": "0"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 1, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 2, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 3, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 4, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 5, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 6, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 7, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 8, обучающий пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 9, проверочный пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 1, вариант 10, проверочный пример",
+          "text": "1"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 1, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 2, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 3, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 4, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 5, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 6, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 7, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 8, обучающий пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 9, проверочный пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 2, вариант 10, проверочный пример",
+          "text": "2"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 1, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 2, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 3, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 4, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 5, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 6, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 7, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 8, обучающий пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 9, проверочный пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 3, вариант 10, проверочный пример",
+          "text": "3"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 1, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 2, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 3, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 4, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 5, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 6, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 7, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 8, обучающий пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 9, проверочный пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 4, вариант 10, проверочный пример",
+          "text": "4"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 1, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 2, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 3, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 4, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 5, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 6, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 7, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 8, обучающий пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 9, проверочный пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 5, вариант 10, проверочный пример",
+          "text": "5"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 1, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 2, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 3, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 4, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 5, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 6, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 7, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 8, обучающий пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 9, проверочный пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 6, вариант 10, проверочный пример",
+          "text": "6"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 1, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 2, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 3, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 4, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 5, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 6, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 7, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 8, обучающий пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 9, проверочный пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 7, вариант 10, проверочный пример",
+          "text": "7"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 1, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 2, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 3, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 4, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 5, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 6, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 7, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 8, обучающий пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 9, проверочный пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 8, вариант 10, проверочный пример",
+          "text": "8"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 1, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 2, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 3, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 4, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 5, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 6, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 7, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 8, обучающий пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 9, проверочный пример",
+          "text": "9"
+        },
+        {
+          "id": "",
+          "tag": "BUTTON",
+          "label": "Цифра 9, вариант 10, проверочный пример",
+          "text": "9"
+        },
+        {
+          "id": "file-input",
+          "tag": "INPUT",
+          "label": null,
+          "text": ""
+        },
+        {
+          "id": "correct-answer",
+          "tag": "SELECT",
+          "label": null,
+          "text": "1\n2\n3\n4\n5\n6\n7\n8\n9\n0"
+        },
+        {
+          "id": "train-one",
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Обучить на этом примере"
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "external_requests": []
+}

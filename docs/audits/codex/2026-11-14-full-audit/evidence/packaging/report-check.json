@@ -1,0 +1,123 @@
+{
+  "links": [
+    {
+      "link": "npm-view.json",
+      "exists": true
+    },
+    {
+      "link": "git-repository-check.json",
+      "exists": true
+    },
+    {
+      "link": "delivery-summary.json",
+      "exists": true
+    },
+    {
+      "link": "../source-snapshot/package.json",
+      "exists": true
+    },
+    {
+      "link": "../source-snapshot/README.md",
+      "exists": true
+    },
+    {
+      "link": "../source-snapshot/src/server.js",
+      "exists": true
+    },
+    {
+      "link": "server-probes.mjs",
+      "exists": true
+    },
+    {
+      "link": "server-probes-run.json",
+      "exists": true
+    },
+    {
+      "link": "server-probes.json",
+      "exists": true
+    },
+    {
+      "link": "npm-pack.json",
+      "exists": true
+    },
+    {
+      "link": "npm-install.json",
+      "exists": true
+    },
+    {
+      "link": "npx-start-explicit.json",
+      "exists": true
+    },
+    {
+      "link": "delivery-summary.json",
+      "exists": true
+    },
+    {
+      "link": "pack-integrity-and-secrets.json",
+      "exists": true
+    },
+    {
+      "link": "server-probes.json",
+      "exists": true
+    },
+    {
+      "link": "server-probes.json",
+      "exists": true
+    },
+    {
+      "link": "server-probes.json",
+      "exists": true
+    },
+    {
+      "link": "server-probes.json",
+      "exists": true
+    },
+    {
+      "link": "delivery-summary.json",
+      "exists": true
+    },
+    {
+      "link": "pwsh7-verification.json",
+      "exists": true
+    },
+    {
+      "link": "cli-cases.json",
+      "exists": true
+    },
+    {
+      "link": "cli-server-tests.json",
+      "exists": true
+    },
+    {
+      "link": "pack-integrity-and-secrets.json",
+      "exists": true
+    },
+    {
+      "link": "delivery-summary.json",
+      "exists": true
+    },
+    {
+      "link": "npx-start.json",
+      "exists": true
+    },
+    {
+      "link": "powershell-npx-help.json",
+      "exists": true
+    },
+    {
+      "link": "powershell-command-resolution.json",
+      "exists": true
+    },
+    {
+      "link": "pwsh7-verification.json",
+      "exists": true
+    }
+  ],
+  "missing": [],
+  "emDash": false,
+  "replacementChar": false,
+  "findings": [
+    "PKG-01",
+    "PKG-02"
+  ]
+}

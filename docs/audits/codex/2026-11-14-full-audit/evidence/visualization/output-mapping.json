@@ -1,0 +1,22 @@
+{
+  "prediction": 0,
+  "probability0": 0.9999446868896484,
+  "firstOutputNodeText": [
+    {
+      "text": "1",
+      "x": 300,
+      "y": -3
+    },
+    {
+      "text": "100%",
+      "x": 300,
+      "y": 7
+    }
+  ],
+  "inspection": {
+    "layer": 3,
+    "index": 0,
+    "activation": 0.9999446868896484,
+    "bias": 12
+  }
+}

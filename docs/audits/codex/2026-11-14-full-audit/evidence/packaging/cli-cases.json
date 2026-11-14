@@ -1,0 +1,96 @@
+[
+  {
+    "args": [
+      "--help"
+    ],
+    "code": 0,
+    "signal": null,
+    "stdout": "Искусственный интеллект для инженеров — лаборатория нейросети\n\nnpx -y neural-network-digit-recognition [-- --port 4173] [--no-open]\n\n--port N   начальный порт (0 — свободный порт автоматически)\n--no-open  не открывать браузер автоматически\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--version"
+    ],
+    "code": 0,
+    "signal": null,
+    "stdout": "1.0.0\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--port"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Port must be an integer from 0 to 65535\n"
+  },
+  {
+    "args": [
+      "--port",
+      "abc"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Port must be an integer from 0 to 65535\n"
+  },
+  {
+    "args": [
+      "--port",
+      "-1"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Port must be an integer from 0 to 65535\n"
+  },
+  {
+    "args": [
+      "--port",
+      "65536"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Port must be from 0 to 65535\n"
+  },
+  {
+    "args": [
+      "--port",
+      "1.5"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Port must be an integer from 0 to 65535\n"
+  },
+  {
+    "args": [
+      "--port="
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Port must be an integer from 0 to 65535\n"
+  },
+  {
+    "args": [
+      "--unknown"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Unknown option: --unknown\n"
+  },
+  {
+    "args": [
+      "web"
+    ],
+    "code": 1,
+    "signal": null,
+    "stdout": "",
+    "stderr": "Не удалось запустить приложение: Unknown option: web\n"
+  }
+]

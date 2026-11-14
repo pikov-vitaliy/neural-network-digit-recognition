@@ -1,0 +1,32 @@
+{
+  "name": "neural-network-digit-recognition",
+  "version": "1.0.0",
+  "description": "Интерактивная лаборатория нейросети для курса «Искусственный интеллект для инженеров»",
+  "type": "module",
+  "bin": {
+    "neural-network-digit-recognition": "bin/digit-lab.js"
+  },
+  "scripts": {
+    "start": "node bin/digit-lab.js",
+    "generate": "node scripts/generate-samples.js",
+    "test": "node --test test/*.test.js"
+  },
+  "files": [
+    "bin/",
+    "public/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "neural-network",
+    "education",
+    "digits",
+    "visualization",
+    "russian"
+  ],
+  "license": "MIT"
+}

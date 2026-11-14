@@ -1,0 +1,7 @@
+{
+  "command": "npx.cmd --yes --offline --cache V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/powershell-cmd-cache --package=V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/neural-network-digit-recognition-1.0.0.tgz neural-network-digit-recognition --help",
+  "code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": ""
+}

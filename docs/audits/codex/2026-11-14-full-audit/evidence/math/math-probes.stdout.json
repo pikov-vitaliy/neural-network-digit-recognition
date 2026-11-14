@@ -1,0 +1,1142 @@
+{
+  "gradient": [
+    {
+      "sizes": [
+        2,
+        3,
+        2
+      ],
+      "seed": 7,
+      "parameters": 17,
+      "maxAbs": 5.0356395668322423e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        2,
+        3,
+        2
+      ],
+      "seed": 42,
+      "parameters": 17,
+      "maxAbs": 3.250645430608046e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        2,
+        3,
+        2
+      ],
+      "seed": 20261114,
+      "parameters": 17,
+      "maxAbs": 8.712533752786022e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "seed": 7,
+      "parameters": 39,
+      "maxAbs": 5.867133584525064e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "seed": 42,
+      "parameters": 39,
+      "maxAbs": 9.353394003763782e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        3,
+        4,
+        3,
+        2
+      ],
+      "seed": 20261114,
+      "parameters": 39,
+      "maxAbs": 7.10589748154078e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        256,
+        16,
+        12,
+        10
+      ],
+      "seed": 7,
+      "parameters": 4446,
+      "maxAbs": 5.95791018465075e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        256,
+        16,
+        12,
+        10
+      ],
+      "seed": 42,
+      "parameters": 4446,
+      "maxAbs": 6.58757600413562e-8,
+      "pass": true
+    },
+    {
+      "sizes": [
+        256,
+        16,
+        12,
+        10
+      ],
+      "seed": 20261114,
+      "parameters": 4446,
+      "maxAbs": 5.864419261314424e-8,
+      "pass": true
+    }
+  ],
+  "data": {
+    "records": 100,
+    "train": 80,
+    "validation": 20,
+    "generatorAllMatch": true,
+    "uniqueIds": 100,
+    "uniquePixelHashes": 100,
+    "splitDisjoint": true,
+    "trainGlyphFamilies": {
+      "primary": 50,
+      "alternate": 30
+    },
+    "validationGlyphFamilies": {
+      "primary": 20,
+      "alternate": 0
+    }
+  },
+  "seeds": [
+    {
+      "seed": 0,
+      "after12": {
+        "train": {
+          "loss": 0.7065622334029263,
+          "accuracy": 0.7125
+        },
+        "validation": {
+          "loss": 1.216750687982465,
+          "accuracy": 0.6
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.03926763714098024,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 1.0719156474072036,
+          "accuracy": 0.6
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.016981864052093877,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 1.1934320260256357,
+          "accuracy": 0.5
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 1,
+      "after12": {
+        "train": {
+          "loss": 0.7643283264059283,
+          "accuracy": 0.725
+        },
+        "validation": {
+          "loss": 1.234836957624336,
+          "accuracy": 0.6
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.06617420203029954,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.8455840220240984,
+          "accuracy": 0.7
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.024505069698567073,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.9258577308544425,
+          "accuracy": 0.7
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 2,
+      "after12": {
+        "train": {
+          "loss": 0.6348593872949183,
+          "accuracy": 0.7375
+        },
+        "validation": {
+          "loss": 0.8754867147566664,
+          "accuracy": 0.6
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.05875693441776927,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.6479060400624272,
+          "accuracy": 0.8
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.01865801143386216,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.796918592031293,
+          "accuracy": 0.7
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 3,
+      "after12": {
+        "train": {
+          "loss": 0.6290257702654358,
+          "accuracy": 0.725
+        },
+        "validation": {
+          "loss": 0.8926278606871945,
+          "accuracy": 0.65
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.04617584331305567,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.4557086532832623,
+          "accuracy": 0.8
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.018477204062702986,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.4521480360575775,
+          "accuracy": 0.85
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 4,
+      "after12": {
+        "train": {
+          "loss": 0.6885632781276856,
+          "accuracy": 0.8125
+        },
+        "validation": {
+          "loss": 0.9448960611392282,
+          "accuracy": 0.65
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.09091980035956042,
+          "accuracy": 0.975
+        },
+        "validation": {
+          "loss": 0.8041397826923804,
+          "accuracy": 0.6
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.02096386348917765,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.6325851907361508,
+          "accuracy": 0.85
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 7,
+      "after12": {
+        "train": {
+          "loss": 0.7723585251368863,
+          "accuracy": 0.6875
+        },
+        "validation": {
+          "loss": 1.1675902040553112,
+          "accuracy": 0.55
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.043453030321507255,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.8049581952441784,
+          "accuracy": 0.8
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.016140473299357784,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.8711301798865696,
+          "accuracy": 0.8
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 11,
+      "after12": {
+        "train": {
+          "loss": 0.7024770104121546,
+          "accuracy": 0.6875
+        },
+        "validation": {
+          "loss": 1.3050113979009972,
+          "accuracy": 0.5
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.04537625148211981,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.5790160274204602,
+          "accuracy": 0.85
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.019324259491341457,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.5140074323044548,
+          "accuracy": 0.85
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 42,
+      "after12": {
+        "train": {
+          "loss": 0.6231155331439298,
+          "accuracy": 0.7375
+        },
+        "validation": {
+          "loss": 0.9390866428522907,
+          "accuracy": 0.75
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.08439362510560491,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.7921144751198436,
+          "accuracy": 0.65
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.02347073479140253,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.8083562470731531,
+          "accuracy": 0.8
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 123,
+      "after12": {
+        "train": {
+          "loss": 0.8979743449169094,
+          "accuracy": 0.65
+        },
+        "validation": {
+          "loss": 1.3523313053434272,
+          "accuracy": 0.45
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.10211068038648988,
+          "accuracy": 0.9875
+        },
+        "validation": {
+          "loss": 1.0458804293702264,
+          "accuracy": 0.65
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.023325260901447993,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 1.2016857090654878,
+          "accuracy": 0.55
+        },
+        "steps": 2880
+      }
+    },
+    {
+      "seed": 20261114,
+      "after12": {
+        "train": {
+          "loss": 0.5150147835429649,
+          "accuracy": 0.8625
+        },
+        "validation": {
+          "loss": 0.8940853290291585,
+          "accuracy": 0.7
+        },
+        "steps": 960
+      },
+      "after24": {
+        "train": {
+          "loss": 0.04693315546889521,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 0.9465052966561858,
+          "accuracy": 0.65
+        },
+        "steps": 1920
+      },
+      "after36": {
+        "train": {
+          "loss": 0.017240925533955075,
+          "accuracy": 1
+        },
+        "validation": {
+          "loss": 1.0489399350401643,
+          "accuracy": 0.65
+        },
+        "steps": 2880
+      }
+    }
+  ],
+  "normalization": {
+    "reprocessed": {
+      "train": {
+        "loss": 0.9930539527265022,
+        "accuracy": 0.7125
+      },
+      "validation": {
+        "loss": 0.9483078433191734,
+        "accuracy": 0.65
+      },
+      "changedPredictions": [
+        {
+          "id": "digit-0-05",
+          "label": 0,
+          "before": 0,
+          "after": 6,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-0-06",
+          "label": 0,
+          "before": 0,
+          "after": 6,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-1-07",
+          "label": 1,
+          "before": 1,
+          "after": 2,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-2-06",
+          "label": 2,
+          "before": 2,
+          "after": 1,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-2-09",
+          "label": 2,
+          "before": 8,
+          "after": 6,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-3-00",
+          "label": 3,
+          "before": 3,
+          "after": 7,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-3-02",
+          "label": 3,
+          "before": 9,
+          "after": 7,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-3-03",
+          "label": 3,
+          "before": 3,
+          "after": 9,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-3-07",
+          "label": 3,
+          "before": 3,
+          "after": 9,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-3-08",
+          "label": 3,
+          "before": 5,
+          "after": 7,
+          "maxPixelDiff": 0.9960784316062927
+        },
+        {
+          "id": "digit-4-01",
+          "label": 4,
+          "before": 4,
+          "after": 9,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-5-06",
+          "label": 5,
+          "before": 5,
+          "after": 9,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-5-08",
+          "label": 5,
+          "before": 5,
+          "after": 9,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-5-09",
+          "label": 5,
+          "before": 6,
+          "after": 5,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-6-04",
+          "label": 6,
+          "before": 6,
+          "after": 5,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-6-05",
+          "label": 6,
+          "before": 6,
+          "after": 4,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-7-02",
+          "label": 7,
+          "before": 7,
+          "after": 9,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-7-08",
+          "label": 7,
+          "before": 7,
+          "after": 3,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-8-03",
+          "label": 8,
+          "before": 0,
+          "after": 4,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-8-05",
+          "label": 8,
+          "before": 6,
+          "after": 4,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-8-07",
+          "label": 8,
+          "before": 0,
+          "after": 6,
+          "maxPixelDiff": 1
+        },
+        {
+          "id": "digit-8-09",
+          "label": 8,
+          "before": 6,
+          "after": 0,
+          "maxPixelDiff": 1
+        }
+      ]
+    }
+  },
+  "ood": [
+    {
+      "name": "black",
+      "prediction": 1,
+      "confidence": 0.257155179977417,
+      "sumPixels": 0,
+      "probabilities": [
+        0.026697436347603798,
+        0.257155179977417,
+        0.060443099588155746,
+        0.15473513305187225,
+        0.10771407186985016,
+        0.012334300205111504,
+        0.07499141991138458,
+        0.10416606813669205,
+        0.01344195008277893,
+        0.1883213371038437
+      ]
+    },
+    {
+      "name": "white",
+      "prediction": 1,
+      "confidence": 0.257155179977417,
+      "sumPixels": 0,
+      "probabilities": [
+        0.026697436347603798,
+        0.257155179977417,
+        0.060443099588155746,
+        0.15473513305187225,
+        0.10771407186985016,
+        0.012334300205111504,
+        0.07499141991138458,
+        0.10416606813669205,
+        0.01344195008277893,
+        0.1883213371038437
+      ]
+    },
+    {
+      "name": "mid-gray",
+      "prediction": 0,
+      "confidence": 0.37312406301498413,
+      "sumPixels": 72,
+      "probabilities": [
+        0.37312406301498413,
+        0.000400570104829967,
+        0.011998497880995274,
+        0.017899051308631897,
+        0.0079490402713418,
+        0.005143909715116024,
+        0.28512516617774963,
+        0.0002559034328442067,
+        0.27296847105026245,
+        0.025135312229394913
+      ]
+    },
+    {
+      "name": "single-pixel",
+      "prediction": 0,
+      "confidence": 0.36691030859947205,
+      "sumPixels": 81,
+      "probabilities": [
+        0.36691030859947205,
+        0.0004338330472819507,
+        0.008776065893471241,
+        0.017278773710131645,
+        0.024708494544029236,
+        0.004005397204309702,
+        0.29016444087028503,
+        0.0005002330290153623,
+        0.23841866850852966,
+        0.048803798854351044
+      ]
+    },
+    {
+      "name": "checkerboard",
+      "prediction": 0,
+      "confidence": 0.3806658387184143,
+      "sumPixels": 72,
+      "probabilities": [
+        0.3806658387184143,
+        0.00047400666517205536,
+        0.011953677050769329,
+        0.02195926383137703,
+        0.007766005117446184,
+        0.0060715824365615845,
+        0.25981345772743225,
+        0.00035016884794458747,
+        0.2807598114013672,
+        0.03018617257475853
+      ]
+    },
+    {
+      "name": "horizontal-line",
+      "prediction": 4,
+      "confidence": 0.41055071353912354,
+      "sumPixels": 12,
+      "probabilities": [
+        0.1077752485871315,
+        0.004494911525398493,
+        0.02173776365816593,
+        0.025994252413511276,
+        0.41055071353912354,
+        0.001593313878402114,
+        0.2656494677066803,
+        0.0036168675869703293,
+        0.06252279132604599,
+        0.09606466442346573
+      ]
+    }
+  ],
+  "oodNoise": {
+    "seed": 8842,
+    "count": 500,
+    "maxConfidence": 0.4179757535457611,
+    "meanConfidence": 0.3692069084048271,
+    "atLeast90": 0,
+    "atLeast80": 0,
+    "byPrediction": {
+      "0": 446,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 54,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    }
+  },
+  "edge": [
+    {
+      "name": "large-finite-output-weights",
+      "importAccepted": true,
+      "probabilitiesFinite": true,
+      "probabilities": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "prediction": 0,
+      "confidence": "0.10000000149011612"
+    },
+    {
+      "name": "large-finite-output-biases",
+      "importAccepted": true,
+      "probabilitiesFinite": true,
+      "probabilities": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "prediction": 0,
+      "confidence": "0.10000000149011612"
+    },
+    {
+      "name": "cross-entropy-clamp",
+      "actualLoss": 27.631021115928547,
+      "stableReferenceLoss": 100,
+      "probabilities": [
+        1,
+        3.783505853677006e-44
+      ]
+    }
+  ],
+  "novelFonts": {
+    "count": 40,
+    "overall": {
+      "loss": 0.8657426463488797,
+      "accuracy": 0.75
+    },
+    "byFont": {
+      "arial.ttf": {
+        "loss": 0.7124152559068062,
+        "accuracy": 0.8
+      },
+      "times.ttf": {
+        "loss": 1.3749686787794926,
+        "accuracy": 0.6
+      },
+      "comic.ttf": {
+        "loss": 0.6222127458319056,
+        "accuracy": 0.9
+      },
+      "segoeui.ttf": {
+        "loss": 0.7533739048773138,
+        "accuracy": 0.7
+      }
+    },
+    "predictions": [
+      {
+        "id": "arial-0",
+        "font": "arial.ttf",
+        "label": 0,
+        "prediction": 0,
+        "confidence": 0.4014538824558258
+      },
+      {
+        "id": "arial-1",
+        "font": "arial.ttf",
+        "label": 1,
+        "prediction": 1,
+        "confidence": 0.8339828848838806
+      },
+      {
+        "id": "arial-2",
+        "font": "arial.ttf",
+        "label": 2,
+        "prediction": 2,
+        "confidence": 0.8387569785118103
+      },
+      {
+        "id": "arial-3",
+        "font": "arial.ttf",
+        "label": 3,
+        "prediction": 3,
+        "confidence": 0.47907358407974243
+      },
+      {
+        "id": "arial-4",
+        "font": "arial.ttf",
+        "label": 4,
+        "prediction": 4,
+        "confidence": 0.8907350301742554
+      },
+      {
+        "id": "arial-5",
+        "font": "arial.ttf",
+        "label": 5,
+        "prediction": 5,
+        "confidence": 0.8043965697288513
+      },
+      {
+        "id": "arial-6",
+        "font": "arial.ttf",
+        "label": 6,
+        "prediction": 6,
+        "confidence": 0.3439253568649292
+      },
+      {
+        "id": "arial-7",
+        "font": "arial.ttf",
+        "label": 7,
+        "prediction": 7,
+        "confidence": 0.8368135094642639
+      },
+      {
+        "id": "arial-8",
+        "font": "arial.ttf",
+        "label": 8,
+        "prediction": 0,
+        "confidence": 0.3573993444442749
+      },
+      {
+        "id": "arial-9",
+        "font": "arial.ttf",
+        "label": 9,
+        "prediction": 0,
+        "confidence": 0.39863136410713196
+      },
+      {
+        "id": "times-0",
+        "font": "times.ttf",
+        "label": 0,
+        "prediction": 0,
+        "confidence": 0.40306735038757324
+      },
+      {
+        "id": "times-1",
+        "font": "times.ttf",
+        "label": 1,
+        "prediction": 1,
+        "confidence": 0.9222854971885681
+      },
+      {
+        "id": "times-2",
+        "font": "times.ttf",
+        "label": 2,
+        "prediction": 2,
+        "confidence": 0.33460596203804016
+      },
+      {
+        "id": "times-3",
+        "font": "times.ttf",
+        "label": 3,
+        "prediction": 1,
+        "confidence": 0.552044689655304
+      },
+      {
+        "id": "times-4",
+        "font": "times.ttf",
+        "label": 4,
+        "prediction": 4,
+        "confidence": 0.8691762685775757
+      },
+      {
+        "id": "times-5",
+        "font": "times.ttf",
+        "label": 5,
+        "prediction": 7,
+        "confidence": 0.521245002746582
+      },
+      {
+        "id": "times-6",
+        "font": "times.ttf",
+        "label": 6,
+        "prediction": 6,
+        "confidence": 0.4563795030117035
+      },
+      {
+        "id": "times-7",
+        "font": "times.ttf",
+        "label": 7,
+        "prediction": 7,
+        "confidence": 0.8453131318092346
+      },
+      {
+        "id": "times-8",
+        "font": "times.ttf",
+        "label": 8,
+        "prediction": 9,
+        "confidence": 0.2788028419017792
+      },
+      {
+        "id": "times-9",
+        "font": "times.ttf",
+        "label": 9,
+        "prediction": 0,
+        "confidence": 0.32655611634254456
+      },
+      {
+        "id": "comic-0",
+        "font": "comic.ttf",
+        "label": 0,
+        "prediction": 0,
+        "confidence": 0.3879842162132263
+      },
+      {
+        "id": "comic-1",
+        "font": "comic.ttf",
+        "label": 1,
+        "prediction": 1,
+        "confidence": 0.6386936902999878
+      },
+      {
+        "id": "comic-2",
+        "font": "comic.ttf",
+        "label": 2,
+        "prediction": 2,
+        "confidence": 0.8279473185539246
+      },
+      {
+        "id": "comic-3",
+        "font": "comic.ttf",
+        "label": 3,
+        "prediction": 3,
+        "confidence": 0.42456749081611633
+      },
+      {
+        "id": "comic-4",
+        "font": "comic.ttf",
+        "label": 4,
+        "prediction": 4,
+        "confidence": 0.8911593556404114
+      },
+      {
+        "id": "comic-5",
+        "font": "comic.ttf",
+        "label": 5,
+        "prediction": 5,
+        "confidence": 0.7088509798049927
+      },
+      {
+        "id": "comic-6",
+        "font": "comic.ttf",
+        "label": 6,
+        "prediction": 6,
+        "confidence": 0.44633570313453674
+      },
+      {
+        "id": "comic-7",
+        "font": "comic.ttf",
+        "label": 7,
+        "prediction": 7,
+        "confidence": 0.8004573583602905
+      },
+      {
+        "id": "comic-8",
+        "font": "comic.ttf",
+        "label": 8,
+        "prediction": 0,
+        "confidence": 0.3423457741737366
+      },
+      {
+        "id": "comic-9",
+        "font": "comic.ttf",
+        "label": 9,
+        "prediction": 9,
+        "confidence": 0.4770139753818512
+      },
+      {
+        "id": "segoeui-0",
+        "font": "segoeui.ttf",
+        "label": 0,
+        "prediction": 0,
+        "confidence": 0.39961111545562744
+      },
+      {
+        "id": "segoeui-1",
+        "font": "segoeui.ttf",
+        "label": 1,
+        "prediction": 1,
+        "confidence": 0.7897835373878479
+      },
+      {
+        "id": "segoeui-2",
+        "font": "segoeui.ttf",
+        "label": 2,
+        "prediction": 2,
+        "confidence": 0.6643827557563782
+      },
+      {
+        "id": "segoeui-3",
+        "font": "segoeui.ttf",
+        "label": 3,
+        "prediction": 2,
+        "confidence": 0.316618412733078
+      },
+      {
+        "id": "segoeui-4",
+        "font": "segoeui.ttf",
+        "label": 4,
+        "prediction": 4,
+        "confidence": 0.8798435926437378
+      },
+      {
+        "id": "segoeui-5",
+        "font": "segoeui.ttf",
+        "label": 5,
+        "prediction": 5,
+        "confidence": 0.9093261361122131
+      },
+      {
+        "id": "segoeui-6",
+        "font": "segoeui.ttf",
+        "label": 6,
+        "prediction": 5,
+        "confidence": 0.3784041106700897
+      },
+      {
+        "id": "segoeui-7",
+        "font": "segoeui.ttf",
+        "label": 7,
+        "prediction": 7,
+        "confidence": 0.6783435344696045
+      },
+      {
+        "id": "segoeui-8",
+        "font": "segoeui.ttf",
+        "label": 8,
+        "prediction": 0,
+        "confidence": 0.3509610891342163
+      },
+      {
+        "id": "segoeui-9",
+        "font": "segoeui.ttf",
+        "label": 9,
+        "prediction": 9,
+        "confidence": 0.3387559652328491
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "PowerShell 7.7.0",
+  "nodeResolution": "C:/Program Files/nodejs/node.exe",
+  "npxResolution": "C:/Program Files/nodejs/npx.ps1",
+  "npxNpmVersion": "11.12.1",
+  "command": "npx --yes --offline --cache V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/pwsh7-cache --package=V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/neural-network-digit-recognition-1.0.0.tgz neural-network-digit-recognition --help",
+  "exitCode": 0,
+  "stdoutContainsHelp": true,
+  "stdout": "Искусственный интеллект для инженеров — лаборатория нейросети\n\nnpx -y neural-network-digit-recognition [-- --port 4173] [--no-open]\n\n--port N   начальный порт (0 — свободный порт автоматически)\n--no-open  не открывать браузер автоматически\n"
+}

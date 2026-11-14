@@ -1,0 +1,16 @@
+{
+  "pid": 33744,
+  "stdout": "\nЦифра. Слой за слоем — приложение запущено.\nhttp://127.0.0.1:58643\nНажмите Ctrl+C, чтобы остановить сервер.\n\n",
+  "stderr": "",
+  "exited": false,
+  "command": "npx --yes --offline --package=\"V:/tmp/codex/2026-11-14/digit-lab-full-audit-2119/packaging/neural-network-digit-recognition-1.0.0.tgz\" neural-network-digit-recognition --no-open --port 0",
+  "url": "http://127.0.0.1:58643",
+  "httpStatus": 200,
+  "bodyHasCourse": true,
+  "stop": {
+    "code": 0,
+    "signal": null,
+    "stdout": "SUCCESS: The process with PID 48164 (child process of PID 35092) has been terminated.\r\nSUCCESS: The process with PID 67392 (child process of PID 33744) has been terminated.\r\nSUCCESS: The process with PID 35092 (child process of PID 33744) has been terminated.\r\nSUCCESS: The process with PID 33744 (child process of PID 40704) has been terminated.\r\n",
+    "stderr": ""
+  }
+}

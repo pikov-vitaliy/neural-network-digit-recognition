@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-14T20:56:46.930Z",
+  "runtime": "v24.16.0",
+  "configuration": {
+    "sizes": [
+      2,
+      3,
+      2
+    ],
+    "seed": 7,
+    "input": [
+      0.20000000298023224,
+      0.800000011920929
+    ],
+    "label": 1,
+    "parameter": "layers[1].weights[0]",
+    "eta": 1
+  },
+  "counterexample": {
+    "activation": 0.2725503742694855,
+    "delta_dLdz": 0.5545456409454346,
+    "deltaTimesActivation": 0.1511416219891899,
+    "finiteDifference_dLdw": 0.151141613186053,
+    "weightDerivativeFromUpdate": 0.15114162117242813,
+    "incorrectExtraDivisionByActivation": 0.5545456379486976,
+    "errorCorrectMethod": 7.986375144541924e-9,
+    "errorIncorrectMethod": 0.4034040247626446
+  },
+  "repeatedSweep": {
+    "total": 13506,
+    "failed": 0,
+    "maxAbs": 9.353394003763782e-8,
+    "originalResultsExactlyReproduced": true
+  },
+  "sourceHashes": {
+    "src/shared/neural-network.js": "ccb419ef0fc1de86f3ca98f42b4cce85baf621f9d6b2a645492389774c0e53d8",
+    "test/neural-network.test.js": "b98f8b302cf9923560ebc51ecbdab12bfbd0da5284e81c4b52ae4fcc821bad10"
+  },
+  "sourceUnchanged": true
+}

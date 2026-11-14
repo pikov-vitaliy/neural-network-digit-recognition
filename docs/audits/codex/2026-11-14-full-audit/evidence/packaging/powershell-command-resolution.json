@@ -1,0 +1,6 @@
+{
+  "code": 1,
+  "signal": null,
+  "stdout": "5.1.26100.7462\r\n[\r\n    {\r\n        \"Name\":  \"npx.ps1\",\r\n        \"Source\":  \"C:\\\\Program Files\\\\nodejs\\\\npx.ps1\",\r\n        \"CommandType\":  16\r\n    },\r\n    {\r\n        \"Name\":  \"npx.cmd\",\r\n        \"Source\":  \"C:\\\\Program Files\\\\nodejs\\\\npx.cmd\",\r\n        \"CommandType\":  32\r\n    }\r\n]\r\n",
+  "stderr": "Get-Command : The term 'node' is not recognized as the name of a cmdlet, function, script file, or operable program. \r\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\r\nAt line:1 char:39\r\n+ ... rsionTable.PSVersion.ToString(); Get-Command node,npx,npx.cmd | Selec ...\r\n+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : ObjectNotFound: (node:String) [Get-Command], CommandNotFoundException\r\n    + FullyQualifiedErrorId : CommandNotFoundException,Microsoft.PowerShell.Commands.GetCommandCommand\r\n \r\n"
+}

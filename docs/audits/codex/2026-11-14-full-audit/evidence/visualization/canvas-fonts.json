@@ -1,0 +1,87 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "canvas": {
+      "width": 692.71875,
+      "height": 492.5,
+      "bitmapWidth": 693,
+      "bitmapHeight": 493
+    },
+    "fonts": [
+      "6.64563px \"Cascadia Mono\", Consolas, monospace",
+      "11px \"Cascadia Mono\", Consolas, monospace",
+      "6px \"Cascadia Mono\", Consolas, monospace",
+      "8px \"Cascadia Mono\", Consolas, monospace",
+      "8px \"Segoe UI\", sans-serif",
+      "7px \"Cascadia Mono\", Consolas, monospace",
+      "7.61438px \"Cascadia Mono\", Consolas, monospace"
+    ],
+    "hiddenExample": {
+      "text": "0.38",
+      "font": "6.64563px \"Cascadia Mono\", Consolas, monospace",
+      "x": 297.99,
+      "y": 52,
+      "scaleX": 1
+    },
+    "percentExample": {
+      "text": "14%",
+      "font": "6px \"Cascadia Mono\", Consolas, monospace",
+      "x": 616.77,
+      "y": 59,
+      "scaleX": 1
+    },
+    "layerExample": {
+      "text": "СКРЫТЫЙ · 16",
+      "font": "8px \"Cascadia Mono\", Consolas, monospace",
+      "x": 297.99,
+      "y": 23,
+      "scaleX": 1
+    },
+    "weightsInInspector": 8
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "canvas": {
+      "width": 334,
+      "height": 418,
+      "bitmapWidth": 334,
+      "bitmapHeight": 418
+    },
+    "fonts": [
+      "7px \"Cascadia Mono\", Consolas, monospace",
+      "6.16125px \"Cascadia Mono\", Consolas, monospace",
+      "11px \"Cascadia Mono\", Consolas, monospace",
+      "6px \"Cascadia Mono\", Consolas, monospace",
+      "8px \"Cascadia Mono\", Consolas, monospace",
+      "8px \"Segoe UI\", sans-serif"
+    ],
+    "hiddenExample": {
+      "text": "0.42",
+      "font": "7px \"Cascadia Mono\", Consolas, monospace",
+      "x": 266.3984,
+      "y": 278.1333333333333,
+      "scaleX": 1
+    },
+    "percentExample": {
+      "text": "14%",
+      "font": "6px \"Cascadia Mono\", Consolas, monospace",
+      "x": 297.26,
+      "y": 59,
+      "scaleX": 1
+    },
+    "layerExample": {
+      "text": "СКРЫТЫЙ · 16",
+      "font": "8px \"Cascadia Mono\", Consolas, monospace",
+      "x": 143.62,
+      "y": 23,
+      "scaleX": 1
+    },
+    "weightsInInspector": 8
+  }
+]
