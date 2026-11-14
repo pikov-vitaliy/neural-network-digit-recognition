@@ -54,7 +54,7 @@ test('backpropagation matches numerical gradients for a weight and a bias', () =
     parameter[0] = original;
     const numericalGradient = (plus - minus) / (2 * epsilon);
     network.trainExample(input, label, 1);
-    const analyticGradient = original - parameter[0];
+    const analyticGradient = original - network.layers[1][target][0];
     close(analyticGradient, numericalGradient, 2e-5);
   }
 });
@@ -99,4 +99,48 @@ test('model JSON rejects unsupported versions, shapes and corrupt data', () => {
   const corrupt = network.toJSON();
   corrupt.layers[0].weights = '%%%not-base64%%%';
   assert.throws(() => DigitNetwork.fromJSON(corrupt), /base64|data|weight/i);
+});
+
+test('cross-entropy uses stable logits for an extremely confident mistake', () => {
+  const network = new DigitNetwork({ sizes: [1, 2] });
+  network.layers[0].weights.set([50, -50]);
+  const result = network.forward([1]);
+  close(result.logits[0], 50);
+  close(result.logits[1], -50);
+  close(network.prepareTrainingStep([1], 1).loss, 100, 1e-5);
+  close(network.evaluate([{ pixels: [1], label: 1 }]).loss, 100, 1e-5);
+});
+
+test('finite but numerically unsafe model parameters cannot produce NaN', () => {
+  const network = new DigitNetwork({ sizes: [1, 2] });
+  network.layers[0].weights.fill(3e38);
+  network.layers[0].biases.fill(3e38);
+  assert.throws(() => network.forward([1]), /numerical|finite|range|диапазон/i);
+});
+
+test('prepared SGD step is immutable until applied and exposes a real weight change', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2], seed: 19 });
+  const before = network.toJSON();
+  const plan = network.prepareTrainingStep([0.1, 0.9], 1, 0.2, { layer: 1, target: 1, source: 0 });
+  assert.deepEqual(network.toJSON(), before);
+  assert.equal(plan.forward.activations.length, 3);
+  assert.equal(plan.sums.length, 2);
+  const change = network.weightChange(plan);
+  close(change.oldWeight, network.layers[1].weights[3]);
+  assert.ok(Math.abs(change.gradient) > 0);
+  close(change.deltaWeight, -0.2 * change.gradient);
+  close(change.newWeight, change.oldWeight + change.deltaWeight, 1e-7);
+  assert.ok(plan.loss > 0 && Number.isFinite(plan.loss));
+  network.applyTrainingStep(plan);
+  assert.equal(network.steps, 1);
+  close(network.layers[1].weights[3], change.newWeight, 1e-7);
+  assert.throws(() => network.applyTrainingStep(plan), /current|version|шаг/i);
+});
+
+test('trainExample applies the same prepared step exactly once', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2], seed: 19 });
+  const result = network.trainExample([0.1, 0.9], 1, 0.2);
+  assert.equal(network.steps, 1);
+  close(network.layers[1].weights[3], network.weightChange(result.plan).newWeight, 1e-7);
+  assert.ok(Number.isFinite(result.loss));
 });

@@ -1,4 +1,19 @@
 const MODEL_VERSION = 1;
+export const MAX_LOGIT_MAGNITUDE = 1e6;
+
+export function crossEntropyFromLogits(logits, label) {
+  if (!logits || !Number.isInteger(label) || label < 0 || label >= logits.length) {
+    throw new RangeError('Label is outside the output layer');
+  }
+  let maximum = -Infinity;
+  for (const logit of logits) {
+    if (!Number.isFinite(logit)) throw new RangeError('Logits must be finite');
+    maximum = Math.max(maximum, logit);
+  }
+  let exponentialSum = 0;
+  for (const logit of logits) exponentialSum += Math.exp(logit - maximum);
+  return maximum + Math.log(exponentialSum) - logits[label];
+}
 
 function randomGenerator(seed) {
   let state = seed >>> 0;
@@ -72,53 +87,49 @@ export class DigitNetwork {
     let current = input instanceof Float32Array ? input : Float32Array.from(input);
     if (!current.every(Number.isFinite)) throw new TypeError('Input values must be finite');
     const activations = [current];
+    const sums = [];
     for (let layerIndex = 0; layerIndex < this.layers.length; layerIndex += 1) {
       const layer = this.layers[layerIndex];
       const outputSize = this.sizes[layerIndex + 1];
       const output = new Float32Array(outputSize);
-      const isOutput = layerIndex === this.layers.length - 1;
-      if (isOutput) {
-        let maximum = -Infinity;
-        for (let neuron = 0; neuron < outputSize; neuron += 1) {
-          let sum = layer.biases[neuron];
-          for (let source = 0; source < current.length; source += 1) {
-            sum += layer.weights[neuron * current.length + source] * current[source];
-          }
-          output[neuron] = sum;
-          maximum = Math.max(maximum, output[neuron]);
+      const layerSums = new Float64Array(outputSize);
+      for (let neuron = 0; neuron < outputSize; neuron += 1) {
+        let sum = layer.biases[neuron];
+        for (let source = 0; source < current.length; source += 1) {
+          sum += layer.weights[neuron * current.length + source] * current[source];
         }
-        let total = 0;
-        for (let neuron = 0; neuron < outputSize; neuron += 1) {
-          output[neuron] = Math.exp(output[neuron] - maximum);
-          total += output[neuron];
+        if (!Number.isFinite(sum) || Math.abs(sum) > MAX_LOGIT_MAGNITUDE) {
+          throw new RangeError('Numerical range exceeded during forward pass');
         }
-        for (let neuron = 0; neuron < outputSize; neuron += 1) output[neuron] /= total;
-      } else {
-        for (let neuron = 0; neuron < outputSize; neuron += 1) {
-          let sum = layer.biases[neuron];
-          for (let source = 0; source < current.length; source += 1) {
-            sum += layer.weights[neuron * current.length + source] * current[source];
-          }
-          output[neuron] = sigmoid(sum);
-        }
+        layerSums[neuron] = sum;
+        output[neuron] = layerIndex === this.layers.length - 1 ? sum : sigmoid(sum);
       }
+      sums.push(layerSums);
       activations.push(output);
       current = output;
     }
+    const logits = sums.at(-1);
+    const maximum = Math.max(...logits);
+    const exponentials = Float64Array.from(logits, (logit) => Math.exp(logit - maximum));
+    const total = exponentials.reduce((sum, value) => sum + value, 0);
+    const probabilities = Float32Array.from(exponentials, (value) => value / total);
+    if (!probabilities.every(Number.isFinite)) throw new RangeError('Forward pass produced invalid probabilities');
     this.activations = activations;
     let prediction = 0;
-    for (let digit = 1; digit < current.length; digit += 1) {
-      if (current[digit] > current[prediction]) prediction = digit;
+    for (let digit = 1; digit < probabilities.length; digit += 1) {
+      if (probabilities[digit] > probabilities[prediction]) prediction = digit;
     }
     return {
-      activations,
-      probabilities: current,
+      activations: [...activations.slice(0, -1), probabilities],
+      sums,
+      logits,
+      probabilities,
       prediction,
-      confidence: current[prediction],
+      confidence: probabilities[prediction],
     };
   }
 
-  trainExample(input, label, learningRate = 0.35) {
+  prepareTrainingStep(input, label, learningRate = 0.35, selection = null) {
     if (!Number.isInteger(label) || label < 0 || label >= this.sizes.at(-1)) {
       throw new RangeError('Label is outside the output layer');
     }
@@ -127,17 +138,14 @@ export class DigitNetwork {
     }
     const result = this.forward(input);
     const deltas = new Array(this.layers.length);
-    const outputDelta = new Float32Array(result.probabilities.length);
-    for (let neuron = 0; neuron < outputDelta.length; neuron += 1) {
-      outputDelta[neuron] = result.probabilities[neuron] - (neuron === label ? 1 : 0);
-    }
-    deltas[deltas.length - 1] = outputDelta;
+    deltas[deltas.length - 1] = Float64Array.from(result.probabilities,
+      (probability, neuron) => probability - (neuron === label ? 1 : 0));
     for (let layerIndex = this.layers.length - 2; layerIndex >= 0; layerIndex -= 1) {
       const outputSize = this.sizes[layerIndex + 1];
       const nextLayer = this.layers[layerIndex + 1];
       const nextDelta = deltas[layerIndex + 1];
       const activation = result.activations[layerIndex + 1];
-      const delta = new Float32Array(outputSize);
+      const delta = new Float64Array(outputSize);
       for (let neuron = 0; neuron < outputSize; neuron += 1) {
         let error = 0;
         for (let target = 0; target < nextDelta.length; target += 1) {
@@ -147,24 +155,79 @@ export class DigitNetwork {
       }
       deltas[layerIndex] = delta;
     }
+    const weightsBefore = this.layers.map((layer) => new Float32Array(layer.weights));
+    const biasesBefore = this.layers.map((layer) => new Float32Array(layer.biases));
+    const weightsAfter = [];
+    const biasesAfter = [];
     for (let layerIndex = 0; layerIndex < this.layers.length; layerIndex += 1) {
-      const layer = this.layers[layerIndex];
       const inputActivation = result.activations[layerIndex];
-      const delta = deltas[layerIndex];
-      for (let neuron = 0; neuron < delta.length; neuron += 1) {
-        const gradient = delta[neuron];
+      const weights = new Float32Array(weightsBefore[layerIndex].length);
+      for (let neuron = 0; neuron < deltas[layerIndex].length; neuron += 1) {
         for (let source = 0; source < inputActivation.length; source += 1) {
-          layer.weights[neuron * inputActivation.length + source] -= learningRate * gradient * inputActivation[source];
+          const index = neuron * inputActivation.length + source;
+          weights[index] = weightsBefore[layerIndex][index]
+            - learningRate * deltas[layerIndex][neuron] * inputActivation[source];
         }
-        layer.biases[neuron] -= learningRate * gradient;
+      }
+      const biases = Float32Array.from(biasesBefore[layerIndex],
+        (bias, neuron) => bias - learningRate * deltas[layerIndex][neuron]);
+      if (!weights.every(Number.isFinite) || !biases.every(Number.isFinite)) {
+        throw new RangeError('Training step produced invalid parameters');
+      }
+      weightsAfter.push(weights);
+      biasesAfter.push(biases);
+    }
+    const lastLayer = this.layers.length - 1;
+    const selected = selection || { layer: lastLayer, target: label, source: 0 };
+    const plan = {
+      network: this, steps: this.steps, input: Float32Array.from(input), label, learningRate,
+      selection: selected, forward: result, sums: result.sums, loss: crossEntropyFromLogits(result.logits, label),
+      deltas, weightsBefore, biasesBefore, weightsAfter, biasesAfter,
+    };
+    this.weightChange(plan, selected.layer, selected.target, selected.source);
+    return plan;
+  }
+
+  weightChange(plan, layer = plan.selection.layer, target = plan.selection.target, source = plan.selection.source) {
+    if (plan.network !== this || !Number.isInteger(layer) || layer < 0 || layer >= this.layers.length) {
+      throw new RangeError('Weight change must belong to the current network');
+    }
+    const inputCount = this.sizes[layer];
+    if (!Number.isInteger(target) || target < 0 || target >= this.sizes[layer + 1] ||
+        !Number.isInteger(source) || source < 0 || source >= inputCount) {
+      throw new RangeError('Weight index is outside the network');
+    }
+    const index = target * inputCount + source;
+    const gradient = plan.deltas[layer][target] * plan.forward.activations[layer][source];
+    return {
+      layer, target, source, gradient, learningRate: plan.learningRate,
+      oldWeight: plan.weightsBefore[layer][index],
+      deltaWeight: -plan.learningRate * gradient,
+      newWeight: plan.weightsAfter[layer][index],
+    };
+  }
+
+  applyTrainingStep(plan) {
+    if (plan.network !== this || plan.steps !== this.steps) {
+      throw new Error('Training plan does not match the current network version');
+    }
+    for (let layer = 0; layer < this.layers.length; layer += 1) {
+      if (!plan.weightsBefore[layer].every((weight, index) => weight === this.layers[layer].weights[index]) ||
+          !plan.biasesBefore[layer].every((bias, index) => bias === this.layers[layer].biases[index])) {
+        throw new Error('Training plan does not match the current parameters');
       }
     }
+    const updated = new DigitNetwork({ sizes: this.sizes });
+    updated.layers = plan.weightsAfter.map((weights, layer) => ({ weights, biases: plan.biasesAfter[layer] }));
+    updated.forward(plan.input);
+    this.layers = updated.layers;
     this.steps += 1;
-    return {
-      loss: -Math.log(Math.max(result.probabilities[label], 1e-12)),
-      prediction: result.prediction,
-      confidence: result.confidence,
-    };
+  }
+
+  trainExample(input, label, learningRate = 0.35) {
+    const plan = this.prepareTrainingStep(input, label, learningRate);
+    this.applyTrainingStep(plan);
+    return { loss: plan.loss, prediction: plan.forward.prediction, confidence: plan.forward.confidence, plan };
   }
 
   evaluate(samples) {
@@ -173,7 +236,7 @@ export class DigitNetwork {
     let correct = 0;
     for (const sample of samples) {
       const result = this.forward(sample.pixels);
-      loss -= Math.log(Math.max(result.probabilities[sample.label], 1e-12));
+      loss += crossEntropyFromLogits(result.logits, sample.label);
       if (result.prediction === sample.label) correct += 1;
     }
     return { loss: loss / samples.length, accuracy: correct / samples.length };
