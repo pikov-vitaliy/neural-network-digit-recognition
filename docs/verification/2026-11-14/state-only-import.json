@@ -1,0 +1,20 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "stage": "state",
+  "results": [
+    {
+      "name": "AUD-08/10 import/reload",
+      "status": "PASS",
+      "evidence": {
+        "reloadMetrics": [
+          "0.515015",
+          "86,3%",
+          "70,0%"
+        ],
+        "importPreservesProbabilities": true,
+        "overflowRejected": true,
+        "historyClearedOnImport": true
+      }
+    }
+  ]
+}

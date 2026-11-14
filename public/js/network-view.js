@@ -1,19 +1,35 @@
 import { DISPLAY_DIGITS, digitForClass, classForRow } from '/shared/classes.js';
 
 export class NetworkView {
-  constructor(canvas, network, { tooltip, onSelection, onOutputChoice } = {}) {
+  constructor(canvas, network, { tooltip, onSelection, onOutputChoice, animationToggle, caption } = {}) {
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
     this.network = network;
     this.tooltip = tooltip;
     this.onSelection = onSelection;
     this.onOutputChoice = onOutputChoice;
+    this.animationToggle = animationToggle;
+    this.caption = caption;
     this.selected = null;
     this.target = null;
     this.focused = true;
     this.activeEdges = [];
     this.cache = document.createElement('canvas');
     this.reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    this.phase = 0;
+    this.speed = 1;
+    this.paused = false;
+    this.animationRequested = false;
+    this.animationFrame = null;
+    this.lastFrame = null;
+    this.onScreen = true;
+    this.frame = (time) => {
+      this.animationFrame = null;
+      if (this.lastFrame !== null) this.phase += Math.max(0, time - this.lastFrame);
+      this.lastFrame = time;
+      this.draw(time);
+      this.syncAnimation();
+    };
     this.outputButtons = DISPLAY_DIGITS.map((digit, row) => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -26,15 +42,19 @@ export class NetworkView {
     });
     this.resizeObserver = new ResizeObserver(() => this.resize());
     this.resizeObserver.observe(canvas.parentElement);
+    this.intersectionObserver = new IntersectionObserver(([entry]) => {
+      this.onScreen = entry.isIntersecting;
+      this.syncAnimation();
+    });
+    this.intersectionObserver.observe(canvas.parentElement);
+    this.reducedMotion.addEventListener('change', () => this.syncAnimation());
     canvas.addEventListener('pointermove', (event) => this.pointerMove(event));
     canvas.addEventListener('pointerleave', () => { tooltip.hidden = true; });
     canvas.addEventListener('click', (event) => {
       const hit = this.hitTest(this.localPoint(event));
       if (hit) this.select(hit.layer, hit.index);
     });
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden && this.animationFrame) cancelAnimationFrame(this.animationFrame);
-    });
+    document.addEventListener('visibilitychange', () => this.syncAnimation());
   }
 
   resize() {
@@ -146,6 +166,21 @@ export class NetworkView {
     this.focused = focused;
     this.buildCache();
     this.draw(performance.now());
+    this.updateAnimationUI();
+  }
+
+  updateAnimationUI() {
+    if (this.animationToggle) {
+      this.animationToggle.textContent = this.reducedMotion.matches ? 'Статично' : this.paused ? 'Продолжить' : 'Пауза';
+      this.animationToggle.disabled = !this.animationRequested || this.reducedMotion.matches;
+    }
+    if (!this.caption) return;
+    if (!this.animationRequested) {
+      this.caption.textContent = 'Выбранный расчёт показан статично. Полный граф доступен отдельной кнопкой.';
+      return;
+    }
+    const state = this.reducedMotion.matches ? 'Статичное выделение по настройке reduced-motion' : this.paused ? 'Пауза визуализации' : 'Повторная визуализация прямого прохода';
+    this.caption.textContent = `${state} · Выделены наиболее сильные вклады w×a; в расчёте участвуют все связи. Анимация не обучает сеть.`;
   }
 
   render(result, { animate = false } = {}) {
@@ -157,21 +192,53 @@ export class NetworkView {
       const digit = digitForClass(classId);
       button.title = result ? `Цифра ${digit}: ${(result.probabilities[classId] * 100).toFixed(4)}%` : `Цифра ${digit}`;
     });
+    this.animationRequested = animate;
     this.draw(performance.now());
-    if (animate && !this.reducedMotion.matches && !document.hidden) {
-      this.animationStart = performance.now();
-      const frame = (time) => {
-        this.draw(time);
-        if (time - this.animationStart < 850 && !document.hidden) this.animationFrame = requestAnimationFrame(frame);
-      };
-      this.animationFrame = requestAnimationFrame(frame);
+    this.syncAnimation();
+  }
+
+  syncAnimation() {
+    if (this.animationFrame !== null) {
+      cancelAnimationFrame(this.animationFrame);
+      this.animationFrame = null;
     }
+    const running = this.animationRequested && !this.paused && !this.reducedMotion.matches && !document.hidden && this.onScreen;
+    if (running) {
+      if (this.lastFrame === null) this.lastFrame = performance.now();
+      this.animationFrame = requestAnimationFrame(this.frame);
+    } else {
+      this.lastFrame = null;
+      this.draw(performance.now());
+    }
+    this.updateAnimationUI();
+  }
+
+  setPaused(paused) {
+    this.paused = paused;
+    this.syncAnimation();
+  }
+
+  setSpeed(speed) {
+    if (!Number.isFinite(speed) || speed < 0.1 || speed > 4) throw new RangeError('Speed must be between 0.1 and 4');
+    this.speed = speed;
+    this.draw(performance.now());
+  }
+
+  setMode(mode) {
+    this.outputButtons.forEach((button, row) => {
+      const digit = digitForClass(classForRow(row));
+      button.setAttribute('aria-label', mode === 'training' ? `Выбрать правильную цифру ${digit}` : `Исследовать нейрон цифры ${digit}`);
+    });
   }
 
   stopAnimation() {
-    if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
+    if (this.animationFrame !== null) cancelAnimationFrame(this.animationFrame);
     this.animationFrame = null;
-    this.animationStart = null;
+    this.animationRequested = false;
+    this.paused = false;
+    this.phase = 0;
+    this.lastFrame = null;
+    this.updateAnimationUI();
   }
 
   setTarget(classId) {
@@ -200,6 +267,12 @@ export class NetworkView {
     this.activeEdges = edges.slice(0, 250);
   }
 
+  visibleEdges() {
+    return this.focused && this.selected
+      ? this.activeEdges.filter((edge) => edge.layer === this.selected.layer - 1 && edge.target === this.selected.index)
+      : this.activeEdges;
+  }
+
   draw(time) {
     if (!this.width || !this.positions) return;
     const context = this.context;
@@ -210,14 +283,13 @@ export class NetworkView {
     context.drawImage(this.cache, 0, 0, this.width, this.height);
     if (!this.result) return;
     const maximum = this.activeEdges[0]?.contribution || 1;
-    const edges = this.focused && this.selected
-      ? this.activeEdges.filter((edge) => edge.layer === this.selected.layer - 1 && edge.target === this.selected.index)
-      : this.activeEdges;
+    const edges = this.visibleEdges();
     for (const edge of edges) {
       const start = this.positions[edge.layer][edge.source];
       const end = this.positions[edge.layer + 1][edge.target];
       const strength = edge.contribution / maximum;
-      context.globalAlpha = 0.14 + strength * 0.66;
+      const glow = this.animationRequested ? 0.92 + Math.sin(this.phase * this.speed / 1500 + edge.layer * 0.4) * 0.08 : 1;
+      context.globalAlpha = (0.14 + strength * 0.66) * glow;
       context.strokeStyle = edge.weight >= 0 ? colors.positive : colors.negative;
       context.lineWidth = 0.75 + strength * 1.65;
       context.beginPath();
@@ -229,7 +301,7 @@ export class NetworkView {
     this.drawSelected(context, colors);
     this.drawNodes(context, colors);
     this.drawLabels(context, colors);
-    if (this.animationStart !== null && time - this.animationStart < 850) this.drawPulse(context, time);
+    if (this.animationRequested && !this.reducedMotion.matches) this.drawPulse(context, time);
   }
 
   drawSelected(context, colors) {
@@ -290,7 +362,7 @@ export class NetworkView {
         context.fillStyle = colors.ink;
         context.textAlign = 'center';
         context.textBaseline = 'middle';
-        context.font = `${isOutput ? 16 : 9}px "Cascadia Mono", Consolas, monospace`;
+        context.font = `${isOutput ? 16 : 10}px "Cascadia Mono", Consolas, monospace`;
         context.fillText(isOutput ? digitForClass(index) : activation.toFixed(2), point.x, point.y - (isOutput ? 4 : 0));
         if (isOutput) {
           context.fillStyle = colors.muted;
@@ -302,28 +374,30 @@ export class NetworkView {
   }
 
   drawLabels(context, colors) {
-    const labels = ['ВХОД · 16×16', 'СКРЫТЫЙ · 16', 'СКРЫТЫЙ · 12', 'ВЫХОД · 10'];
+    const labels = this.width < 440
+      ? ['16×16', 'Слой 1', 'Слой 2', 'Выход']
+      : ['ВХОД · 16×16', 'СКРЫТЫЙ · 16', 'СКРЫТЫЙ · 12', 'ВЫХОД · 10'];
     const xs = [this.grid.left + this.grid.size / 2, ...this.positions.slice(1).map((layer) => layer[0].x)];
     context.fillStyle = colors.muted;
-    context.font = '12px "Cascadia Mono", Consolas, monospace';
+    context.font = `${this.width < 440 ? 11 : 12}px "Cascadia Mono", Consolas, monospace`;
     context.textAlign = 'center';
     context.textBaseline = 'alphabetic';
     labels.forEach((label, index) => context.fillText(label, xs[index], 22));
   }
 
   drawPulse(context, time) {
-    const elapsed = time - this.animationStart;
     const colors = this.palette();
-    this.activeEdges.slice(0, 42).forEach((edge, index) => {
-      const progress = Math.max(0, Math.min(1, (elapsed - (index % 7) * 45) / 580));
-      if (progress <= 0 || progress >= 1) return;
+    const edges = this.visibleEdges().slice(0, 96);
+    const maximum = edges[0]?.contribution || 1;
+    edges.forEach((edge, index) => {
+      const progress = ((this.phase * this.speed / 2600 + edge.layer * 0.27 + index * 0.137) % 1 + 1) % 1;
+      const strength = edge.contribution / maximum;
       const start = this.positions[edge.layer][edge.source];
       const end = this.positions[edge.layer + 1][edge.target];
-      const eased = 1 - (1 - progress) ** 2;
-      context.globalAlpha = Math.sin(progress * Math.PI);
+      context.globalAlpha = Math.sin(progress * Math.PI) ** 2 * (0.35 + strength * 0.65);
       context.fillStyle = edge.weight >= 0 ? colors.positive : colors.negative;
       context.beginPath();
-      context.arc(start.x + (end.x - start.x) * eased, start.y + (end.y - start.y) * eased, 2.2, 0, Math.PI * 2);
+      context.arc(start.x + (end.x - start.x) * progress, start.y + (end.y - start.y) * progress, 1.8 + strength * 1.5, 0, Math.PI * 2);
       context.fill();
     });
     context.globalAlpha = 1;

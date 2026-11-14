@@ -61,7 +61,8 @@
           "70,0%"
         ],
         "importPreservesProbabilities": true,
-        "overflowRejected": true
+        "overflowRejected": true,
+        "historyClearedOnImport": true
       }
     },
     {

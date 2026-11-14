@@ -12,7 +12,7 @@ export function crossEntropyFromLogits(logits, label) {
   }
   let exponentialSum = 0;
   for (const logit of logits) exponentialSum += Math.exp(logit - maximum);
-  return maximum + Math.log(exponentialSum) - logits[label];
+  return (maximum - logits[label]) + Math.log(exponentialSum);
 }
 
 function randomGenerator(seed) {
@@ -114,13 +114,14 @@ export class DigitNetwork {
     const total = exponentials.reduce((sum, value) => sum + value, 0);
     const probabilities = Float32Array.from(exponentials, (value) => value / total);
     if (!probabilities.every(Number.isFinite)) throw new RangeError('Forward pass produced invalid probabilities');
+    activations[activations.length - 1] = probabilities;
     this.activations = activations;
     let prediction = 0;
     for (let digit = 1; digit < probabilities.length; digit += 1) {
       if (probabilities[digit] > probabilities[prediction]) prediction = digit;
     }
     return {
-      activations: [...activations.slice(0, -1), probabilities],
+      activations,
       sums,
       logits,
       probabilities,
@@ -130,6 +131,9 @@ export class DigitNetwork {
   }
 
   prepareTrainingStep(input, label, learningRate = 0.35, selection = null) {
+    if (!Number.isSafeInteger(this.steps) || this.steps < 0 || this.steps >= Number.MAX_SAFE_INTEGER) {
+      throw new RangeError('Training steps cannot be incremented safely');
+    }
     if (!Number.isInteger(label) || label < 0 || label >= this.sizes.at(-1)) {
       throw new RangeError('Label is outside the output layer');
     }
@@ -137,6 +141,8 @@ export class DigitNetwork {
       throw new RangeError('Learning rate must be positive');
     }
     const result = this.forward(input);
+    // The lesson must retain its input even when the drawing buffer is reused.
+    result.activations[0] = Float32Array.from(result.activations[0]);
     const deltas = new Array(this.layers.length);
     deltas[deltas.length - 1] = Float64Array.from(result.probabilities,
       (probability, neuron) => probability - (neuron === label ? 1 : 0));
@@ -178,7 +184,7 @@ export class DigitNetwork {
       biasesAfter.push(biases);
     }
     const lastLayer = this.layers.length - 1;
-    const selected = selection || { layer: lastLayer, target: label, source: 0 };
+    const selected = selection ? { ...selection } : { layer: lastLayer, target: label, source: 0 };
     const plan = {
       network: this, steps: this.steps, input: Float32Array.from(input), label, learningRate,
       selection: selected, forward: result, sums: result.sums, loss: crossEntropyFromLogits(result.logits, label),
@@ -208,7 +214,8 @@ export class DigitNetwork {
   }
 
   applyTrainingStep(plan) {
-    if (plan.network !== this || plan.steps !== this.steps) {
+    if (plan.network !== this || plan.steps !== this.steps ||
+        !Number.isSafeInteger(this.steps) || this.steps < 0 || this.steps >= Number.MAX_SAFE_INTEGER) {
       throw new Error('Training plan does not match the current network version');
     }
     for (let layer = 0; layer < this.layers.length; layer += 1) {
@@ -218,9 +225,12 @@ export class DigitNetwork {
       }
     }
     const updated = new DigitNetwork({ sizes: this.sizes });
-    updated.layers = plan.weightsAfter.map((weights, layer) => ({ weights, biases: plan.biasesAfter[layer] }));
+    updated.layers = plan.weightsAfter.map((weights, layer) => ({
+      weights: new Float32Array(weights), biases: new Float32Array(plan.biasesAfter[layer]),
+    }));
     updated.forward(plan.input);
     this.layers = updated.layers;
+    this.activations = updated.activations;
     this.steps += 1;
   }
 
@@ -271,7 +281,7 @@ export class DigitNetwork {
       weights: fromBase64(layer?.weights, sizes[index] * sizes[index + 1], 'weights'),
       biases: fromBase64(layer?.biases, sizes[index + 1], 'biases'),
     }));
-    if (!Number.isInteger(value.steps) || value.steps < 0) throw new TypeError('Invalid training steps');
+    if (!Number.isSafeInteger(value.steps) || value.steps < 0) throw new TypeError('Invalid training steps');
     network.steps = value.steps;
     return network;
   }

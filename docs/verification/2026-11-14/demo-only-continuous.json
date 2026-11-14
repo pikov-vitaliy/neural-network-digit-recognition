@@ -1,0 +1,95 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "stage": "demo",
+  "results": [
+    {
+      "name": "R-02 continuous animation",
+      "status": "FAIL",
+      "error": "Page.wait_for_function: EvalError: Evaluating a string as JavaScript violates the following Content Security Policy directive because 'unsafe-eval' is not an allowed source of script: script-src 'self' 'unsafe-inline'\".\n\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:370:30), <anonymous>:4:60)\n    at next (eval at evaluate (:370:30), <anonymous>:29:33)\n    at <anonymous>:10:119",
+      "errors": [],
+      "clicks": [
+        "predict",
+        "animation-toggle",
+        "animation-toggle",
+        "predict",
+        "predict",
+        "predict",
+        "predict",
+        "predict",
+        "predict",
+        "predict",
+        "predict",
+        "predict",
+        "predict"
+      ],
+      "selections": [
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        },
+        {
+          "layer": 3,
+          "index": 4,
+          "hasResult": true,
+          "title": "Выходной слой · цифра 4"
+        }
+      ]
+    }
+  ]
+}

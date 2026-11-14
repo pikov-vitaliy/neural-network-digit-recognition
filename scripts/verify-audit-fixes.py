@@ -1,14 +1,17 @@
 import argparse
+import subprocess
 import hashlib
 import json
+import os
 import sys
 from pathlib import Path
+from datetime import date
 from playwright.sync_api import expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'docs' / 'verification' / '2026-11-14'
+OUT = Path(os.environ.get('DIGIT_LAB_VERIFY_OUT', str(ROOT / 'docs' / 'verification' / date.today().isoformat())))
 OUT.mkdir(parents=True, exist_ok=True)
-URL = 'http://127.0.0.1:4173/'
+URL = os.environ.get('DIGIT_LAB_URL', 'http://127.0.0.1:4173/')
 MODEL_KEY = 'ai-engineers-digit-lab-model-v1'
 sys.stdout.reconfigure(encoding='utf-8')
 manifest = json.loads((ROOT / 'public' / 'samples' / 'manifest.json').read_text(encoding='utf-8'))
@@ -209,6 +212,9 @@ def test_import_and_reload(page):
     page.locator('#train-all').click()
     expect(page.locator('#train-all')).to_be_enabled(timeout=30000)
     expect(page.locator('#epoch-count')).to_have_text('12 / 12')
+    expect(page.locator('#history-body tr')).to_have_count(12)
+    page.reload(wait_until='networkidle')
+    expect(page.locator('#history-body tr')).to_have_count(12)
     metrics = page.locator('#loss-value').inner_text(), page.locator('#train-accuracy').inner_text(), page.locator('#validation-accuracy').inner_text()
     with page.expect_download() as info:
         page.locator('#export-model').click()
@@ -219,6 +225,7 @@ def test_import_and_reload(page):
     page.locator('#import-input').set_input_files(str(exported))
     expect(page.locator('#toast')).to_contain_text('Модель импортирована')
     expect(page.locator('#predicted-digit')).to_have_text('—')
+    expect(page.locator('#history-body tr')).to_have_count(0)
     page.locator('#predict').click()
     assert input_and_probabilities(page)['probabilities'] == probabilities
     before = stored_model(page)
@@ -233,7 +240,7 @@ def test_import_and_reload(page):
     expect(page.locator('#model-status')).to_contain_text('960')
     expect(page.locator('#epoch-label')).to_contain_text('восстановлен')
     assert json.loads(stored_model(page))['steps'] == 960
-    return {'reloadMetrics': metrics, 'importPreservesProbabilities': True, 'overflowRejected': True}
+    return {'reloadMetrics': metrics, 'importPreservesProbabilities': True, 'overflowRejected': True, 'historyClearedOnImport': True}
 
 
 def test_input_errors(page):
@@ -248,12 +255,128 @@ def test_input_errors(page):
     return {'emptyRejected': True, 'decodeErrorRussian': True}
 
 
+def wait_until(page, expression):
+    for _ in range(100):
+        if page.evaluate(expression):
+            return
+        page.wait_for_timeout(50)
+    raise AssertionError(f'Условие не наступило за 5 секунд: {expression}')
+
+
+def network_hash(page):
+    return hashlib.sha256(page.locator('#network-canvas').evaluate('canvas => canvas.toDataURL()').encode()).hexdigest()
+
+
+def test_animation(page):
+    page.locator('#predict').click()
+    page.wait_for_timeout(150)
+    initial_hash = network_hash(page)
+    initial_model = stored_model(page)
+    initial_prediction = page.locator('#predicted-digit').inner_text()
+    page.wait_for_timeout(1000)
+    assert network_hash(page) != initial_hash, 'Canvas должен продолжать движение после 1 секунды'
+    started = page.evaluate('performance.now()')
+    page.wait_for_timeout(30000)
+    assert page.evaluate('performance.now()') - started >= 29900
+    assert network_hash(page) != initial_hash, 'Canvas не должен останавливаться после 850 мс'
+    assert stored_model(page) == initial_model
+    assert page.locator('#predicted-digit').inner_text() == initial_prediction
+    expect(page.locator('#network-caption')).to_contain_text('Повторная визуализация прямого прохода')
+    expect(page.locator('#network-caption')).to_contain_text('в расчёте участвуют все связи')
+    page.locator('#animation-toggle').click()
+    expect(page.locator('#animation-toggle')).to_have_text('Продолжить')
+    paused_hash = network_hash(page)
+    page.wait_for_timeout(400)
+    assert network_hash(page) == paused_hash, 'Пауза должна останавливать фазу'
+    page.locator('#animation-toggle').click()
+    page.wait_for_timeout(350)
+    assert network_hash(page) != paused_hash
+    page.locator('#animation-speed').select_option('2')
+    pulse_positions = page.evaluate('''async () => {
+        const { NetworkView } = await import('/js/network-view.js');
+        const points = [];
+        const context = {globalAlpha:1, beginPath() {}, arc(x, y) { points.push({x, y}); }, fill() {}};
+        const probe = Object.create(NetworkView.prototype);
+        Object.assign(probe, {palette: () => ({positive:'#00aa66',negative:'#cc4400'}), phase:600, speed:1, positions:[[{x:0,y:0}],[{x:100,y:0}]], activeEdges:[{layer:0,source:0,target:0,weight:1,contribution:1}]});
+        probe.drawPulse(context, 0);
+        const slow = points[0];
+        probe.speed = 2;
+        probe.drawPulse(context, 0);
+        return {slow, fast:points[1]};
+    }''')
+    assert pulse_positions['slow'] != pulse_positions['fast']
+    page.locator('#predict').evaluate('button => { for(let i=0;i<10;i++) button.click(); }')
+    page.wait_for_timeout(100)
+    assert page.evaluate('window.__rafPending.size') == 1, 'Повторные нажатия не должны создавать параллельные циклы'
+    subprocess.run(['node', str(ROOT / 'scripts' / 'verify-visibility.cjs'), '--url', URL, '--out', str(OUT)], check=True, capture_output=True, text=True)
+    native_visibility = json.loads((OUT / 'visibility-native.json').read_text(encoding='utf-8'))
+    assert native_visibility['backgroundObservation']['documentHidden'] is True
+    assert native_visibility['backgroundObservation']['rafPending'] == 0
+    assert native_visibility['renderedObservation']['rafPending'] == 1
+    assert native_visibility['modelUnchanged'] is True
+    assert stored_model(page) == initial_model
+    choose_sample(page, 'digit-2-00')
+    expect(page.locator('#predicted-digit')).to_have_text('—')
+    assert page.evaluate('window.__rafPending.size') == 0
+    page.screenshot(path=str(OUT / '03-continuous-animation.png'), full_page=True)
+    return {'seconds': 30, 'paused': True, 'speedChangesPulse': True, 'singleLoop': True, 'hiddenCancelled': True, 'nativeVisibilityEvidence': 'visibility-native.json', 'inputStops': True, 'modelUnchanged': True}
+
+
+def test_reduced_motion(page):
+    page.locator('#predict').click()
+    expect(page.locator('#animation-toggle')).to_have_text('Статично')
+    first = network_hash(page)
+    page.wait_for_timeout(600)
+    assert network_hash(page) == first
+    assert page.evaluate('window.__rafPending.size') == 0
+    expect(page.locator('#network-caption')).to_contain_text('Статичное')
+    return {'static': True, 'rafPending': 0}
+
+
+def test_teacher(page):
+    before = stored_model(page)
+    page.locator('#teacher-open').click()
+    expect(page.locator('#teacher-dialog')).to_be_visible()
+    page.locator('#teacher-play').click()
+    expect(page.locator('#teacher-play')).to_have_text('Пауза')
+    page.locator('#teacher-play').click()
+    expect(page.locator('#teacher-play')).to_have_text('Показать шаги')
+    stages = []
+    for stage in range(6):
+        expect(page.locator('#teacher-stage-index')).to_have_text(str(stage + 1))
+        stages.append(page.locator('#teacher-stage-title').inner_text())
+        assert stored_model(page) == before, 'Демонстрация не должна применять веса до подтверждения'
+        if stage < 5:
+            page.locator('#teacher-next').click()
+    expect(page.locator('#teacher-apply')).to_be_enabled()
+    old = float(page.locator('#teacher-old-weight').inner_text())
+    rate = float(page.locator('#teacher-rate').inner_text())
+    gradient = float(page.locator('#teacher-gradient-value').inner_text())
+    delta = float(page.locator('#teacher-delta-weight').inner_text())
+    new = float(page.locator('#teacher-new-weight').inner_text())
+    assert abs(delta + rate * gradient) < 0.0000001
+    assert abs(new - (old - rate * gradient)) < 0.0000001
+    page.locator('#teacher-speed').select_option('2')
+    fast_gradient = page.locator('#teacher-gradient-value').inner_text()
+    page.locator('#teacher-speed').select_option('0.5')
+    assert page.locator('#teacher-gradient-value').inner_text() == fast_gradient
+    page.screenshot(path=str(OUT / '04-teacher-weight-stage.png'), full_page=True)
+    page.locator('#teacher-apply').click()
+    expect(page.locator('#teacher-dialog')).not_to_be_visible()
+    assert json.loads(stored_model(page))['steps'] == 1
+    return {'stages': stages, 'unchangedBeforeConfirmation': True, 'equation': True, 'speedIndependent': True, 'stepsAfterApply': 1}
+
+
 def main():
     parser = argparse.ArgumentParser(description='Проверка Digit Lab после аудита')
-    parser.add_argument('--stage', choices=['state'], default='state')
+    parser.add_argument('--stage', choices=['state', 'demo', 'all'], default='state')
     parser.add_argument('--only', help='Подстрока имени группы для отдельной диагностики')
     args = parser.parse_args()
-    tests = [('AUD-01 mapping', test_mapping), ('AUD-02 stale result', test_stale_result), ('AUD-03 100 PNG', test_same_png), ('R-01 feedback', test_feedback), ('AUD-04/05 recognition', test_recognition_and_validation), ('AUD-08/10 import/reload', test_import_and_reload), ('input errors', test_input_errors)]
+    tests = []
+    if args.stage in ['state', 'all']:
+        tests += [('AUD-01 mapping', test_mapping), ('AUD-02 stale result', test_stale_result), ('AUD-03 100 PNG', test_same_png), ('R-01 feedback', test_feedback), ('AUD-04/05 recognition', test_recognition_and_validation), ('AUD-08/10 import/reload', test_import_and_reload), ('input errors', test_input_errors)]
+    if args.stage in ['demo', 'all']:
+        tests += [('R-02 continuous animation', test_animation), ('R-02 reduced motion', test_reduced_motion), ('AUD-06/R-03 teacher', test_teacher)]
     if args.only:
         tests = [item for item in tests if args.only.lower() in item[0].lower()]
     assert tests, 'Нет тестовой группы с таким именем'
@@ -261,7 +384,7 @@ def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         for name, function in tests:
-            context = browser.new_context(viewport={'width': 1440, 'height': 1000}, accept_downloads=True)
+            context = browser.new_context(viewport={'width': 1440, 'height': 1000}, accept_downloads=True, reduced_motion='reduce' if 'reduced motion' in name else 'no-preference')
             page = context.new_page()
             page.set_default_timeout(9000)
             errors = []
@@ -269,6 +392,16 @@ def main():
             page.add_init_script('''(() => {
                 window.__canvasText = [];
                 window.__clickLog = [];
+                window.__rafPending = new Set();
+                window.__rafExecuted = 0;
+                const request = window.requestAnimationFrame;
+                const cancel = window.cancelAnimationFrame;
+                window.requestAnimationFrame = callback => {
+                    const id = request.call(window, time => { window.__rafPending.delete(id); window.__rafExecuted++; callback(time); });
+                    window.__rafPending.add(id);
+                    return id;
+                };
+                window.cancelAnimationFrame = id => { window.__rafPending.delete(id); return cancel.call(window, id); };
                 document.addEventListener('click', event => window.__clickLog.push(event.target.id || event.target.tagName));
                 const original = CanvasRenderingContext2D.prototype.fillText;
                 CanvasRenderingContext2D.prototype.fillText = function(text, x, y, ...rest) {
@@ -290,6 +423,7 @@ def main():
                     };
                 }''')
                 expect(page.locator('#sample-grid button')).to_have_count(100)
+                print(f'RUN {name}', flush=True)
                 evidence = function(page)
                 assert not errors, errors
                 results.append({'name': name, 'status': 'PASS', 'evidence': evidence})
@@ -303,7 +437,8 @@ def main():
             finally:
                 context.close()
         browser.close()
-    (OUT / 'state-results.json').write_text(json.dumps({'url': URL, 'stage': args.stage, 'results': results}, ensure_ascii=False, indent=2), encoding='utf-8')
+    report_name = f'{args.stage}-results.json' if not args.only else f'{args.stage}-only-' + ''.join(char if char.isalnum() else '-' for char in args.only.lower()) + '.json'
+    (OUT / report_name).write_text(json.dumps({'url': URL, 'stage': args.stage, 'results': results}, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'passed': sum(row['status'] == 'PASS' for row in results), 'failed': sum(row['status'] == 'FAIL' for row in results)}, ensure_ascii=False))
     if any(row['status'] == 'FAIL' for row in results):
         raise SystemExit(1)

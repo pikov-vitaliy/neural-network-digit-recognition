@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "stage": "demo",
+  "results": [
+    {
+      "name": "AUD-06/R-03 teacher",
+      "status": "PASS",
+      "evidence": {
+        "stages": [
+          "Вход",
+          "Сумма z",
+          "Активация a",
+          "Ошибка · loss",
+          "Градиент",
+          "Изменение веса"
+        ],
+        "unchangedBeforeConfirmation": true,
+        "equation": true,
+        "speedIndependent": true,
+        "stepsAfterApply": 1
+      }
+    }
+  ]
+}

@@ -1,13 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { DigitNetwork } from '../src/shared/neural-network.js';
+import { prepareGalleryPixels } from '../src/shared/image.js';
 import { generateDataset } from '../scripts/generate-samples.js';
 import { createTrainingRandom, trainEpoch } from '../public/js/training.js';
 
-test('12 deterministic epochs reduce training loss and reach at least 60% validation accuracy', () => {
+test('12 deterministic epochs on canonical gallery inputs reduce loss and reach at least 60% validation accuracy', () => {
   const samples = generateDataset().map((sample) => ({
     ...sample,
-    pixels: Float32Array.from(sample.pixels, (value) => value / 255),
+    pixels: prepareGalleryPixels(sample.pixels),
   }));
   const training = samples.filter((sample) => sample.split === 'train');
   const validation = samples.filter((sample) => sample.split === 'validation');

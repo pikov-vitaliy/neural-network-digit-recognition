@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "stage": "demo",
+  "results": [
+    {
+      "name": "R-02 reduced motion",
+      "status": "PASS",
+      "evidence": {
+        "static": true,
+        "rafPending": 0
+      }
+    }
+  ]
+}

@@ -31,4 +31,14 @@ test('prediction belongs to exactly one input and model version', () => {
   assert.equal(isCurrentPrediction(prediction, 4, 8), false);
   pixels.fill(0);
   assert.equal(prediction.pixels[120], 1);
+  assert.equal(prediction.result.activations[0][120], 1);
+});
+
+test('drawing input rejects values outside the canonical zero-to-one range', () => {
+  const pixels = new Float32Array(256);
+  pixels[120] = 1;
+  pixels[121] = -1;
+  assert.equal(hasDrawableInput(pixels), false);
+  pixels[121] = 2;
+  assert.equal(hasDrawableInput(pixels), false);
 });

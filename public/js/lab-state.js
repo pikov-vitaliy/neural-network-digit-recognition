@@ -3,13 +3,15 @@ export function canTrainSample(sample, mode = 'training') {
 }
 
 export function hasDrawableInput(pixels) {
-  return pixels?.length === 256 && pixels.every((value) => Number.isFinite(value)) && pixels.some((value) => value > 0);
+  return pixels?.length === 256 && pixels.every((value) => Number.isFinite(value) && value >= 0 && value <= 1) &&
+    pixels.some((value) => value > 0);
 }
 
 export function createPrediction(network, pixels, inputVersion, modelVersion) {
+  const snapshot = Float32Array.from(pixels);
   return {
-    result: network.forward(pixels),
-    pixels: Float32Array.from(pixels),
+    result: network.forward(snapshot),
+    pixels: snapshot,
     inputVersion,
     modelVersion,
   };

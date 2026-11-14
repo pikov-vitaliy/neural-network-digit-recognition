@@ -475,8 +475,8 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
   .header-actions .button { display: inline-flex; align-items: center; }
   .workspace { grid-template-columns: 1fr; }
   .output-panel { grid-column: auto; }
-  .network-panel { order: 3; }
-  .output-panel { order: 2; }
+  .network-panel { order: 2; }
+  .output-panel { order: 3; }
   .input-panel { order: 1; }
   .network-figure { min-height: 420px; }
   .control-deck { grid-template-columns: 1fr; }
@@ -502,7 +502,7 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
   .sample-grid button { min-height: 52px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  .confidence-bar, .button, .upload-zone { transition: none; }
 }
 @media (forced-colors: active) {
   .confidence-track, .status-dot { border: 1px solid CanvasText; }
@@ -519,11 +519,11 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
 .control-hint { margin: 6px 0; color: var(--muted); font-size: 11px; }
 .label-control { margin-top: 8px; }
 .view-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
-.view-toolbar .button { min-height: 30px; padding: 4px 8px; font-size: 11px; }
+.view-toolbar .button { min-height: 32px; padding: 5px 8px; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
 .view-toolbar label { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; }
 .view-toolbar select { min-height: 30px; }
-.network-figure { min-height: 280px; }
-.network-caption { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
+.network-figure { min-height: 500px; }
+.network-caption { min-height: 48px; min-height: 3lh; margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
 .network-output-button { position: absolute; z-index: 2; width: 44px; height: 44px; padding: 0; transform: translate(-50%, -50%); color: transparent; background: transparent; border: 0; border-radius: 50%; }
 .network-output-button:hover { background: color-mix(in srgb, var(--signal) 12%, transparent); }
 .network-output-button:focus-visible { outline-color: var(--signal); }
@@ -531,7 +531,7 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
 .network-legend { font-size: 10px; }
 .signal-readings { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .signal-readings span { font-size: 11px; }
-.signal-readings strong { font-size: clamp(16px, 1.5vw, 23px); overflow-wrap: anywhere; }
+.signal-readings strong { font-size: clamp(20px, 1.7vw, 25px); overflow-wrap: anywhere; }
 .inspector { padding: 10px; }
 .inspector > p { margin: 7px 0; color: var(--muted); font-size: 11px; }
 .inspector > .button { min-height: 30px; padding: 4px 9px; font-size: 11px; }
@@ -545,8 +545,8 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
 .inspect-output { width: 26px; min-height: 30px; padding: 0; color: var(--signal); background: var(--signal-soft); border: 1px solid var(--line); border-radius: 50%; font-weight: 700; }
 .training-feedback { margin-top: 10px; padding: 9px; color: var(--ink); background: var(--panel-soft); border-left: 3px solid var(--positive); font-size: 12px; overflow-wrap: anywhere; }
 .softmax-note p { font-size: 11px; }
-.history-details { grid-column: 1 / -1; }
-.history-details summary { color: var(--signal); font-size: 12px; cursor: pointer; }
+#history-details { grid-column: 1 / -1; }
+#history-details summary { color: var(--signal); font-size: 13px; cursor: pointer; }
 .history-scroll, .weights-scroll { max-height: 280px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
 .history-scroll table, .weights-scroll table { width: 100%; border-collapse: collapse; font: 12px "Cascadia Mono", Consolas, monospace; }
 .history-scroll th, .history-scroll td, .weights-scroll th, .weights-scroll td { padding: 6px 9px; text-align: right; border-bottom: 1px solid var(--line); }
@@ -554,7 +554,40 @@ code { padding: 2px 5px; color: var(--signal); background: var(--signal-soft); b
 .weight-search { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 12px 0; }
 .weight-search input { width: 80px; min-height: 36px; padding: 5px; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--line); border-radius: 6px; }
 .weight-search output { font: 13px "Cascadia Mono", Consolas, monospace; }
+.digit-outputs { display: table; table-layout: auto; }
+.digit-outputs tbody { display: table-row-group; }
+.digit-outputs tr { display: table-row; }
+.digit-outputs td { display: table-cell; vertical-align: middle; }
+.digit-outputs td:nth-child(2) { width: 100%; white-space: nowrap; padding-inline: 6px; }
+.digit-outputs td:nth-child(3) { width: 30px; }
+.digit-outputs .confidence-track { display: inline-block; width: calc(100% - 58px); min-width: 16px; vertical-align: middle; }
+.digit-outputs output { display: inline-block; vertical-align: middle; }
+.verdict { padding-block: 4px 8px; }
+.verdict strong { font-size: 64px; }
+.verdict p { min-height: 0; }
+#neuron-inspector { scroll-margin-top: 12px; }
 dialog:modal, dialog::backdrop { overscroll-behavior: contain; }
+.lesson-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.lesson-actions .button { flex: 1 1 140px; padding-inline: 8px; font-size: 11px; }
+.teacher-dialog { width: min(1080px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 22px; }
+.teacher-stages { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 14px 0; padding: 0; list-style: none; }
+.teacher-stages li { padding: 8px 6px; color: var(--muted); border-bottom: 3px solid var(--line); text-align: center; font-size: 12px; }
+.teacher-stages li[aria-current="step"] { color: var(--signal); border-color: var(--signal); background: var(--signal-soft); }
+.teacher-stage { min-height: 180px; padding: 18px; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 12px; }
+.teacher-stage h3 { margin: 4px 0 12px; font-size: 24px; }
+.teacher-stage code { display: block; max-width: 100%; padding: 10px; font-size: clamp(13px, 1.5vw, 18px); line-height: 1.6; white-space: normal; overflow-wrap: anywhere; }
+.teacher-stage p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+.stage-counter { color: var(--muted); font: 12px "Cascadia Mono", Consolas, monospace; }
+#teacher-input { display: block; width: 144px; margin: 4px auto 12px; image-rendering: pixelated; background: #05080e; }
+.teacher-weight-table { margin-top: 12px; overflow-x: auto; }
+.teacher-weight-table table { width: 100%; border-collapse: collapse; font: 13px "Cascadia Mono", Consolas, monospace; }
+.teacher-weight-table caption { margin-bottom: 6px; color: var(--muted); text-align: left; }
+.teacher-weight-table th, .teacher-weight-table td { padding: 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.teacher-weight-table th { color: var(--muted); }
+.teacher-note { color: var(--positive); font-size: 12px; }
+.teacher-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.teacher-controls label { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+#teacher-apply { margin-left: auto; }
 
 @media (min-width: 1101px) {
   .workspace { grid-template-columns: minmax(250px, .8fr) minmax(440px, 1.45fr) minmax(245px, .68fr); }
@@ -571,11 +604,11 @@ dialog:modal, dialog::backdrop { overscroll-behavior: contain; }
   .output-panel .verdict strong { font-size: 64px; }
 }
 @media (max-width: 760px) {
-  .network-figure { min-height: 440px; }
+  .network-figure { min-height: 500px; }
   .signal-readings { grid-template-columns: 1fr; }
   .signal-readings > div { padding: 5px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .signal-readings > div:last-child { border-bottom: 0; }
   .control-deck { grid-template-columns: 1fr; }
-  .history-details { grid-column: auto; }
+  #history-details { grid-column: auto; }
   .digit-outputs { display: table; }
 }

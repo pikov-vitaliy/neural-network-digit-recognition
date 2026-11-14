@@ -1,3 +1,5 @@
+import { prepareGalleryPixels } from '/shared/image.js';
+
 export async function loadDataset() {
   const response = await fetch('/samples/manifest.json');
   if (!response.ok) throw new Error('Не удалось загрузить встроенные примеры');
@@ -11,6 +13,6 @@ export async function loadDataset() {
     if (bytes.length !== 256 || !Number.isInteger(sample.label) || sample.label < 0 || sample.label > 9) {
       throw new Error(`Пример ${sample.id} повреждён`);
     }
-    return { ...sample, bytes, input: Float32Array.from(bytes, (value) => value / 255) };
+    return { ...sample, bytes, input: prepareGalleryPixels(bytes) };
   });
 }

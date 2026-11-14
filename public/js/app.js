@@ -1,9 +1,9 @@
 import { DigitNetwork } from '/shared/neural-network.js';
 import { DISPLAY_DIGITS, digitForClass } from '/shared/classes.js';
-import { prepareGalleryPixels } from '/shared/image.js';
 import { loadDataset } from './dataset.js';
 import { InputController } from './input-controller.js';
 import { NetworkView } from './network-view.js';
+import { TeacherView } from './teacher-view.js';
 import { canTrainSample, createPrediction, hasDrawableInput, isCurrentPrediction } from './lab-state.js';
 import { MODEL_KEY, parseModel, readHistory, validateModel } from './model-store.js';
 import { createTrainingRandom, EPOCH_COUNT, trainEpoch } from './training.js';
@@ -38,6 +38,7 @@ let mode = 'training';
 let inputVersion = 0;
 let modelVersion = 0;
 let toastTimer;
+let importRevision = 0;
 
 function showToast(message) {
   clearTimeout(toastTimer);
@@ -60,7 +61,7 @@ function updateModelStatus() {
 
 function persistModel() {
   try {
-    localStorage.setItem(MODEL_KEY, JSON.stringify(network.toJSON()));
+    localStorage.setItem(MODEL_KEY, JSON.stringify({ ...network.toJSON(), history }));
     return true;
   } catch {
     showToast('Не удалось сохранить модель в браузере. Используйте экспорт в JSON.');
@@ -96,12 +97,13 @@ function syncControls() {
   $('train-all').disabled = busy || dataset.length === 0 || mode !== 'training';
   $('train-one').disabled = busy || !canTrainSample(selectedSample, mode);
   $('train-one').title = validationBlocked ? 'Проверочный пример не участвует в обучении' : selectedSample ? 'Один шаг с меткой встроенного примера' : 'Для рисунка сначала распознайте и подтвердите метку';
+  $('teacher-open').disabled = busy || dataset.length === 0 || mode !== 'training' || validationBlocked;
   $('export-model').disabled = busy;
   $('import-model').disabled = busy;
   $('correct-answer').disabled = busy || mode !== 'training' || Boolean(selectedSample);
   $('feedback-correct').disabled = busy || !hasPrediction || mode !== 'training' || validationBlocked || Boolean(currentPrediction?.feedbackHandled);
   $('feedback-correct').textContent = hasPrediction ? `Верно, обучить на цифре ${currentPrediction.result.prediction}` : 'Верно, обучить на показанной цифре';
-  $('animation-toggle').disabled = !hasPrediction;
+  $('animation-toggle').disabled = !hasPrediction || view.reducedMotion.matches;
   $('animation-speed').disabled = !hasPrediction;
   for (const digit of DISPLAY_DIGITS) $(`choose-output-${digit}`).disabled = busy;
 }
@@ -117,7 +119,7 @@ function updateInspector(inspection) {
   $('neuron-picker').value = `${inspection.layer}:${inspection.index}`;
   $('inspection-copy').textContent = inspection.layer === 3
     ? 'Здесь a — доля softmax для выбранного класса. Веса связей не являются активациями нейрона.'
-    : 'z — сумма до функции; a — сигmoid(z). Каждый вес w можно посмотреть численно в таблице.';
+    : 'z — сумма до функции; a — sigmoid(z). Каждый вес w можно посмотреть численно в таблице.';
   $('weight-list').replaceChildren();
   for (const edge of inspection.incoming.slice(0, 5)) {
     const chip = document.createElement('span');
@@ -153,6 +155,28 @@ const view = new NetworkView($('network-canvas'), network, {
   tooltip: $('network-tooltip'),
   onSelection: updateInspector,
   onOutputChoice: chooseOutput,
+  animationToggle: $('animation-toggle'),
+  caption: $('network-caption'),
+});
+
+const teacher = new TeacherView({
+  getNetwork: () => network,
+  getPixels: () => input.pixels,
+  getSample: () => selectedSample,
+  getPrediction: () => currentPrediction,
+  getMode: () => mode,
+  getInspection: () => view.getInspection(),
+  getWeight: selectedWeight,
+  getInputVersion: () => inputVersion,
+  getModelVersion: () => modelVersion,
+  onError: showToast,
+  onApply: (plan, versions) => {
+    if (versions.inputVersion !== inputVersion || versions.modelVersion !== modelVersion || mode !== 'training' || selectedSample?.split === 'validation') {
+      showToast('Вход или модель изменились. Старый учебный план отменён.');
+      return false;
+    }
+    return performTrainingStep(plan.label, true, plan);
+  },
 });
 
 function refreshPreview(animate = false) {
@@ -179,7 +203,9 @@ function invalidateResult() {
   currentPrediction = null;
   pendingFeedback = null;
   selectedTarget = null;
-  if ($('feedback-dialog').open) $('feedback-dialog').close();
+  for (const id of ['feedback-dialog', 'teacher-dialog', 'weights-dialog']) {
+    if ($(id).open) $(id).close();
+  }
   view.stopAnimation();
   view.setTarget(null);
   $('predicted-digit').textContent = '—';
@@ -250,7 +276,7 @@ function populateNeuronPicker() {
 
 function selectSample(sample) {
   $('correct-answer').value = String(sample.label);
-  input.setPixels(prepareGalleryPixels(sample.bytes), `Цифра ${sample.label} · вариант ${sample.variant + 1} · ${sample.split === 'train' ? 'обучение' : 'проверка'}`);
+  input.setPixels(sample.input, `Цифра ${sample.label} · вариант ${sample.variant + 1} · ${sample.split === 'train' ? 'обучение' : 'проверка'}`);
   selectedSample = sample;
   for (const button of $('sample-grid').querySelectorAll('button')) button.setAttribute('aria-pressed', String(button.dataset.id === sample.id));
   $('training-message').textContent = sample.split === 'validation'
@@ -281,11 +307,35 @@ function renderSamples() {
     label.textContent = String(sample.label);
     label.setAttribute('aria-hidden', 'true');
     button.append(image, label);
-    button.addEventListener('click', () => selectSample(sample));
+    button.addEventListener('click', () => { setGalleryTabStop(button); selectSample(sample); });
     item.append(button);
     list.append(item);
   });
 }
+
+function setGalleryTabStop(active) {
+  for (const button of $('sample-grid').querySelectorAll('button')) button.tabIndex = button === active ? 0 : -1;
+}
+
+function galleryButtons() {
+  return [...$('sample-grid').querySelectorAll('button')].filter(button => !button.parentElement.hidden);
+}
+
+$('sample-grid').addEventListener('keydown', event => {
+  const buttons = galleryButtons();
+  const index = buttons.indexOf(document.activeElement);
+  if (index < 0) return;
+  const columns = getComputedStyle($('sample-grid')).gridTemplateColumns.split(' ').length;
+  const moves = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: columns, ArrowUp: -columns };
+  let next;
+  if (event.key === 'Home') next = 0;
+  else if (event.key === 'End') next = buttons.length - 1;
+  else if (event.key in moves) next = Math.max(0, Math.min(buttons.length - 1, index + moves[event.key]));
+  else return;
+  event.preventDefault();
+  setGalleryTabStop(buttons[next]);
+  buttons[next].focus();
+});
 
 function setSource(source) {
   const gallery = source === 'gallery';
@@ -293,6 +343,7 @@ function setSource(source) {
   $('source-draw').setAttribute('aria-pressed', String(!gallery));
   $('gallery-source').hidden = !gallery;
   $('draw-source').hidden = gallery;
+  if (!gallery) input.useDrawing();
 }
 
 function cancelTraining() {
@@ -306,6 +357,7 @@ function setMode(nextMode) {
   if (mode === nextMode) return;
   cancelTraining();
   mode = nextMode;
+  view.setMode(mode);
   $('mode-training').setAttribute('aria-pressed', String(mode === 'training'));
   $('mode-recognition').setAttribute('aria-pressed', String(mode === 'recognition'));
   $('training-message').textContent = mode === 'training'
@@ -323,7 +375,7 @@ function selectedWeight() {
   return weightSelection || { layer: 2, target: 0, source: 0 };
 }
 
-function performTrainingStep(label, feedback = false) {
+function performTrainingStep(label, feedback = false, preparedPlan = null) {
   if (trainingToken || mode !== 'training' || dataset.length === 0) return false;
   if (selectedSample && !canTrainSample(selectedSample, mode)) {
     showToast('Проверочный пример нельзя использовать для обучения. Выберите обучающий пример или нарисуйте цифру.');
@@ -333,11 +385,13 @@ function performTrainingStep(label, feedback = false) {
     showToast('Сначала нарисуйте цифру или выберите изображение.');
     return false;
   }
+  importRevision += 1;
   const token = { single: true, cancelled: false };
   trainingToken = token;
   syncControls();
   try {
-    const plan = network.prepareTrainingStep(input.pixels, label, 0.35, selectedWeight());
+    const plan = preparedPlan || network.prepareTrainingStep(input.pixels, label, 0.35, selectedWeight());
+    if (plan.label !== label || plan.network !== network) throw new Error('Учебный план не соответствует текущей модели и метке.');
     const change = network.weightChange(plan);
     const before = plan.forward.probabilities[label];
     network.applyTrainingStep(plan);
@@ -426,6 +480,7 @@ async function trainAll() {
     if (mode !== 'training') showToast('В режиме распознавания веса заморожены. Перейдите в «Обучение».');
     return;
   }
+  importRevision += 1;
   const token = { cancelled: false };
   const targetNetwork = network;
   const random = createTrainingRandom();
@@ -479,9 +534,12 @@ function exportModel() {
 
 async function importModel(file) {
   if (!file || trainingToken) return;
+  const revision = ++importRevision;
   try {
     if (file.size > 5 * 1024 * 1024) throw new Error('Файл модели больше 5 МБ.');
-    const imported = parseModel(await file.text());
+    const serialized = await file.text();
+    if (revision !== importRevision) return;
+    const imported = parseModel(serialized);
     const metrics = validateModel(imported, trainingSamples, validationSamples);
     imported.forward(input.pixels);
     cancelTraining();
@@ -501,13 +559,15 @@ async function importModel(file) {
     view.select(3, network.forward(input.pixels).prediction);
     showToast(saved ? 'Модель импортирована и сохранена в браузере.' : 'Модель импортирована, но браузер не разрешил сохранение.');
   } catch (error) {
+    if (revision !== importRevision) return;
     showToast(`Не удалось импортировать модель: ${error.message} Текущая сеть и сохранение не изменены.`);
   } finally {
-    $('import-input').value = '';
+    if (revision === importRevision) $('import-input').value = '';
   }
 }
 
 function resetModel() {
+  importRevision += 1;
   cancelTraining();
   network = new DigitNetwork();
   modelVersion += 1;
@@ -601,6 +661,8 @@ $('clear-drawing').addEventListener('click', () => input.clearDrawing());
 $('dataset-filter').addEventListener('change', () => {
   const filter = $('dataset-filter').value;
   for (const item of $('sample-grid').children) item.hidden = filter !== 'all' && item.dataset.split !== filter;
+  const visible = galleryButtons();
+  setGalleryTabStop(visible.find(button => button.tabIndex === 0) || visible[0]);
 });
 $('feedback-correct').addEventListener('click', () => {
   if (isCurrentPrediction(currentPrediction, inputVersion, modelVersion)) requestFeedback(currentPrediction.result.prediction, true);

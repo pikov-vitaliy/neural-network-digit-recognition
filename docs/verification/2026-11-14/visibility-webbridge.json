@@ -1,0 +1,22 @@
+{
+  "tool": "Kimi WebBridge",
+  "session": "digit-lab-audit-fixes",
+  "tabId": 56408997,
+  "url": "http://127.0.0.1:4173/",
+  "backgroundObservation": {
+    "documentHidden": true,
+    "rafPending": 0,
+    "rafExecutedAfterPredict": 0,
+    "method": "Реальная фоновая вкладка после navigate; document.hidden не переопределялся"
+  },
+  "renderedObservation": {
+    "documentHidden": false,
+    "rafPending": 1,
+    "rafExecuted": 43,
+    "method": "WebBridge Page.bringToFront использует focus-emulation, не утверждается настоящее переключение фокуса пользователя"
+  },
+  "modelUnchanged": true,
+  "predictionUnchanged": true,
+  "modelStepsBefore": 2948,
+  "note": "Раздельные наблюдения: нативный background и focus-emulated rendering; CDP frozen/active в headless Chromium не создал hidden и не засчитан."
+}

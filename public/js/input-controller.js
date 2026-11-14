@@ -68,6 +68,7 @@ export class InputController {
     };
     this.drawingCanvas.addEventListener('pointerdown', (event) => {
       event.preventDefault();
+      this.revision += 1;
       this.drawing = true;
       this.drawingCanvas.setPointerCapture(event.pointerId);
       const point = position(event);
@@ -85,15 +86,20 @@ export class InputController {
     const finish = () => {
       if (!this.drawing) return;
       this.drawing = false;
-      const source = this.context.getImageData(0, 0, 256, 256).data;
-      const gray = new Float32Array(256 * 256);
-      for (let index = 0; index < gray.length; index += 1) {
-        gray[index] = (source[index * 4] * 0.2126 + source[index * 4 + 1] * 0.7152 + source[index * 4 + 2] * 0.0722) / 255;
-      }
-      this.setPixels(normalizePixels(gray, 256, 256), 'Собственный рисунок');
+      this.useDrawing();
     };
     this.drawingCanvas.addEventListener('pointerup', finish);
     this.drawingCanvas.addEventListener('pointercancel', finish);
+  }
+
+  useDrawing() {
+    const { width, height } = this.drawingCanvas;
+    const source = this.context.getImageData(0, 0, width, height).data;
+    const gray = new Float32Array(width * height);
+    for (let index = 0; index < gray.length; index += 1) {
+      gray[index] = (source[index * 4] * 0.2126 + source[index * 4 + 1] * 0.7152 + source[index * 4 + 2] * 0.0722) / 255;
+    }
+    this.setPixels(normalizePixels(gray, width, height), 'Собственный рисунок');
   }
 
   clearDrawing(notify = true) {
@@ -132,7 +138,11 @@ export class InputController {
       for (let index = 0; index < gray.length; index += 1) {
         gray[index] = (rgba[index * 4] * 0.2126 + rgba[index * 4 + 1] * 0.7152 + rgba[index * 4 + 2] * 0.0722) / 255;
       }
-      this.setPixels(normalizePixels(gray, 16, 16), file.name);
+      const pixels = normalizePixels(gray, 16, 16);
+      // A successful commit advances the revision; reset the native picker
+      // first so choosing this same file again still fires its change event.
+      this.fileInput.value = '';
+      this.setPixels(pixels, file.name);
     } catch (error) {
       if (revision === this.revision) {
         this.onError(/^[\u0400-\u04ff]/.test(error.message)

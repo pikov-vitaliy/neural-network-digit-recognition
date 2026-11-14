@@ -27,8 +27,15 @@ export function openBrowser(url) {
     : process.platform === 'darwin'
       ? ['open', [url]]
       : ['xdg-open', [url]];
-  const child = spawn(command, args, { detached: true, stdio: 'ignore' });
-  child.on('error', () => console.log(`Откройте адрес вручную: ${url}`));
+  const child = spawn(command, args, { detached: true, stdio: 'ignore', windowsHide: true });
+  let reported = false;
+  const reportFailure = () => {
+    if (reported) return;
+    reported = true;
+    console.log(`Не удалось открыть браузер. Откройте адрес вручную: ${url}`);
+  };
+  child.on('error', reportFailure);
+  child.on('exit', (code) => { if (code !== 0) reportFailure(); });
   child.unref();
 }
 

@@ -1,0 +1,31 @@
+{
+  "reviewedDraftSha256": "9d54999cac1cfd92f746905c6ee6b6c9fbd889c0fbf5252d429c6a7bf4adfcb4",
+  "finalPlanSha256": "e55533b7b740b98d29d7052646b2557aa4d42eaed7473744fbd472629877bdfa",
+  "changesAfterReview": "Two editorial clarifications: educational corpus preserves train/validation split; screens means screenshots in documentation. No architecture, scope, or acceptance criteria changed.",
+  "reviews": [
+    {
+      "role": "editor",
+      "id": "1049a149-f2be-4313-a9c8-71ad9496eabf",
+      "status": "completed",
+      "model": "kimi-code/k3.1-pro",
+      "effort": "high",
+      "model_verified": true,
+      "effort_verified": true,
+      "started_utc": "2026-11-14T21:33:30.640Z",
+      "finished_utc": "2026-11-14T21:34:30.936Z",
+      "task_sha256": "dd250d6385f9df46aa785f05d712cf35af519ed7edb778e48ceb495e6897dbbb"
+    },
+    {
+      "role": "checker",
+      "id": "7073ac2d-c164-452a-92a1-ca6010f09f0b",
+      "status": "completed",
+      "model": "kimi-code/k3.1-pro",
+      "effort": "high",
+      "model_verified": true,
+      "effort_verified": true,
+      "started_utc": "2026-11-14T21:33:30.646Z",
+      "finished_utc": "2026-11-14T21:34:26.546Z",
+      "task_sha256": "0a0ad38c3d4441a4f39fb9dc544fc9865dd852a53b145696a340b8342d9ede19"
+    }
+  ]
+}

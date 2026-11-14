@@ -60,7 +60,11 @@ export function createStaticServer({ publicDir, sharedDir }) {
 }
 
 export async function listenWithFallback(server, startPort = 4173) {
-  for (let attempt = 0; attempt < 10; attempt += 1) {
+  if (!Number.isInteger(startPort) || startPort < 0 || startPort > 65535) {
+    throw new RangeError('Порт должен быть целым числом от 0 до 65535.');
+  }
+  const attempts = startPort === 0 ? 1 : Math.min(10, 65536 - startPort);
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
     const port = startPort === 0 ? 0 : startPort + attempt;
     try {
       await new Promise((resolveListen, rejectListen) => {
@@ -78,13 +82,17 @@ export async function listenWithFallback(server, startPort = 4173) {
         };
         server.once('error', onError);
         server.once('listening', onListening);
-        server.listen(port, '127.0.0.1');
+        try {
+          server.listen(port, '127.0.0.1');
+        } catch (error) {
+          onError(error);
+        }
       });
       return server.address().port;
     } catch (error) {
       if (error.code !== 'EADDRINUSE' || startPort === 0) throw error;
-      if (attempt === 9) {
-        throw new Error(`Не найден свободный порт в диапазоне ${startPort}–${startPort + 9}. Закройте лишний сервер или укажите --port 0.`, { cause: error });
+      if (attempt === attempts - 1) {
+        throw new Error(`Не найден свободный порт в диапазоне ${startPort}–${startPort + attempts - 1}. Закройте лишний сервер или укажите --port 0.`, { cause: error });
       }
     }
   }

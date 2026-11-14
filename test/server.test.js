@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { once } from 'node:events';
+import { EventEmitter, once } from 'node:events';
 import { fileURLToPath } from 'node:url';
 import { createStaticServer, listenWithFallback } from '../src/server.js';
 
@@ -95,4 +95,34 @@ test('ten busy ports produce a clear error and no listener leak', async (t) => {
   assert.equal(server.listenerCount('listening'), 1, 'остаётся только штатный обработчик Node HTTP');
   assert.equal(server.listenerCount('error'), 0);
   assert.equal(server.listening, false);
+});
+
+test('fallback at the last TCP port never attempts an invalid port', async () => {
+  const server = new EventEmitter();
+  const ports = [];
+  server.listen = (port) => {
+    ports.push(port);
+    queueMicrotask(() => server.emit('error', Object.assign(new Error('busy'), { code: 'EADDRINUSE' })));
+  };
+  await assert.rejects(listenWithFallback(server, 65535), /65535–65535/);
+  assert.deepEqual(ports, [65535]);
+  assert.equal(server.listenerCount('listening'), 0);
+  assert.equal(server.listenerCount('error'), 0);
+});
+
+test('synchronous listen failures remove temporary handlers', async () => {
+  const server = new EventEmitter();
+  server.listen = () => { throw Object.assign(new Error('denied'), { code: 'EACCES' }); };
+  await assert.rejects(listenWithFallback(server, 4173), { code: 'EACCES' });
+  assert.equal(server.listenerCount('listening'), 0);
+  assert.equal(server.listenerCount('error'), 0);
+});
+
+test('invalid starting ports fail before touching the server', async () => {
+  const server = new EventEmitter();
+  server.listen = () => assert.fail('listen must not run for an invalid port');
+  for (const port of [-1, 65536, 1.5, NaN, Infinity, '4173']) {
+    await assert.rejects(listenWithFallback(server, port), RangeError);
+  }
+  assert.equal(server.eventNames().length, 0);
 });

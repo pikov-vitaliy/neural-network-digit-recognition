@@ -144,3 +144,48 @@ test('trainExample applies the same prepared step exactly once', () => {
   close(network.layers[1].weights[3], network.weightChange(result.plan).newWeight, 1e-7);
   assert.ok(Number.isFinite(result.loss));
 });
+
+test('a prepared lesson keeps its input and gradients when the drawing changes', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2], seed: 19 });
+  const input = new Float32Array([0.1, 0.9]);
+  const plan = network.prepareTrainingStep(input, 1, 0.2, { layer: 0, target: 0, source: 0 });
+  const change = network.weightChange(plan);
+  input.fill(0);
+  assert.deepEqual(network.weightChange(plan), change);
+  assert.deepEqual(plan.forward.activations[0], plan.input);
+});
+
+test('applying a lesson does not share live parameters with its saved preview', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2], seed: 19 });
+  const plan = network.prepareTrainingStep([0.1, 0.9], 1);
+  network.applyTrainingStep(plan);
+  const applied = network.toJSON();
+  plan.weightsAfter[0].fill(0);
+  plan.biasesAfter[0].fill(0);
+  assert.deepEqual(network.toJSON(), applied);
+});
+
+test('cached output activations contain probabilities, matching the forward result', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2], seed: 19 });
+  const result = network.forward([0.1, 0.9]);
+  assert.deepEqual(network.activations.at(-1), result.probabilities);
+});
+
+test('unsafe step counters cannot bypass exactly-once training', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2] });
+  const serialized = network.toJSON();
+  serialized.steps = Number.MAX_SAFE_INTEGER + 1;
+  assert.throws(() => DigitNetwork.fromJSON(serialized), /steps/i);
+  network.steps = Number.MAX_SAFE_INTEGER;
+  const before = network.toJSON();
+  assert.throws(() => network.trainExample([0.1, 0.9], 1), /steps/i);
+  assert.deepEqual(network.toJSON(), before);
+});
+
+test('a numerically unsafe prepared update leaves parameters and steps unchanged', () => {
+  const network = new DigitNetwork({ sizes: [2, 3, 2], seed: 19 });
+  const before = network.toJSON();
+  const plan = network.prepareTrainingStep([0.1, 0.9], 1, 1e8);
+  assert.throws(() => network.applyTrainingStep(plan), /numerical|range/i);
+  assert.deepEqual(network.toJSON(), before);
+});

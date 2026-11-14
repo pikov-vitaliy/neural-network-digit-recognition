@@ -9,13 +9,14 @@
   "scripts": {
     "start": "node bin/digit-lab.js",
     "generate": "node scripts/generate-samples.js",
-    "test": "node --test test/*.test.js"
+    "test": "node scripts/run-tests.js"
   },
   "files": [
     "bin/",
     "public/",
     "src/",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "engines": {
@@ -28,5 +29,13 @@
     "visualization",
     "russian"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pikov-vitaliy/neural-network-digit-recognition.git"
+  },
+  "homepage": "https://github.com/pikov-vitaliy/neural-network-digit-recognition#readme",
+  "bugs": {
+    "url": "https://github.com/pikov-vitaliy/neural-network-digit-recognition/issues"
+  }
 }
