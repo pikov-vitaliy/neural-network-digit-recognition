@@ -26,16 +26,16 @@
 
 Нужен Node.js 20 или новее. Для нового компьютера выбирайте поддерживаемую LTS-версию с [официального сайта Node.js](https://nodejs.org/en/download).
 
-Исходники: [pikov-vitaliy/neural-network-digit-recognition](https://github.com/pikov-vitaliy/neural-network-digit-recognition). Запуск версии 1.0.0 из npm одной командой:
+Исходники: [pikov-vitaliy/neural-network-digit-recognition](https://github.com/pikov-vitaliy/neural-network-digit-recognition). Запуск версии 1.1.0 из npm одной командой:
 
 ```powershell
-npx -y neural-network-digit-recognition@1.0.0
+npx -y neural-network-digit-recognition@1.1.0
 ```
 
-Альтернатива из публичного GitHub-репозитория по тегу `v1.0.0`:
+Альтернатива из публичного GitHub-репозитория по тегу `v1.1.0`:
 
 ```powershell
-npx -y github:pikov-vitaliy/neural-network-digit-recognition#v1.0.0
+npx -y github:pikov-vitaliy/neural-network-digit-recognition#v1.1.0
 ```
 
 Вторая команда получает пакет **из GitHub**, а не из npm registry; для неё дополнительно нужен Git. Для курса используйте согласованную фиксированную версию. Первый запуск требует доступа к источнику, затем изображения и расчёт сети находятся локально.
@@ -43,7 +43,7 @@ npx -y github:pikov-vitaliy/neural-network-digit-recognition#v1.0.0
 Локальный архив создаётся командой `npm pack`. После передачи архива студенту:
 
 ```powershell
-npx --yes --offline --package=./neural-network-digit-recognition-1.0.0.tgz neural-network-digit-recognition
+npx --yes --offline --package=./neural-network-digit-recognition-1.1.0.tgz neural-network-digit-recognition
 ```
 
 ## Запуск из исходников
