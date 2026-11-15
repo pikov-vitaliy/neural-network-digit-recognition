@@ -20,4 +20,4 @@ python scripts/verify-audit-fixes.py --stage state
 
 Для stage demo/all нужна Node-библиотека Playwright и полноценный Chromium. scripts/verify-visibility.cjs принимает PLAYWRIGHT_MODULE и CHROMIUM_PATH; Python-сценарий передаёт ему URL. Настоящие вкладки используются без подмены document.hidden. DIGIT_LAB_VERIFY_OUT задаёт новый каталог результатов. Старые доказательства не следует перезаписывать.
 
-[Комбинированная MLP-регрессия](evidence/mlp-state/combined-regression.json): 10 групп PASS. [CNN](evidence/cnn-state/browser-results-final.json): 18 сценариев PASS, ошибок страницы нет. Числа в отчётах относятся к зафиксированным хешам исходников и не заменяют проверку будущих изменений.
+[Комбинированная MLP-регрессия](evidence/mlp-state/combined-regression.json): 10 групп PASS. [CNN](evidence/cnn-state/review-fixes.json): 18 сценариев PASS, ошибок страницы нет. Числа в отчётах относятся к зафиксированным хешам исходников и не заменяют проверку будущих изменений.

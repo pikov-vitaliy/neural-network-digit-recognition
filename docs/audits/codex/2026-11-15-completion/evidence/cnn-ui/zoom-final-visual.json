@@ -1,0 +1,48 @@
+[
+  {
+    "mode": "false",
+    "innerWidth": 675,
+    "innerHeight": 402,
+    "outerWidth": 1366,
+    "outerHeight": 900,
+    "dpr": 2,
+    "scrollX": 0,
+    "scrollY": 1539.5,
+    "scrollHeight": 3079,
+    "scrollWidth": 667,
+    "center": "<div><span>Смещение b</span><strong id=\"bias-value\">0.000000</strong></div>",
+    "target": {
+      "x": 28.5,
+      "y": 12.1484375,
+      "width": 610.5,
+      "height": 361.828125,
+      "top": 12.1484375,
+      "right": 639,
+      "bottom": 373.9765625,
+      "left": 28.5
+    }
+  },
+  {
+    "mode": "true",
+    "innerWidth": 675,
+    "innerHeight": 402,
+    "outerWidth": 1366,
+    "outerHeight": 900,
+    "dpr": 2,
+    "scrollX": 0,
+    "scrollY": 577.5,
+    "scrollHeight": 2863,
+    "scrollWidth": 667,
+    "center": "<canvas id=\"cnn-view-output-canvas\" width=\"480\" height=\"480\" role=\"img\" aria-label=\"Карта 1, 16 строк, 16 столбцов. Значения от 0 до 2.12957. Ячейку можно выбрать полями строки и столбца.\"></canvas>",
+    "target": {
+      "x": 30.5,
+      "y": 11.96875,
+      "width": 78.2890625,
+      "height": 26.09375,
+      "top": 11.96875,
+      "right": 108.7890625,
+      "bottom": 38.0625,
+      "left": 30.5
+    }
+  }
+]

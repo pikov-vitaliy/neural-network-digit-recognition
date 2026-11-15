@@ -1,0 +1,249 @@
+{
+  "capturedAt": "2026-11-14T23:47:20.686Z",
+  "layouts": [
+    {
+      "mode": "cnn",
+      "color": "light",
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "bodyWidth": 1280,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "cnn",
+      "color": "light",
+      "width": 1366,
+      "height": 768,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "bodyWidth": 1366,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "cnn",
+      "color": "light",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "bodyWidth": 390,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "cnn",
+      "color": "dark",
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "bodyWidth": 1280,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(247, 178, 103)"
+      }
+    },
+    {
+      "mode": "cnn",
+      "color": "dark",
+      "width": 1366,
+      "height": 768,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "bodyWidth": 1366,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(247, 178, 103)"
+      }
+    },
+    {
+      "mode": "cnn",
+      "color": "dark",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "bodyWidth": 390,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(247, 178, 103)"
+      }
+    },
+    {
+      "mode": "mlp",
+      "color": "light",
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "bodyWidth": 1280,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "mlp",
+      "color": "light",
+      "width": 1366,
+      "height": 768,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "bodyWidth": 1366,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "mlp",
+      "color": "light",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "bodyWidth": 390,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "mlp",
+      "color": "dark",
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "bodyWidth": 1280,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(247, 178, 103)"
+      }
+    },
+    {
+      "mode": "mlp",
+      "color": "dark",
+      "width": 1366,
+      "height": 768,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "bodyWidth": 1366,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(247, 178, 103)"
+      }
+    },
+    {
+      "mode": "mlp",
+      "color": "dark",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "bodyWidth": 390,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(247, 178, 103)"
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "model": "MLP",
+      "prediction": "5",
+      "confidence": null
+    },
+    {
+      "model": "CNN",
+      "prediction": "5",
+      "confidence": "Доля softmax 100,0%",
+      "selection": {
+        "filter": 3,
+        "a": 2.46731933354429
+      }
+    }
+  ],
+  "zoom": [
+    {
+      "mode": "mlp",
+      "innerWidth": 675,
+      "innerHeight": 402,
+      "outerWidth": 1366,
+      "outerHeight": 900,
+      "dpr": 2,
+      "scrollWidth": 667,
+      "focus": {
+        "id": "animation-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    },
+    {
+      "mode": "cnn",
+      "innerWidth": 675,
+      "innerHeight": 402,
+      "outerWidth": 1366,
+      "outerHeight": 900,
+      "dpr": 2,
+      "scrollWidth": 667,
+      "focus": {
+        "id": "cnn-view-speed",
+        "focusVisible": true,
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(184, 101, 25)"
+      }
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

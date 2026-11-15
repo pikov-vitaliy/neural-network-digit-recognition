@@ -1,0 +1,43 @@
+{
+  "mlp": {
+    "prediction": "5",
+    "confidence": "Доля softmax 89,4%"
+  },
+  "cnn": {
+    "prediction": "5",
+    "confidence": "Доля softmax 100,0%",
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrollWidth": 1600,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 74.6875,
+      "top": 0,
+      "right": 1600,
+      "bottom": 74.6875,
+      "left": 0
+    },
+    "bar": {
+      "x": 1405,
+      "y": 503.609375,
+      "width": 83.984375,
+      "height": 4,
+      "top": 503.609375,
+      "right": 1488.984375,
+      "bottom": 507.609375,
+      "left": 1405
+    },
+    "track": {
+      "x": 1405,
+      "y": 503.609375,
+      "width": 84,
+      "height": 4,
+      "top": 503.609375,
+      "right": 1489,
+      "bottom": 507.609375,
+      "left": 1405
+    }
+  }
+}

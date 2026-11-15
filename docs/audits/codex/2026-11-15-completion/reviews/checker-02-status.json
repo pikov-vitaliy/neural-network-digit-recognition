@@ -1,0 +1,9 @@
+{
+  "role": "checker",
+  "status": "completed",
+  "model": "kimi-code/k3.1-pro",
+  "effort": "high",
+  "model_verified": true,
+  "effort_verified": true,
+  "finished_utc": "2026-11-14T23:57:57.097Z"
+}
