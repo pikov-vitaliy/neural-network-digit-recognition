@@ -404,8 +404,10 @@ export class NetworkView {
   }
 
   localPoint(event) {
+    // экранные координаты -> координаты графа: при «Крупно» (CSS zoom) и любом масштабе холста они различаются
     const bounds = this.canvas.getBoundingClientRect();
-    return { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
+    const sx = bounds.width ? this.width / bounds.width : 1, sy = bounds.height ? this.height / bounds.height : 1;
+    return { x: (event.clientX - bounds.left) * sx, y: (event.clientY - bounds.top) * sy };
   }
 
   hitTest(point) {

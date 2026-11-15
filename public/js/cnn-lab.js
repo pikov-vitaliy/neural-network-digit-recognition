@@ -70,8 +70,8 @@ export class CnnLab {
     for (const digit of DIGITS) this.$('cnn-choose-' + digit).onclick = () => this.requestFeedback(digit);
     this.$('cnn-feedback-correct').onclick = () => this.requestFeedback(this.result?.forward.prediction, true);
     this.$('cnn-cancel-feedback').onclick = () => this.$('cnn-feedback-dialog').close();
-    this.$('cnn-feedback-dialog').addEventListener('close', () => { this.pending = null; });
-    this.$('cnn-confirm-feedback').onclick = () => { const pending = this.pending; this.pending = null; this.$('cnn-feedback-dialog').close(); if (pending) this.applyFeedback(pending); };
+    this.$('cnn-feedback-dialog').addEventListener('close', () => { if (this.pending) this.options.onTargetCancel?.(); this.pending = null; });
+    this.$('cnn-confirm-feedback').onclick = () => { const pending = this.pending; this.pending = null; this.$('cnn-feedback-dialog').close(); if (pending) { this.options.onTargetCommit?.(pending.label); this.applyFeedback(pending); } };
     this.$('cnn-export').onclick = () => this.exportModel();
     this.$('cnn-import').onclick = () => this.$('cnn-import-input').click();
     this.$('cnn-import-input').onchange = () => this.importModel(this.$('cnn-import-input').files[0]);
@@ -187,14 +187,14 @@ export class CnnLab {
     try {
       const plan = this.network.prepareTrainingStep(this.result.pixels, label, RATE, this.view.getSelection());
       const change = this.network.weightChange(plan);
-      const pending = { plan, change, inputVersion: this.options.getInputVersion(), revision: this.revision };
-      if (confirmed) { this.applyFeedback(pending); return; }
+      const pending = { plan, change, label, inputVersion: this.options.getInputVersion(), revision: this.revision };
+      if (confirmed) { this.options.onTargetCommit?.(label); this.applyFeedback(pending); return; }
       this.pending = pending;
       this.$('cnn-feedback-title').textContent = `Правильная цифра: ${label}. Использовать для обучения CNN?`;
       this.$('cnn-feedback-context').textContent = `До подтверждения веса неизменны. Loss: ${plan.loss.toFixed(6)}. Один шаг SGD, η=${RATE}.`;
       this.$('cnn-step-preview').textContent = `Выбранный вес: ${change.oldWeight.toPrecision(7)} − ${RATE} × (${change.gradient.toPrecision(7)}) = ${change.newWeight.toPrecision(7)}.`;
       this.$('cnn-feedback-dialog').showModal();
-    } catch (error) { this.options.onError('Не удалось подготовить обучение CNN: ' + error.message); }
+    } catch (error) { this.options.onTargetCancel?.(); this.options.onError('Не удалось подготовить обучение CNN: ' + error.message); }
   }
   applyFeedback(pending) {
     if (this.busy || this.mode !== 'training' || !this.active || pending.inputVersion !== this.options.getInputVersion() || pending.revision !== this.revision || this.options.getSample()?.split === 'validation') return;

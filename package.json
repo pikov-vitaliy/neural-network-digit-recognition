@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node bin/digit-lab.js",
     "generate": "node scripts/generate-samples.js",
-    "test": "node scripts/run-tests.js"
+    "test": "node scripts/run-tests.js",
+    "build:site": "node scripts/build-site.js"
   },
   "files": [
     "bin/",

@@ -612,3 +612,7 @@ dialog:modal, dialog::backdrop { overscroll-behavior: contain; }
   #history-details { grid-column: auto; }
   .digit-outputs { display: table; }
 }
+
+/* «Крупно»: масштаб для проектора и большого экрана (кнопка в шапке, выбор хранится в localStorage) */
+html.projector { zoom: 1.25; }
+#projector-toggle[aria-pressed="true"] { border-color: var(--accent, currentColor); font-weight: 700; }

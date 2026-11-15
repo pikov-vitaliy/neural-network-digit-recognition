@@ -34,6 +34,8 @@ let selectedTarget = null;
 let weightSelection = { layer: 2, target: 5, source: 0 };
 let trainingToken = null;
 let pendingFeedback = null;
+// значение «Правильного ответа» до открытия диалога: «Отмена» и Esc возвращают его в обеих сетях
+let stableAnswer = null;
 let history = [];
 let mode = 'training';
 let inputVersion = 0;
@@ -42,6 +44,7 @@ let toastTimer;
 let importRevision = 0;
 let example = 'mlp';
 let cnn = null;
+stableAnswer = $('correct-answer').value;
 
 function showToast(message) {
   clearTimeout(toastTimer);
@@ -210,6 +213,8 @@ cnn = new CnnLab(cnnHost, {
   getInputVersion: () => inputVersion,
   getSample: () => selectedSample,
   onTarget: label => { $('correct-answer').value = String(label); },
+  onTargetCancel: () => { if (stableAnswer !== null) $('correct-answer').value = stableAnswer; },
+  onTargetCommit: label => { stableAnswer = String(label); },
   onError: showToast,
   onChange: () => { syncControls(); updateModelStatus(); },
 });
@@ -332,6 +337,7 @@ function populateNeuronPicker() {
 
 function selectSample(sample) {
   $('correct-answer').value = String(sample.label);
+  stableAnswer = String(sample.label);
   input.setPixels(sample.input, `Цифра ${sample.label} · вариант ${sample.variant + 1} · ${sample.split === 'train' ? 'обучение' : 'проверка'}`);
   selectedSample = sample;
   for (const button of $('sample-grid').querySelectorAll('button')) button.setAttribute('aria-pressed', String(button.dataset.id === sample.id));
@@ -503,6 +509,7 @@ function requestFeedback(label, confirmed = false) {
   if (confirmed) {
     const request = pendingFeedback;
     pendingFeedback = null;
+    stableAnswer = String(request.label);
     performTrainingStep(request.label, true);
     return;
   }
@@ -710,6 +717,17 @@ window.addEventListener('storage', (event) => {
   updateThemeControl();
 });
 $('help-button').addEventListener('click', () => $('lesson-dialog').showModal());
+const PROJECTOR_KEY = 'ai-engineers-projector';
+function syncProjector() {
+  $('projector-toggle').setAttribute('aria-pressed', document.documentElement.classList.contains('projector') ? 'true' : 'false');
+}
+$('projector-toggle').addEventListener('click', () => {
+  const on = document.documentElement.classList.toggle('projector');
+  try { if (on) localStorage.setItem(PROJECTOR_KEY, '1'); else localStorage.removeItem(PROJECTOR_KEY); } catch {}
+  syncProjector();
+  window.dispatchEvent(new Event('resize'));  // холсты сети пересчитывают размеры
+});
+syncProjector();
 $('close-lesson').addEventListener('click', () => $('lesson-dialog').close());
 $('predict').addEventListener('click', () => example === 'cnn' ? cnn.predict() : predict());
 $('source-gallery').addEventListener('click', () => setSource('gallery'));
@@ -726,6 +744,8 @@ $('feedback-correct').addEventListener('click', () => {
 });
 $('cancel-feedback').addEventListener('click', () => $('feedback-dialog').close());
 $('feedback-dialog').addEventListener('close', () => {
+  // «Отмена» (или Esc): поле «Правильный ответ» возвращается к прежнему значению
+  if (pendingFeedback && stableAnswer !== null) $('correct-answer').value = stableAnswer;
   pendingFeedback = null;
   selectedTarget = null;
   view.setTarget(null);
@@ -734,10 +754,18 @@ $('confirm-feedback').addEventListener('click', () => {
   const request = pendingFeedback;
   if (!request || trainingToken || mode !== 'training' || request.inputVersion !== inputVersion || request.modelVersion !== modelVersion || selectedSample?.split === 'validation') return;
   pendingFeedback = null;
+  stableAnswer = String(request.label);
   $('feedback-dialog').close();
   performTrainingStep(request.label, true);
 });
-$('correct-answer').addEventListener('change', () => example === 'cnn' ? cnn.requestFeedback(Number($('correct-answer').value)) : requestFeedback(Number($('correct-answer').value)));
+$('correct-answer').addEventListener('change', () => {
+  const label = Number($('correct-answer').value);
+  if (example === 'cnn') cnn.requestFeedback(label); else requestFeedback(label);
+  // диалог не открылся (нет распознавания, проверочный пример, обучение идёт) – поле возвращается
+  if (!$('feedback-dialog').open && !document.getElementById('cnn-feedback-dialog')?.open && stableAnswer !== null) {
+    $('correct-answer').value = stableAnswer;
+  }
+});
 $('mode-training').addEventListener('click', () => setMode('training'));
 $('mode-recognition').addEventListener('click', () => setMode('recognition'));
 $('train-one').addEventListener('click', () => example === 'cnn' ? cnn.trainOne() : trainOne());

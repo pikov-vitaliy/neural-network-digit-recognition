@@ -16,3 +16,4 @@ yarn-error.log*
 .env.*
 !.env.example
 .npmrc
+dist/
