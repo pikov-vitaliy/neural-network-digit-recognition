@@ -7,6 +7,7 @@
 - Онлайн-версия без установки: https://neural-network-digit-recognition.pikov.expert/; статическая сборка – `npm run build:site`.
 - Руководство преподавателя: [docs/teacher-guide.md](docs/teacher-guide.md); в подвале приложения – ссылка на инструкцию и исходники.
 - Страница готова к публикации на портале pikov.expert: canonical, Open Graph с картинкой `og-image.jpg`, описание schema.org, ссылка «Все курсы и лекции – pikov.expert» в подвале. Счётчик посещений Яндекс Метрики (без Вебвизора и карты кликов) загружается только на домене онлайн-версии.
+- Инструкция для слушателя простым языком: [docs/student-guide.md](docs/student-guide.md), онлайн – страница `/guide.html` (собирается `python scripts/build-guide.py`), кнопка «Инструкция» вверху и ссылка в подвале.
 
 ## 1.0.0 · 2026-11-15
 
