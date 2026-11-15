@@ -1,0 +1,26 @@
+{
+  "node": "20.20.2",
+  "args": [
+    "V:\\tmp\\codex\\2026-11-15\\digit-lab-takeover-1794697543846\\packaging\\node-v20.20.2-win-x64\\node.exe",
+    "V:\\tmp\\codex\\2026-11-15\\digit-lab-takeover-1794697543846\\packaging\\node-v20.20.2-win-x64\\node_modules\\npm\\bin\\npx-cli.js",
+    "--yes",
+    "--registry=https://registry.npmjs.org",
+    "--cache",
+    "V:\\tmp\\codex\\2026-11-15\\digit-lab-takeover-1794697543846\\publication\\registry-autoopen\\npx-autoopen-cache",
+    "neural-network-digit-recognition@1.0.0",
+    "--port",
+    "0"
+  ],
+  "autoOpenSuppressed": false,
+  "createdOwnConsole": true,
+  "pid": 34112,
+  "url": "http://127.0.0.1:60674",
+  "httpBefore": 200,
+  "ctrlCGenerated": true,
+  "npxExitCode": 1,
+  "serverStopped": true,
+  "stopObservation": "URLError",
+  "pass": true,
+  "stdout": "\nЦифра. Слой за слоем — приложение запущено.\nhttp://127.0.0.1:60674\nНажмите Ctrl+C, чтобы остановить сервер.\n\n",
+  "stderr": ""
+}

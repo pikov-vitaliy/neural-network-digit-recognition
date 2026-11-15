@@ -1,0 +1,31 @@
+{
+  "url": "https://github.com/pikov-vitaliy/neural-network-digit-recognition/actions/runs/43656257757",
+  "headSha": "1f35a9651c02c5f6e12343b9c2036b2a697e7791",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Node 20.x / ubuntu-latest",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/pikov-vitaliy/neural-network-digit-recognition/actions/runs/43656257757/job/132635313438"
+    },
+    {
+      "name": "Node 24.x / ubuntu-latest",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/pikov-vitaliy/neural-network-digit-recognition/actions/runs/43656257757/job/132635313628"
+    },
+    {
+      "name": "Node 24.x / windows-latest",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/pikov-vitaliy/neural-network-digit-recognition/actions/runs/43656257757/job/132635313642"
+    },
+    {
+      "name": "Node 20.x / windows-latest",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/pikov-vitaliy/neural-network-digit-recognition/actions/runs/43656257757/job/132635313675"
+    }
+  ]
+}

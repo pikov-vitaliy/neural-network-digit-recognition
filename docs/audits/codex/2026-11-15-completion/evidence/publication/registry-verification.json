@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-15T00:23:53.448Z",
+  "metadataUrl": "https://registry.npmjs.org/neural-network-digit-recognition/1.0.0",
+  "name": "neural-network-digit-recognition",
+  "version": "1.0.0",
+  "latest": "1.0.0",
+  "maintainers": [
+    "pikov-vitaliy"
+  ],
+  "repository": "git+https://github.com/pikov-vitaliy/neural-network-digit-recognition.git",
+  "tarballUrl": "https://registry.npmjs.org/neural-network-digit-recognition/-/neural-network-digit-recognition-1.0.0.tgz",
+  "bytes": 614023,
+  "sha256": "2968c40b4169a4e58a0789d5e5857d5a32f53658c2cbc3b63dd0ed5b3068b4d2",
+  "sha1": "4d9544bf694f93b02bd5ea2de48d3cca611ff631",
+  "integrity": "sha512-gBxqAI59ETGFWq9d3/mZ1/5l19550vWLCQwbwdS+OMcshvSQeFIsN4k6dx4ZLgu3KMsNsbaNgiP7CNOEgiGqBg==",
+  "metadataIntegrity": "sha512-gBxqAI59ETGFWq9d3/mZ1/5l19550vWLCQwbwdS+OMcshvSQeFIsN4k6dx4ZLgu3KMsNsbaNgiP7CNOEgiGqBg==",
+  "metadataShasum": "4d9544bf694f93b02bd5ea2de48d3cca611ff631",
+  "expectedSha256": "2968c40b4169a4e58a0789d5e5857d5a32f53658c2cbc3b63dd0ed5b3068b4d2",
+  "expectedIntegrity": "sha512-gBxqAI59ETGFWq9d3/mZ1/5l19550vWLCQwbwdS+OMcshvSQeFIsN4k6dx4ZLgu3KMsNsbaNgiP7CNOEgiGqBg==",
+  "pass": true
+}

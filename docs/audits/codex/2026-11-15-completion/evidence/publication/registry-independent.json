@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-11-15T00:26:01.762Z",
+  "httpStatus": 200,
+  "name": "neural-network-digit-recognition",
+  "version": "1.0.0",
+  "maintainers": [
+    "pikov-vitaliy"
+  ],
+  "repository": {
+    "url": "git+https://github.com/pikov-vitaliy/neural-network-digit-recognition.git",
+    "type": "git"
+  },
+  "dist": {
+    "integrity": "sha512-gBxqAI59ETGFWq9d3/mZ1/5l19550vWLCQwbwdS+OMcshvSQeFIsN4k6dx4ZLgu3KMsNsbaNgiP7CNOEgiGqBg==",
+    "shasum": "4d9544bf694f93b02bd5ea2de48d3cca611ff631",
+    "tarball": "https://registry.npmjs.org/neural-network-digit-recognition/-/neural-network-digit-recognition-1.0.0.tgz"
+  }
+}
