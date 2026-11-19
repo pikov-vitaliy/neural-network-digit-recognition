@@ -26,6 +26,14 @@
 
 Нужен Node.js 20 или новее. Для нового компьютера выбирайте поддерживаемую LTS-версию с [официального сайта Node.js](https://nodejs.org/en/download).
 
+На Windows Node.js ставится одной командой в PowerShell:
+
+```powershell
+winget install OpenJS.NodeJS.LTS
+```
+
+Если Windows спросит разрешение на изменения, ответьте «Да». После установки закройте окно терминала и откройте новое, иначе команды `node` и `npm` не найдутся. Проверка: `node -v`. Если winget на компьютере отключён, скачайте установщик LTS с [официального сайта Node.js](https://nodejs.org/en/download) и пройдите его с настройками по умолчанию.
+
 Исходники: [pikov-vitaliy/neural-network-digit-recognition](https://github.com/pikov-vitaliy/neural-network-digit-recognition). Запуск версии 1.1.0 из npm одной командой:
 
 ```powershell
